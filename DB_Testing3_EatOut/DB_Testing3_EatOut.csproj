@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +52,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\EmployeeForm.cs" />
+    <Compile Include="Classes\EmployeeType.cs" />
+    <Compile Include="Classes\Order.cs" />
+    <Compile Include="Classes\OrderRow.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\ProductGroup.cs" />
+    <Compile Include="Classes\ProductType.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\TimeTable.cs" />
+    <Compile Include="EatOutContext.cs" />
+    <Compile Include="Enums\ProductGroupEnum.cs" />
+    <Compile Include="Enums\ProductTypeEnum.cs" />
+    <Compile Include="Interfaces\IModificationHistory.cs" />
+    <Compile Include="Migrations\201610191344147_Initial.cs" />
+    <Compile Include="Migrations\201610191344147_Initial.Designer.cs">
+      <DependentUpon>201610191344147_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200750506_DateCreatedAdded.cs" />
+    <Compile Include="Migrations\201610200750506_DateCreatedAdded.Designer.cs">
+      <DependentUpon>201610200750506_DateCreatedAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200816400_MonthAdd.cs" />
+    <Compile Include="Migrations\201610200816400_MonthAdd.Designer.cs">
+      <DependentUpon>201610200816400_MonthAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200914037_AddedDbSet.cs" />
+    <Compile Include="Migrations\201610200914037_AddedDbSet.Designer.cs">
+      <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\Seat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610191344147_Initial.resx">
+      <DependentUpon>201610191344147_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200750506_DateCreatedAdded.resx">
+      <DependentUpon>201610200750506_DateCreatedAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200816400_MonthAdd.resx">
+      <DependentUpon>201610200816400_MonthAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200914037_AddedDbSet.resx">
+      <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
