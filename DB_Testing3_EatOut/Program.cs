@@ -10,9 +10,9 @@ namespace DB_Testing3_EatOut
     {
         static void Main(string[] args)
         {
-            //Drickadasfdfsafafas
+            //Drickad
             //Middag
-            //Snacks
+            //Snacks//Dfgdfgdfgdfgd
 
             //Öl, Vin, sprit, förrätt, middag, efterrätt, Jordnötter, tillbehör
             var newAdd = new Product()
