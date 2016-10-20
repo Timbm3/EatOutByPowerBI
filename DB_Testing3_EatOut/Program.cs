@@ -10,7 +10,7 @@ namespace DB_Testing3_EatOut
     {
         static void Main(string[] args)
         {
-            //Drickad
+            //DrickadDev
             //Middag
             //Snacks
 
