@@ -29,6 +29,8 @@ ProductGroupID = 1,
                 ctx.Products.Add(newAdd);
                 ctx.SaveChanges();
 
+                Console.WriteLine(ctx.Products.Count());
+
                 Console.ReadLine();
             }
 
