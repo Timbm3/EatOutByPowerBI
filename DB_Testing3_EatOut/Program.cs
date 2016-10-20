@@ -12,7 +12,7 @@ namespace DB_Testing3_EatOut
         {
             //Drickad
             //Middag
-            //Snacks//Dfgdfgdfgdfgd
+            //Snacks
 
             //Öl, Vin, sprit, förrätt, middag, efterrätt, Jordnötter, tillbehör
             var newAdd = new Product()
