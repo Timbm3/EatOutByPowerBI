@@ -16,11 +16,6 @@ namespace DB_Testing3_EatOut
 
         public int ProductGroupID { get; set; }
         public virtual ProductGroup ProductGroup { get; set; }
-
-
-        //public ProductTypeEnum ProductTypeEnum { get; set; }
-        // public ProductGroupEnum ProductGroupEnum { get; set; }  
-
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 

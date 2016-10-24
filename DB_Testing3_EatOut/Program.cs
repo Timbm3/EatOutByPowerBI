@@ -25,38 +25,39 @@ namespace DB_Testing3_EatOut
 
             using (var ctx = new EatOutContext())
             {
+                
                 Order nyOrder = new Order()
                 {
-                    OrderID = 1,
-                    EmployeeID = 1,
-                    SeatID = 1,
-                    TimeTableID = 1,
+                    OrderID = 2,
+                    EmployeeID = 2,
+                    SeatID = 2,
+                    TimeTableID = 2,
                     Seat = new Seat()
                     {
-                        SeatID = 1,
+                        SeatID = 2,
                         Outside = true
                     },
                     TimeTable = new TimeTable()
                     {
-                        TimeTableID = 1,
+                        TimeTableID = 2,
                         Year = 2016,
                         YearWeekNumber = 1
                     },
                     Employee = new Employee()
                     {
-                        EmployeeID = 1,
-                        EmployeeFormID = 1,
-                        EmployeeTypeID = 1,
+                        EmployeeID = 2,
+                        EmployeeFormID = 2,
+                        EmployeeTypeID = 2,
                         Name = "Kalle",
                         EmployeeForm = new EmployeeForm()
                         {
-                            EmployeeFormID = 1,
+                            EmployeeFormID = 2,
                             EmployeeFormName = "Heltid",
 
                         },
                         EmployeeType = new EmployeeType()
                         {
-                            EmployeeTypeID = 1,
+                            EmployeeTypeID = 2,
                             EmployeeTypeName = "Servitör"
                         }
                     },
@@ -64,42 +65,44 @@ namespace DB_Testing3_EatOut
                     {
                         new OrderRow()
                         {
-                            OrderID = 1,
-                            OrderRowID = 1,
-                            ProductID = 1,
-                            Product = new Product()
+                            OrderID = 2,
+                            OrderRowID = 2,
+                            Product = new List<Product>()
                             {
-                                ProductID = 1,
-                                ProductTypeID = 1,
-                                ProductGroupID = 1,
+                                new Product() { 
+                                ProductID = 2,
+                                ProductTypeID = 2,
+                                ProductGroupID = 2,
                                 ProductName = "Köttbullar",
                                 ProductType = new ProductType()
                                 {
-                                    ProductTypeID = 1,
+                                    ProductTypeID = 2,
                                     ProductTypeName = "Middag"
                                 },
                                 ProductGroup =  new ProductGroup()
                                 {
-                                    ProductGroupID = 1,
+                                    ProductGroupID = 2,
                                     ProductGroupName = "Mat"
                                 }
-                                
+                                }
                             }
                         }
                     }
                 };
 
-                //Seat nySeat = new Seat()
-                //{
-                //    SeatID = 1,
-                //    Bar = true
-                //};
+                    ctx.Orders.Add(nyOrder);
+                    ctx.SaveChanges();
+                
 
-                //ctx.Seats.Add(nySeat);
-                //ctx.SaveChanges();
-                //Console.WriteLine(nyOrder.Seat.DateCreated);
+                Seat nySeat = new Seat()
+                {
+                    SeatID = 1,
+                    Bar = true
+                };
 
-                //ctx.Database.Log = Console.WriteLine;
+                ctx.Database.Log = Console.WriteLine;
+
+
                 //ctx.Products.Add(newAdd);
                 //ctx.SaveChanges();
 
