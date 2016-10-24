@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DB_Testing3_EatOut
@@ -7,38 +8,76 @@ namespace DB_Testing3_EatOut
     {
         static void Main(string[] args)
         {
-            //DrickadDevytutyu
-            //Middag
-            //Snacks
+            //        //DrickadDevytutyu
+            //        //Middag
+            //        //Snacks
 
-            //Öl, Vin, sprit, förrätt, middag, efterrätt, Jordnötter, tillbehör
-            var newAdd = new Product()
+            //        //Öl, Vin, sprit, förrätt, middag, efterrätt, Jordnötter, tillbehör
+            Order nyOrder = new Order()
             {
-                ProductName = "Lax",
-                ProductTypeID = 1,
-                ProductGroupID = 1,
+                OrderID = 1,
+                Seat = new Seat()
+                {
+                    SeatID = 1,
+                    Outside = true
+                },
+                TimeTable = new TimeTable()
+                {
+                    TimeTableID = 1,
+                    Year = 2016,
+                    YearWeekNumber = 1
+                },
+                Employee = new Employee()
+                {
+                    EmployeeID = 1,
+                    Name = "Kalle",
+                    EmployeeForm = new EmployeeForm()
+                    {
+                        EmployeeFormID = 1,
+                        EmployeeFormName = "Heltid",
 
-            };
-
-
-            var newAdd2 = new Seat()
+                    },
+                    EmployeeType = new EmployeeType()
+                    {
+                        EmployeeTypeID = 1,
+                        EmployeeTypeName = "Servitör"
+                    }
+                },
+                  OrderRows = new List<OrderRow>()
+                {
+new OrderRow()
+{
+    OrderRowID = 2,
+    Product = new List<Product>()
+    {
+        new Product()
+        {
+            ProductName = "Carlsberg",
+            ProductType = new ProductType()
             {
-                SeatID = 1,
-                Bar = false,
-                Outside = false,
-                TableNr = 1
-            };
+                ProductTypeName = "Middag"
+            },
+           ProductGroup = new ProductGroup()
+           {
+               ProductGroupName = "Middag"
+           }
+        }
+    }
+}
+                        }
 
-            using (var ctx = new EatOutContext())
-            {
-                ctx.Database.Log = Console.WriteLine;
-                ctx.Seats.Add(newAdd2);
-                ctx.SaveChanges();
+    };
 
-                Console.WriteLine(ctx.Products.Count());
+                    using (var ctx = new EatOutContext())
+                    {
+                        ctx.Database.Log = Console.WriteLine;
+                        ctx.Orders.Add(nyOrder);
+                        ctx.SaveChanges();
 
-                Console.ReadLine();
-            }
+                        Console.WriteLine(ctx.Products.Count());
+
+                        Console.ReadLine();
+                    }
 
 
         }

@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DB_Testing3_EatOut.Interfaces;
+using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DB_Testing3_EatOut.Interfaces;
 
 namespace DB_Testing3_EatOut
 {
     class EatOutContext : DbContext
     {
+
+        public EatOutContext() : base("EatOut3")
+        {
+            Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
+
+
+        }
+
+
+
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<OrderRow> OrderRows { get; set; }
@@ -41,7 +48,7 @@ namespace DB_Testing3_EatOut
                     history.DateCreated = DateTime.Now;
                 }
             }
-           
+
             return base.SaveChanges();
         }
 
