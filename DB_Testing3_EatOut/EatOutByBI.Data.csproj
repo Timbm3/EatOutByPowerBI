@@ -69,6 +69,18 @@
     <Compile Include="Migrations\201610241245354_NyaFKS.Designer.cs">
       <DependentUpon>201610241245354_NyaFKS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610241308260_NyaFKS2.cs" />
+    <Compile Include="Migrations\201610241308260_NyaFKS2.Designer.cs">
+      <DependentUpon>201610241308260_NyaFKS2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610241319585_NyaFKS3.cs" />
+    <Compile Include="Migrations\201610241319585_NyaFKS3.Designer.cs">
+      <DependentUpon>201610241319585_NyaFKS3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610241322084_NyaFKS4.cs" />
+    <Compile Include="Migrations\201610241322084_NyaFKS4.Designer.cs">
+      <DependentUpon>201610241322084_NyaFKS4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +93,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610241245354_NyaFKS.resx">
       <DependentUpon>201610241245354_NyaFKS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241308260_NyaFKS2.resx">
+      <DependentUpon>201610241308260_NyaFKS2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241319585_NyaFKS3.resx">
+      <DependentUpon>201610241319585_NyaFKS3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241322084_NyaFKS4.resx">
+      <DependentUpon>201610241322084_NyaFKS4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

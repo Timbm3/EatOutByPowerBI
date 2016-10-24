@@ -12,7 +12,7 @@ namespace EatOutByBI.Data.Classes
 
         public int Kvantitet { get; set; }
 
-        public int OrderID { get; set; }
+        //public int OrderID { get; set; }
         public virtual Order Order { get; set; }
 
         public DateTime DateCreated { get; set; }

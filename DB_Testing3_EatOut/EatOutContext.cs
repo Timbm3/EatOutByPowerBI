@@ -33,6 +33,8 @@ namespace EatOutByBI.Data
         public DbSet<ProductGroup> ProductGroups { get; set; }
 
 
+        public DbSet<TimeTable> TimeTables { get; set; }
+
 
         public override int SaveChanges()
         {
