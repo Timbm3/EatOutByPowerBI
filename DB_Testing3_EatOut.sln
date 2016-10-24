@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Testing3_EatOut", "DB_Testing3_EatOut\DB_Testing3_EatOut.csproj", "{1EFC4769-91F7-4B04-9391-995874A198AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatOutByBI1", "..\..\Visual Studio 2015\Projects\PluralSight_CSharp\EatOutByBI1\EatOutByBI1\EatOutByBI1.csproj", "{7462DA58-1FD1-4F27-BF1D-192E41F05A87}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EatOutByBI1.Tests", "..\..\Visual Studio 2015\Projects\PluralSight_CSharp\EatOutByBI1\EatOutByBI1.Tests\EatOutByBI1.Tests.csproj", "{FC174B85-E44C-4DD1-9657-D5F4BFA5EDF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +15,6 @@ Global
 		{1EFC4769-91F7-4B04-9391-995874A198AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EFC4769-91F7-4B04-9391-995874A198AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EFC4769-91F7-4B04-9391-995874A198AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7462DA58-1FD1-4F27-BF1D-192E41F05A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7462DA58-1FD1-4F27-BF1D-192E41F05A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7462DA58-1FD1-4F27-BF1D-192E41F05A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7462DA58-1FD1-4F27-BF1D-192E41F05A87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC174B85-E44C-4DD1-9657-D5F4BFA5EDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC174B85-E44C-4DD1-9657-D5F4BFA5EDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC174B85-E44C-4DD1-9657-D5F4BFA5EDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC174B85-E44C-4DD1-9657-D5F4BFA5EDF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
