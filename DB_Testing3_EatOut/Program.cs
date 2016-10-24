@@ -1,4 +1,8 @@
-﻿namespace DB_Testing3_EatOut
+﻿using System;
+using System.Collections.Generic;
+using EatOutByBI.Data.Classes;
+
+namespace EatOutByBI.Data
 {
     class Program
     {
@@ -17,92 +21,113 @@
 
             };
 
-            //using (var ctx = new EatOutContext())
-            //{
-            //    Order nyOrder = new Order()
-            //    {
-            //        OrderID = 1,
-            //        EmployeeID = 1,
-            //        SeatID = 1,
-            //        TimeTableID = 1,
-            //        Seat = new Seat()
-            //        {
-            //            SeatID = 1,
-            //            Outside = true
-            //        },
-            //        TimeTable = new TimeTable()
-            //        {
-            //            TimeTableID = 1,
-            //            Year = 2016,
-            //            YearWeekNumber = 1
-            //        },
-            //        Employee = new Employee()
-            //        {
-            //            EmployeeID = 1,
-            //            EmployeeFormID = 1,
-            //            EmployeeTypeID = 1,
-            //            Name = "Kalle",
-            //            EmployeeForm = new EmployeeForm()
-            //            {
-            //                EmployeeFormID = 1,
-            //                EmployeeFormName = "Heltid",
+            using (var ctx = new EatOutContext())
+            {
+                Seat nySeat = new Seat()
+                {
+                    SeatID = 12,
+                    TableNr = 4,
+                    Outside = false,
+                    Bar = false
+                };
 
-            //            },
-            //            EmployeeType = new EmployeeType()
-            //            {
-            //                EmployeeTypeID = 1,
-            //                EmployeeTypeName = "Servitör"
-            //            }
-            //        },
-            //        OrderRows = new List<OrderRow>()
-            //        {
-            //            new OrderRow()
-            //            {
-            //                OrderID = 1,
-            //                OrderRowID = 1,
-            //                ProductID = 1,
-            //                Product = new Product()
-            //                {
-            //                    ProductID = 1,
-            //                    ProductTypeID = 1,
-            //                    ProductGroupID = 1,
-            //                    ProductName = "Köttbullar",
-            //                    ProductType = new ProductType()
-            //                    {
-            //                        ProductTypeID = 1,
-            //                        ProductTypeName = "Middag"
-            //                    },
-            //                    ProductGroup =  new ProductGroup()
-            //                    {
-            //                        ProductGroupID = 1,
-            //                        ProductGroupName = "Mat"
-            //                    }
+                ctx.Seats.Add(nySeat);
+                ctx.SaveChanges();
+                Console.WriteLine(nySeat.SeatID);
+            }
 
-            //                }
-            //            }
-            //        }
-            //    };
+            using (var ctx = new EatOutContext())
+            {
+                Order nyOrder = new Order()
+                {
+                    OrderID = 123,
+                    EmployeeID = 123,
+                    SeatID = 123,
+                    TimeTableID = 123,
+                    Seat = new Seat()
+                    {
+                        SeatID = 123,
+                        Outside = true
+                    },
+                    TimeTable = new TimeTable()
+                    {
+                        TimeTableID = 123,
+                        Year = 2016,
+                        YearWeekNumber = 1
+                    },
+                    Employee = new Employee()
+                    {
+                        EmployeeID = 123,
+                        EmployeeFormID = 123,
+                        EmployeeTypeID = 123,
+                        Name = "Kalle",
+                        EmployeeForm = new EmployeeForm()
+                        {
+                            EmployeeFormID = 123,
+                            EmployeeFormName = "Heltid",
 
-            //Seat nySeat = new Seat()
-            //{
-            //    SeatID = 1,
-            //    Bar = true
-            //};
+                        },
+                        EmployeeType = new EmployeeType()
+                        {
+                            EmployeeTypeID = 123,
+                            EmployeeTypeName = "Servitör"
+                        }
+                    },
+                    OrderRows = new List<OrderRow>()
+                    {
+                        new OrderRow()
+                        {
+                            OrderID = 123,
+                            OrderRowID = 123,
 
-            //ctx.Seats.Add(nySeat);
-            //ctx.SaveChanges();
-            //Console.WriteLine(nyOrder.Seat.DateCreated);
+                            Product = new List<Product>()
+                            {
+                                new Product()
+                                {
+                                    ProductID = 123,
+                                    ProductName = "Tuborg",
+                                    ProductType = new ProductType()
+                                    {
+                                        ProductTypeID = 123,
+                                        ProductTypeName = "Öl"
 
-            //ctx.Database.Log = Console.WriteLine;
-            //ctx.Products.Add(newAdd);
-            //ctx.SaveChanges();
+                                    },
+                                    ProductGroup = new ProductGroup()
+                                    {
+                                        ProductGroupID = 123,
+                                        ProductGroupName = "Dryck"
+                                    }
+                                }
 
-            //Console.WriteLine(ctx.Products.Count());
+                            }
 
-            //Console.ReadLine();
+                        }
+                    }
+                };
+
+                Seat nySeat = new Seat()
+                {
+                    SeatID = 1,
+                    Bar = true
+                };
+
+                ctx.Database.Log = Console.WriteLine;
+
+                ctx.Orders.Add(nyOrder);
+                ctx.SaveChanges();
+                Console.WriteLine(nyOrder.Seat.DateCreated);
+
+
+                //ctx.Products.Add(newAdd);
+                //ctx.SaveChanges();
+
+                //Console.WriteLine(ctx.Products.Count());
+
+                //Console.ReadLine();
+            }
+
+
         }
-
-
     }
 }
 

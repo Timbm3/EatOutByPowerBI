@@ -1,8 +1,7 @@
-namespace DB_Testing3_EatOut.Migrations
+using System.Data.Entity.Migrations;
+
+namespace EatOutByBI.Data.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class InitialMigrations7 : DbMigration
     {
         public override void Up()

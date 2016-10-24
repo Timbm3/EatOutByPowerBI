@@ -1,18 +1,15 @@
-namespace DB_Testing3_EatOut.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DB_Testing3_EatOut.EatOutContext>
+namespace EatOutByBI.Data.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<EatOutContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DB_Testing3_EatOut.EatOutContext context)
+        protected override void Seed(EatOutContext context)
         {
             //  This method will be called after migrating to the latest version.
 

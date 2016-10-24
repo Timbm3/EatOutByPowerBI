@@ -7,8 +7,8 @@
     <ProjectGuid>{1EFC4769-91F7-4B04-9391-995874A198AD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DB_Testing3_EatOut</RootNamespace>
-    <AssemblyName>DB_Testing3_EatOut</AssemblyName>
+    <RootNamespace>EatOutByBI.Data</RootNamespace>
+    <AssemblyName>EatOutByBI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201610240846552_InitialMigrations7.Designer.cs">
       <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610241137382_NamnByte.cs" />
+    <Compile Include="Migrations\201610241137382_NamnByte.Designer.cs">
+      <DependentUpon>201610241137382_NamnByte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610240846552_InitialMigrations7.resx">
       <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610241137382_NamnByte.resx">
+      <DependentUpon>201610241137382_NamnByte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

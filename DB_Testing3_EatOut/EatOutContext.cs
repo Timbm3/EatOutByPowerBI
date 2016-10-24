@@ -1,9 +1,10 @@
-﻿using DB_Testing3_EatOut.Interfaces;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.Interfaces;
 
-namespace DB_Testing3_EatOut
+namespace EatOutByBI.Data
 {
     class EatOutContext : DbContext
     {

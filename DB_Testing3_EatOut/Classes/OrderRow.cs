@@ -1,8 +1,8 @@
-﻿using DB_Testing3_EatOut.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using EatOutByBI.Data.Interfaces;
 
-namespace DB_Testing3_EatOut
+namespace EatOutByBI.Data.Classes
 {
     public class OrderRow : IModificationHistory
     {

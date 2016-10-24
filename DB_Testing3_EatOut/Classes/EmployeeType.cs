@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DB_Testing3_EatOut.Interfaces;
+using EatOutByBI.Data.Interfaces;
 
-namespace DB_Testing3_EatOut
+namespace EatOutByBI.Data.Classes
 {
     public class EmployeeType : IModificationHistory
     {
