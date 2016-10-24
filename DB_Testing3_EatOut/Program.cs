@@ -89,14 +89,14 @@ namespace DB_Testing3_EatOut
                     }
                 };
 
-                Seat nySeat = new Seat()
-                {
-                    SeatID = 1,
-                    Bar = true
-                };
+                //Seat nySeat = new Seat()
+                //{
+                //    SeatID = 1,
+                //    Bar = true
+                //};
 
-                ctx.Seats.Add(nySeat);
-                ctx.SaveChanges();
+                //ctx.Seats.Add(nySeat);
+                //ctx.SaveChanges();
                 //Console.WriteLine(nyOrder.Seat.DateCreated);
 
                 //ctx.Database.Log = Console.WriteLine;
