@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DB_Testing3_EatOut.Interfaces;
+﻿using DB_Testing3_EatOut.Interfaces;
+using System;
 
 namespace DB_Testing3_EatOut
 {
-    public class ProductGroup   : IModificationHistory
+    public class ProductGroup : IModificationHistory
     {
         public int ProductGroupID { get; set; }
 
