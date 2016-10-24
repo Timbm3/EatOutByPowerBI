@@ -81,6 +81,14 @@
     <Compile Include="Migrations\201610200914037_AddedDbSet.Designer.cs">
       <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610240738117_Test2.cs" />
+    <Compile Include="Migrations\201610240738117_Test2.Designer.cs">
+      <DependentUpon>201610240738117_Test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610240751324_InitialMigrations.cs" />
+    <Compile Include="Migrations\201610240751324_InitialMigrations.Designer.cs">
+      <DependentUpon>201610240751324_InitialMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610200914037_AddedDbSet.resx">
       <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610240738117_Test2.resx">
+      <DependentUpon>201610240738117_Test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610240751324_InitialMigrations.resx">
+      <DependentUpon>201610240751324_InitialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

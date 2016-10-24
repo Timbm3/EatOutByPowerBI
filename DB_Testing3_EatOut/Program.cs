@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DB_Testing3_EatOut
 {
@@ -17,16 +14,25 @@ namespace DB_Testing3_EatOut
             //Öl, Vin, sprit, förrätt, middag, efterrätt, Jordnötter, tillbehör
             var newAdd = new Product()
             {
-ProductName = "Lax",
-ProductTypeID = 1,
-ProductGroupID = 1,
+                ProductName = "Lax",
+                ProductTypeID = 1,
+                ProductGroupID = 1,
 
+            };
+
+
+            var newAdd2 = new Seat()
+            {
+                SeatID = 1,
+                Bar = false,
+                Outside = false,
+                TableNr = 1
             };
 
             using (var ctx = new EatOutContext())
             {
                 ctx.Database.Log = Console.WriteLine;
-                ctx.Products.Add(newAdd);
+                ctx.Seats.Add(newAdd2);
                 ctx.SaveChanges();
 
                 Console.WriteLine(ctx.Products.Count());
