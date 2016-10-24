@@ -1,15 +1,15 @@
-﻿using System;
+﻿using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.Interfaces;
+using System;
 using System.Data.Entity;
 using System.Linq;
-using EatOutByBI.Data.Classes;
-using EatOutByBI.Data.Interfaces;
 
 namespace EatOutByBI.Data
 {
     class EatOutContext : DbContext
     {
 
-        public EatOutContext() : base("EatOut3")
+        public EatOutContext() : base("EatOut3_Version1")
         {
             Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
 

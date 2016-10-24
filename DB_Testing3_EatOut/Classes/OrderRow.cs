@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using EatOutByBI.Data.Interfaces;
+﻿using EatOutByBI.Data.Interfaces;
+using System;
 
 namespace EatOutByBI.Data.Classes
 {
@@ -8,8 +7,9 @@ namespace EatOutByBI.Data.Classes
     {
         public int OrderRowID { get; set; }
 
-        // public int ProductID { get; set; }
-        public virtual List<Product> Product { get; set; }
+        public int ProductID { get; set; }
+        public virtual Product Product { get; set; }
+
         public int Kvantitet { get; set; }
 
         public int OrderID { get; set; }

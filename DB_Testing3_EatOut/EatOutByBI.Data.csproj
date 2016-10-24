@@ -65,13 +65,9 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201610240846552_InitialMigrations7.cs" />
-    <Compile Include="Migrations\201610240846552_InitialMigrations7.Designer.cs">
-      <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610241137382_NamnByte.cs" />
-    <Compile Include="Migrations\201610241137382_NamnByte.Designer.cs">
-      <DependentUpon>201610241137382_NamnByte.cs</DependentUpon>
+    <Compile Include="Migrations\201610241245354_NyaFKS.cs" />
+    <Compile Include="Migrations\201610241245354_NyaFKS.Designer.cs">
+      <DependentUpon>201610241245354_NyaFKS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -83,11 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610240846552_InitialMigrations7.resx">
-      <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610241137382_NamnByte.resx">
-      <DependentUpon>201610241137382_NamnByte.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610241245354_NyaFKS.resx">
+      <DependentUpon>201610241245354_NyaFKS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
