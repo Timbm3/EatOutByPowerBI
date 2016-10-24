@@ -65,21 +65,9 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201610191344147_Initial.cs" />
-    <Compile Include="Migrations\201610191344147_Initial.Designer.cs">
-      <DependentUpon>201610191344147_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610200750506_DateCreatedAdded.cs" />
-    <Compile Include="Migrations\201610200750506_DateCreatedAdded.Designer.cs">
-      <DependentUpon>201610200750506_DateCreatedAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610200816400_MonthAdd.cs" />
-    <Compile Include="Migrations\201610200816400_MonthAdd.Designer.cs">
-      <DependentUpon>201610200816400_MonthAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610200914037_AddedDbSet.cs" />
-    <Compile Include="Migrations\201610200914037_AddedDbSet.Designer.cs">
-      <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
+    <Compile Include="Migrations\201610240846552_InitialMigrations7.cs" />
+    <Compile Include="Migrations\201610240846552_InitialMigrations7.Designer.cs">
+      <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -91,17 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610191344147_Initial.resx">
-      <DependentUpon>201610191344147_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610200750506_DateCreatedAdded.resx">
-      <DependentUpon>201610200750506_DateCreatedAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610200816400_MonthAdd.resx">
-      <DependentUpon>201610200816400_MonthAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610200914037_AddedDbSet.resx">
-      <DependentUpon>201610200914037_AddedDbSet.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610240846552_InitialMigrations7.resx">
+      <DependentUpon>201610240846552_InitialMigrations7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
