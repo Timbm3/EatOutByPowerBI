@@ -8,8 +8,9 @@ namespace DB_Testing3_EatOut
     {
         public int OrderRowID { get; set; }
 
-       // public int ProductID { get; set; }
+        // public int ProductID { get; set; }
         public virtual List<Product> Product { get; set; }
+        public int Kvantitet { get; set; }
 
         public int OrderID { get; set; }
         public virtual Order Order { get; set; }
