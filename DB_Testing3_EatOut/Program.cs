@@ -111,11 +111,17 @@ namespace EatOutByBI.Data
                     Bar = true
                 };
 
+                ProductType nyGroup = new ProductType()
+                {
+                    ProductTypeID = 23,
+                    ProductTypeName = "Lunch"
+                };
+
                 ctx.Database.Log = Console.WriteLine;
 
-                ctx.Orders.Add(nyOrder);
+                ctx.ProductTypes.Add(nyGroup);
                 ctx.SaveChanges();
-                Console.WriteLine(nyOrder.Seat.DateCreated);
+                Console.WriteLine(nyGroup.ProductTypeID);
 
 
                 //ctx.Products.Add(newAdd);
