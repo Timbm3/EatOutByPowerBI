@@ -177,9 +177,6 @@
     <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProductGroupsController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,36 +257,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Employees\Create.cshtml" />
-    <Content Include="Views\Employees\Delete.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\EmployeeForms\Create.cshtml" />
-    <Content Include="Views\EmployeeForms\Delete.cshtml" />
-    <Content Include="Views\EmployeeForms\Details.cshtml" />
-    <Content Include="Views\EmployeeForms\Edit.cshtml" />
-    <Content Include="Views\EmployeeForms\Index.cshtml" />
-    <Content Include="Views\EmployeeTypes\Create.cshtml" />
-    <Content Include="Views\EmployeeTypes\Delete.cshtml" />
-    <Content Include="Views\EmployeeTypes\Details.cshtml" />
-    <Content Include="Views\EmployeeTypes\Edit.cshtml" />
-    <Content Include="Views\EmployeeTypes\Index.cshtml" />
-    <Content Include="Views\ProductTypes\Create.cshtml" />
-    <Content Include="Views\ProductTypes\Delete.cshtml" />
-    <Content Include="Views\ProductTypes\Details.cshtml" />
-    <Content Include="Views\ProductTypes\Edit.cshtml" />
-    <Content Include="Views\ProductTypes\Index.cshtml" />
-    <Content Include="Views\ProductGroups\Create.cshtml" />
-    <Content Include="Views\ProductGroups\Delete.cshtml" />
-    <Content Include="Views\ProductGroups\Details.cshtml" />
-    <Content Include="Views\ProductGroups\Edit.cshtml" />
-    <Content Include="Views\ProductGroups\Index.cshtml" />
-    <Content Include="Views\Products\Create.cshtml" />
-    <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
