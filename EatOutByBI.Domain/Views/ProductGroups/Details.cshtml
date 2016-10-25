@@ -1,0 +1,50 @@
+﻿@model EatOutByBI.Data.Classes.ProductGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductGroup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductGroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGroupOrderRow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductGroupOrderRow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductGroupID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

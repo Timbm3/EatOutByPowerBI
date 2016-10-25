@@ -9,7 +9,7 @@ namespace EatOutByBI.Data
         static void Main(string[] args)
         {
 
-            Order newAdd = new Order()
+            Order newAdd3 = new Order()
             {
                 EmployeeID = 1,
                 SeatID = 1,
@@ -35,12 +35,19 @@ namespace EatOutByBI.Data
             };
 
 
+            Product newAdd = new Product()
+            {
+                ProductName = "Tuborg",
+                ProductGroupID = 1,
+                ProductTypeID = 1,
+
+            };
 
             using (var ctx = new EatOutContext())
             {
                 ctx.Database.Log = Console.WriteLine;
 
-                ctx.Orders.Add(newAdd);
+                ctx.Products.Add(newAdd);
                 ctx.SaveChanges();
 
                 Console.ReadKey();

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace EatOutByBI.Data
 {
-    class EatOutContext : DbContext
+    public class EatOutContext : DbContext
     {
 
         public EatOutContext() : base("EatOut3_Version1")
