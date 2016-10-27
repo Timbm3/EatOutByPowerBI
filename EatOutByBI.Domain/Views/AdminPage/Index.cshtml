@@ -5,8 +5,31 @@
 
 <h2>Index</h2>
 
-<ul>
-    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-</ul>
+
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Employees")'">Anställda</button>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "EmployeeForms")'">Anställnings Former</button>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "EmployeeTypes")'">Anställnings Typer</button>
+    </div>
+</div>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Products")'">Produkter</button>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "ProductGroups")'">Produkt Grupper</button>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "ProductTypes")'">Produkt Typer</button>
+    </div>
+</div>
+
+
+
+

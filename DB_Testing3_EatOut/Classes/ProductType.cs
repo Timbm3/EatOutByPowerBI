@@ -1,5 +1,6 @@
-﻿using System;
-using EatOutByBI.Data.Interfaces;
+﻿using EatOutByBI.Data.Interfaces;
+using System;
+using System.ComponentModel;
 
 namespace EatOutByBI.Data.Classes
 {
@@ -7,6 +8,8 @@ namespace EatOutByBI.Data.Classes
     {
         public int ProductTypeID { get; set; }
         //public ProductTypeEnum ProductTypeEnum { get; set; }
+
+        [DisplayName("Produkt Typ Namn")]
         public string ProductTypeName { get; set; }
         public int ProductTypeOrderRow { get; set; }
 
