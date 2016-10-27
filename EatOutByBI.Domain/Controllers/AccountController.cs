@@ -137,8 +137,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // GET: /Account/Register
-        //[AllowAnonymous]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
@@ -149,13 +148,14 @@ namespace EatOutByBI.Domain.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

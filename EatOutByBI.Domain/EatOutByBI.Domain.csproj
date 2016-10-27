@@ -185,6 +185,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610260816173_TestingWillItWork.cs" />
+    <Compile Include="Migrations\201610260816173_TestingWillItWork.Designer.cs">
+      <DependentUpon>201610260816173_TestingWillItWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -310,6 +315,11 @@
       <Project>{1efc4769-91f7-4b04-9391-995874a198ad}</Project>
       <Name>EatOutByBI.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610260816173_TestingWillItWork.resx">
+      <DependentUpon>201610260816173_TestingWillItWork.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
