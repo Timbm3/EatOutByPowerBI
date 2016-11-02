@@ -52,7 +52,15 @@ namespace EatOutByBI.Data
                 }
             }
 
-            return base.SaveChanges();
+            int result = base.SaveChanges();
+            foreach (var history in this.ChangeTracker.Entries()
+                .Where(e => e.Entity is IModificationHistory)
+                .Select(e => e.Entity as IModificationHistory)
+                )
+            {
+                history.DateModified = DateTime.Now;
+            }
+            return result;
         }
 
     }

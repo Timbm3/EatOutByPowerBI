@@ -1,14 +1,24 @@
 ﻿body {
-    background-color: grey;
-    padding-top: 50px;
+    /*background-color: grey;*/
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
+    background: url('../Pictures/rest1.jpg') no-repeat center center fixed;
+    width: 100%;
+    height: 100%;
+    color: rgba(225, 225, 225, 0.87);
+    background-size: cover;
+}
+
+.row {
+    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: white;
+    /*background-color: rgba(255, 255, 255, 0.16);*/
+    padding-top: 120px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -29,22 +39,30 @@ textarea {
 
 /*Hela navbaren*/
 .navbar-inverse {
-    background-color: #009581;
-    border-color: #009581;
+    background-color: rgba(0, 149, 129, 0);
+    border-color: rgba(0, 149, 129, 0);
+    padding-top: 60px;
+    /*font-weight: bold;*/
+    font-size: 22px
 }
 
     /* Texten on navbar */
     .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
+        /*color: #fff;*/
+                color: #a80000;
+        /*font-family: Shrikhand;*/
+        font-family: Pacifico;
     }
 
     /* Navbar Logo/Brand */
     .navbar-inverse .navbar-brand {
-        color: #fff;
+        color: #a80000;
+        font-size: 26px;
+            font-family: Pacifico;
     }
         /* Navbar Logo/Brand */
     .navbar-inverse .navbar-brand:hover {
-        color: black;
+        color: #fff;
     }
 
     /*Ändra färgen på när man trycker på dropdown*/
@@ -60,6 +78,10 @@ textarea {
     box-shadow: none;
 }
 
+.startImg {
+    
+}
+
 
 /*Ändra pilen i dropdown till vit*/
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
@@ -71,7 +93,10 @@ textarea {
 
 /* Change color on hover */
 .navbar-inverse .navbar-nav > li > a:hover {
-    color: black;
+    /*color: #fff;*/
+    color: rgba(217, 0, 0, 0.86);
+    color: #9d9d9d;
+
 }
 
 
@@ -98,6 +123,12 @@ h6,
 .h4,
 .h5,
 .h6 {
+    /*font-family: Shrikhand;*/
+    /*font-family: Pacifico;*/
+    /*font-family: 'Lobster Two';*/
+    /*font-family: 'Kaushan Script';*/
+
+
     font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

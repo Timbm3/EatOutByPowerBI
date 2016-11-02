@@ -2,13 +2,68 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Välkommen till EatOut!</h1>
-    <p class="lead">
-        Hos oss hittar ni god mat, med färska råvaror enligt vad säsongen tillåter. Vill ni bara komma in på en drink är ni också varmt välkommna.
-    </p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Boka bord &raquo;</a></p>
+<div class="row" >
+    <div class="startImg col-md-6">
+        <img src="~/Pictures/slide5.jpg" /> 
+    </div>
+    
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Boka bord &raquo;</a></p>*@
 </div>
+
+
+<div class="row aboutDiv">
+    <h1>EatOut</h1>
+
+    <section>
+        Vår mat utmärker sig för att vara näringstät och alltid tillagad av de bästa råvarorna utan tillsatser. Vi väljer ekologiskt eller KRAV märkt när det är möjligt men när vi tycker att andra hälsobringande eller miljöaspekter överväger så väljer vi andra alternativ. Vi eftersträvar också att inte använda raffinerat socker eller vetemjöl utan tror på andra sätt att laga maten. Om du är gluten, laktos eller nötallergiker så har vi alltid alternativ som passar dig.
+    </section>
+
+</div>
+
+
+<div class="restImg2">
+    <img src="~/Pictures/mat2.jpg" />
+
+</div>
+
+
+
+<div class="row">
+    <div id="fChoice1" class="foodChoice col-md-4">
+        <img src="~/Pictures/mat1.jpg" />
+        <h2>Mat</h2>
+        <p>lite text om detta</p>
+    </div>
+
+
+    <div id="fChoice2" class="foodChoice col-md-4">
+        <img src="~/Pictures/dryck1.jpg" />
+        <h2>Dryck</h2>
+        <p>lite text om detta</p>
+    </div>
+
+
+    <div id="fChoice3" class="foodChoice col-md-4">
+        <img src="~/Pictures/catering1.jpg" />
+        <h2>Catering</h2>
+        <p>lite text om detta</p>
+    </div>
+
+</div>
+
+
+<div class="divOfGraphs row">
+    <div id="graphDiv1" class="graphDiv col-md-6">
+        <img src="~/Pictures/graph4.png" />
+
+    </div>
+    <div id="graphDiv2" class="graphDiv col-md-6">
+
+        <img src="~/Pictures/graph2.png" />
+    </div>
+</div>
+
+
 
 <div class="row">
     <div class="col-md-4">
@@ -41,3 +96,4 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Drycker &raquo;</a></p>
     </div>
 </div>
+<link href="~/Content/StartPageStyle.css" rel="stylesheet" />
