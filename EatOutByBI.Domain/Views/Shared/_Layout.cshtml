@@ -8,8 +8,7 @@
     @*<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">*@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico|Shrikhand|Raleway:400,400i,500|Rancho|Special+Elite|Alegreya" rel="stylesheet">
     <link href="~/Content/StartPageStyle.css" rel="stylesheet" />
-
-
+    <link href="~/Content/MenuPageStyle.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -29,6 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Om oss", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Meny", "Index", "Menu")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -44,12 +44,12 @@
                     <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
                 </div>
                 <div id="footerDiv2" class="col-md-6 theFooter">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 
                     <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
-                    
-                    
-                    
+
+
+
                 </div>
 
             </div>

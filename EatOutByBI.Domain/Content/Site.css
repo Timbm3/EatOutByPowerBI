@@ -20,8 +20,8 @@
     padding-right: 15px;
     /*background-color: rgba(255, 255, 255, 0.16);*/
     padding-top: 120px;
-    background-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.72);
+    /*background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.72);*/
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -169,64 +169,3 @@ h6,
 }
 
 /*Menu site*/
-.menuHead {
-    font-family: Rancho;
-    text-align: center;
-    font-size: 65px;
-}
-
-.rightMenu {
-    background-color: rgba(245, 245, 245, 0.69);
-    margin-left: 5px;
-    border-radius: 5px;
-    font-size: 23px;
-}
-
-    .rightMenu > h2 {
-        text-align: center;
-        font-family: Rancho;
-        font-size: 45px;
-    }
-
-    .rightMenu > ul > li {
-        list-style-type: none;
-        border-bottom: 1px solid white;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        color: #760000;
-    }
-
-
-        .rightMenu > ul > li > h4 {
-            /*float: right !important;*/
-            text-align: right;
-            margin-right: 20px;
-            color: black;
-        }
-
-.menuPris {
-    text-align: right;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
-/*Menu Nav*/
-.menuNav {
-    background-color: rgba(0, 0, 0, 0.55);
-    border-radius: 5px;
-    padding: 15px 15px;
-}
-
-    .menuNav > p {
-        border-bottom: 1px solid grey;
-    }
-
-        .menuNav > p > a {
-            text-decoration: none;
-            color: whitesmoke;
-        }
-
-/*Menu Nav Dessert Bugg Fix*/
-#NavDessert {
-    margin-left: 15px;
-}
