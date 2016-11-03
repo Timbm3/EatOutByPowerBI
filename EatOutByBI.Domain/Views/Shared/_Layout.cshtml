@@ -5,12 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - EatOut By BI</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico|Shrikhand|Raleway:400,400i,500|Rancho|Special+Elite|Alegreya" rel="stylesheet">    @Styles.Render("~/Content/css")
+    @*<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">*@
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico|Shrikhand|Raleway:400,400i,500|Rancho|Special+Elite|Alegreya" rel="stylesheet">
+    <link href="~/Content/StartPageStyle.css" rel="stylesheet" />
+
+
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div id="NavBar" class="navbar navbar-inverse navbar-fixed-top">
-        @*<div class="container navbar-inverse navbar-top">*@
+    <div id="NavBar" class="navbar navbar-inverse navbar-fixed-top active">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +29,6 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Om oss", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Meny", "Index", "Menu")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,12 +38,29 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+            <div class="row">
+                <div id="footerDiv1" class="col-md-6">
+                    <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
+                </div>
+                <div id="footerDiv2" class="col-md-6 theFooter">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+
+                    <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
+                    
+                    
+                    
+                </div>
+
+            </div>
+
+
+            <p id="eatOutFooterP">&copy; @DateTime.Now.Year - EatOut</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
-    <script src="~/Scripts/AppScripts.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

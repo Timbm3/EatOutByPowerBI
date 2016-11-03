@@ -1,5 +1,6 @@
-﻿using System;
-using EatOutByBI.Data.Interfaces;
+﻿using EatOutByBI.Data.Interfaces;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace EatOutByBI.Data.Classes
 {
@@ -10,9 +11,16 @@ namespace EatOutByBI.Data.Classes
 
         }
         public int SeatID { get; set; }
-        public int TableNr { get; set; }
-        public bool Bar { get; set; }
-        public bool Outside { get; set; }
+
+
+        [Required]
+        [StringLength(30)]
+        public string SeatPlace { get; set; }
+
+
+        //public int TableNr { get; set; }
+        //public bool Bar { get; set; }
+        //public bool Outside { get; set; }
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }

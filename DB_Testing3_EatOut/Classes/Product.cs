@@ -1,12 +1,18 @@
 ﻿using EatOutByBI.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace EatOutByBI.Data.Classes
 {
     public class Product : IModificationHistory
     {
         public int ProductID { get; set; }
+
+        [DisplayName("Produktnamn")]
+        [StringLength(100)]
+        [Required]
         public string ProductName { get; set; }
 
 

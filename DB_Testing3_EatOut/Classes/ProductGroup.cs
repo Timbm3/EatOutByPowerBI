@@ -1,5 +1,7 @@
-﻿using System;
-using EatOutByBI.Data.Interfaces;
+﻿using EatOutByBI.Data.Interfaces;
+using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace EatOutByBI.Data.Classes
 {
@@ -7,6 +9,10 @@ namespace EatOutByBI.Data.Classes
     {
         public int ProductGroupID { get; set; }
 
+        //[Display(Name = "Produkt Grupp")]
+        [DisplayName("Produkgrupp")]
+        [StringLength(100)]
+        [Required]
         public string ProductGroupName { get; set; }
         public int ProductGroupOrderRow { get; set; }
 
@@ -14,3 +20,4 @@ namespace EatOutByBI.Data.Classes
         public DateTime DateModified { get; set; }
     }
 }
+

@@ -1,9 +1,16 @@
 ﻿body {
-    background-color: grey;
-    padding-top: 50px;
+    /*background-color: grey;*/
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
-    background-image: url('../Images/Fahlu-Restaurant-Komandoo-Maldives.jpg');
-    font-size: 17px;
+    background: url('../Pictures/rest1.jpg') no-repeat center center fixed;
+    width: 100%;
+    height: 100%;
+    color: rgba(225, 225, 225, 0.87);
+    background-size: cover;
+}
+
+.row {
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -11,6 +18,8 @@
     /* rgba(255, 255, 255, 0.72)*/
     padding-left: 15px;
     padding-right: 15px;
+    /*background-color: rgba(255, 255, 255, 0.16);*/
+    padding-top: 120px;
     background-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.72);
 }
@@ -39,7 +48,10 @@ textarea {
 
     /* Texten on navbar */
     .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
+        /*color: #fff;*/
+                color: #a80000;
+        /*font-family: Shrikhand;*/
+        font-family: Pacifico;
     }
 
         /* Texten on navbar :Hover */
@@ -49,13 +61,14 @@ textarea {
 
     /* Navbar Logo/Brand */
     .navbar-inverse .navbar-brand {
-        font-size: 35px;
-        color: #009581;
+        color: #a80000;
+        font-size: 26px;
+            font-family: Pacifico;
     }
-        /* Navbar Logo/Brand :Hover*/
-        .navbar-inverse .navbar-brand:hover {
-            color: #760000;
-        }
+        /* Navbar Logo/Brand */
+    .navbar-inverse .navbar-brand:hover {
+        color: #fff;
+    }
 
     /*Ändra färgen på när man trycker på dropdown*/
     .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -69,6 +82,10 @@ textarea {
     box-shadow: none;
 }
 
+.startImg {
+    
+}
+
 
 /*Ändra pilen i dropdown till vit*/
 .navbar-inverse .navbar-nav > .dropdown > a .caret {
@@ -79,9 +96,12 @@ textarea {
 
 
 /* Change color on hover */
-/*.navbar-inverse .navbar-nav > li > a:hover {
-    color: black;
-}*/
+.navbar-inverse .navbar-nav > li > a:hover {
+    /*color: #fff;*/
+    color: rgba(217, 0, 0, 0.86);
+    color: #9d9d9d;
+
+}
 
 
 /* Ändra logo/Brand */
@@ -103,6 +123,12 @@ h6,
 .h4,
 .h5,
 .h6 {
+    /*font-family: Shrikhand;*/
+    /*font-family: Pacifico;*/
+    /*font-family: 'Lobster Two';*/
+    /*font-family: 'Kaushan Script';*/
+
+
     font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
