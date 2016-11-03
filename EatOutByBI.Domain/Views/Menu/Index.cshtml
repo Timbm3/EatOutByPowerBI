@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+            <h2 class="menuHead">Meny</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container menuWrapper">
+    <div class="row">
+        <div class="col-sm-3 menuNav">
+            <p>@Html.ActionLink("À la Carte", "ALaCarte", "Menu")</p>
+            <p>@Html.ActionLink("Dryck", "Drinks", "Menu")</p>
+            <p>@Html.ActionLink("Efterrätter", "Desserts", "Menu")</p>
+        </div>
+        <div class="col-sm-8 rightMenu">
+            <h2>Lunch</h2>
+            <h3 class="menuPris">Pris</h3>
+            <ul>
+                <li>
+                    <p>
+                        Smakrik wok med ingefära, kycklingfiléer, peppar och champinjoner och vitlök.
+                    </p>
+                    <h4>20kr</h4>
+                </li>
+                <li>
+                    <p>
+                        Lasagne, tomat- & mozzarellasallad
+                    </p>
+                    <h4>20kr</h4>
+                </li>
+                <li>
+                    <p>
+                        Baconlindad köttfärslimpa, potatismos, gräddsås, pressgurka, lingon
+                    </p>
+                    <h4>20kr</h4>
+                </li>
+            </ul>
+            <h2>Vegetariskt</h2>
+            <ul>
+                <li>Vegetarisk gul curry med tofu, potatis, morot och kokosmjölk</li>
+            </ul>
+        </div>
+    </div>
+</div>
