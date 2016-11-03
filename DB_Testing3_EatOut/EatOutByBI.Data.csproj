@@ -68,14 +68,6 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201610241340530_Timetbaalebbe.cs" />
-    <Compile Include="Migrations\201610241340530_Timetbaalebbe.Designer.cs">
-      <DependentUpon>201610241340530_Timetbaalebbe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610310829064_TableUpdate.cs" />
-    <Compile Include="Migrations\201610310829064_TableUpdate.Designer.cs">
-      <DependentUpon>201610310829064_TableUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,14 +76,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610241340530_Timetbaalebbe.resx">
-      <DependentUpon>201610241340530_Timetbaalebbe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610310829064_TableUpdate.resx">
-      <DependentUpon>201610310829064_TableUpdate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

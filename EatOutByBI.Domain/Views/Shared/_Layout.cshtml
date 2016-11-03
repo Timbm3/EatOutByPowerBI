@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - EatOut By BI</title>
     @*<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">*@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico|Shrikhand|Raleway:400,400i,500|Rancho|Special+Elite|Alegreya" rel="stylesheet">
+    <link href="~/Content/StartPageStyle.css" rel="stylesheet" />
 
 
     @Styles.Render("~/Content/css")
@@ -37,11 +38,29 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+            <div class="row">
+                <div id="footerDiv1" class="col-md-6">
+                    <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
+                </div>
+                <div id="footerDiv2" class="col-md-6 theFooter">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 
+
+                    <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
+                    
+                    
+                    
+                </div>
+
+            </div>
+
+
+            <p id="eatOutFooterP">&copy; @DateTime.Now.Year - EatOut</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

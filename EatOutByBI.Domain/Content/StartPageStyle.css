@@ -6,7 +6,12 @@ img {
     border: 1px solid rgba(0, 0, 0, 0.33);
 }
 
+.startImg > img{
+    width: 206%;
+}
+
 .aboutDiv {
+    margin-top: 1%;
     /*position: relative;left: -50%;*/
     text-align: center;
     background-color: rgba(0, 0, 0, 0.43);
@@ -34,21 +39,22 @@ font-size: 260%;
 
 }
 
-.foodChoice {
+.foodChoices {
     margin-top: 1%;
     background-color: rgba(0, 0, 0, 0.43);
     text-align: center;
-
 }
 
+.foodChoice {
 
+}
 
 #fChoice1 > img{
     height: 240px;
 }
 
 .foodChoice > img {
-    margin-top: 30%;
+    margin-top: 6%;
     width: 100%;
 
 }
@@ -65,14 +71,54 @@ p {
     font-size: 120%;
 }
 
+
+.divOfGraphs {
+    margin-top: 1%;
+}
+
 #graphDiv1 > img{
     width: 93.6%;
 }
 
 #graphDiv2 > img {
     width: 90%;
-    height: 485px;
+    height: 505px;
     position: absolute;
     /*margin-left: 5%*/
 
+}
+
+.reserveTable {
+    margin-top: 1%;
+    background-color: rgba(0, 0, 0, 0.43);
+
+}
+.reserveTable > img {
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.theFooter > a {
+    float: right;
+    color: white;
+    margin-right: 1%;
+    font-family: 'Rancho';
+     font-size: 120%
+}
+.theFooter > a:hover {
+    text-decoration: none;
+        color: rgba(217, 0, 0, 0.86);
+    color: #9d9d9d;
+}
+
+
+.theFooter > span {
+    float: right;
+    margin-left: 1%;
+}
+
+
+#eatOutFooterP {
+    margin-top: 3%;
 }

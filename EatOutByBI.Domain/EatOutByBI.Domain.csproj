@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44302</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -199,14 +200,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610260816173_TestingWillItWork.cs" />
-    <Compile Include="Migrations\201610260816173_TestingWillItWork.Designer.cs">
-      <DependentUpon>201610260816173_TestingWillItWork.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610310901088_DateModifiedUpdate.cs" />
-    <Compile Include="Migrations\201610310901088_DateModifiedUpdate.Designer.cs">
-      <DependentUpon>201610310901088_DateModifiedUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -235,6 +228,7 @@
     <None Include="Properties\PublishProfiles\EatOutByBI - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\EatOutByBI - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Pictures\bokabord1.png" />
     <Content Include="Pictures\catering1.jpg" />
     <Content Include="Pictures\dryck1.jpg" />
     <Content Include="Pictures\graph1.png" />
@@ -349,14 +343,6 @@
       <Name>EatOutByBI.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610260816173_TestingWillItWork.resx">
-      <DependentUpon>201610260816173_TestingWillItWork.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610310901088_DateModifiedUpdate.resx">
-      <DependentUpon>201610310901088_DateModifiedUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -375,7 +361,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>42275</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44302/</IISUrl>
+          <IISUrl>http://localhost:42275/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
