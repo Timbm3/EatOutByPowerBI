@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Desserts";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+            <h2 class="menuHead">Dessert</h2>
+        </div>
+    </div>
+</div>
+
+<div class="conteiner">
+    <div class="row">
+        <div id="NavDessert" class="col-sm-3 menuNav">
+            <p>@Html.ActionLink("Meny", "Index", "Menu")</p>
+            <p>@Html.ActionLink("À la Carte", "ALaCarte", "Menu")</p>
+            <p>@Html.ActionLink("Dryck", "Drinks", "Menu")</p>
+        </div>
+
+        <div class="col-sm-8 rightMenu">
+            <h2>Dessert</h2>
+            <h3 class="menuPris">Pris</h3>
+            <ul>
+                <li>
+                    <p>
+                        Vegetarisk gul curry med tofu, potatis, morot och kokosmjölk
+                    </p>
+                    <h4>20kr</h4>
+                </li>
+                <li>
+                    <p>
+                        Vegetarisk gul curry med tofu, potatis, morot och kokosmjölk
+                    </p>
+                    <h4>20kr</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

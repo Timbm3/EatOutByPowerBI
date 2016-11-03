@@ -205,6 +205,7 @@
     <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
@@ -253,6 +254,8 @@
     <Content Include="Pictures\rest1.jpg" />
     <Content Include="Pictures\rest2.jpg" />
     <Content Include="Pictures\slide5.jpg" />
+    <Content Include="Images\Fahlu-Restaurant-Komandoo-Maldives.jpg" />
+    <Content Include="Scripts\AppScripts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -340,6 +343,10 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\AdminPage\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\ALaCarte.cshtml" />
+    <Content Include="Views\Menu\Drinks.cshtml" />
+    <Content Include="Views\Menu\Desserts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
