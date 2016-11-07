@@ -9,14 +9,14 @@ namespace EatOutByBI.Data
     public class EatOutContext : DbContext
     {
 
-        //public EatOutContext() : base("EatOutByBI")
+        //public EatOutContext()
         //{
-        //    Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
+        //    Database.SetInitializer<EatOutContext>(null);
 
 
         //}
-
-
+        //:base("EatOutByBI")
+        //new CreateDatabaseIfNotExists<EatOutContext>()
 
         public DbSet<Order> Orders { get; set; }
 

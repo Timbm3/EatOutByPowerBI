@@ -206,6 +206,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OrderRowsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
@@ -213,6 +214,10 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611071001433_InitialMigrations.cs" />
+    <Compile Include="Migrations\201611071001433_InitialMigrations.Designer.cs">
+      <DependentUpon>201611071001433_InitialMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,6 +353,11 @@
     <Content Include="Views\Menu\ALaCarte.cshtml" />
     <Content Include="Views\Menu\Drinks.cshtml" />
     <Content Include="Views\Menu\Desserts.cshtml" />
+    <Content Include="Views\OrderRows\Create.cshtml" />
+    <Content Include="Views\OrderRows\Delete.cshtml" />
+    <Content Include="Views\OrderRows\Details.cshtml" />
+    <Content Include="Views\OrderRows\Edit.cshtml" />
+    <Content Include="Views\OrderRows\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,6 +376,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611071001433_InitialMigrations.resx">
+      <DependentUpon>201611071001433_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
