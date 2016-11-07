@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using EatOutByBI.Data
+@using EatOutByBI.Data.Classes
+@using Microsoft.AspNet.Identity
 @if (User.IsInRole("Admin"))
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -9,7 +11,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.GetUserName() <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Admin</a></li>
+                    <li>@Html.ActionLink("Admin", "Index", "AdminPage")</li>
                     <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                     <li><a href="#">Min Sida</a></li>
                     <li><a href="#">Om Oss</a></li>
