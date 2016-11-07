@@ -9,9 +9,6 @@
     background-size: cover;
 }
 
-.row {
-    
-}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -38,77 +35,14 @@ textarea {
     max-width: 280px;
 }
 
-/* Bootsrap Overrides */
-
-/*Hela navbaren*/
-.navbar-inverse {
-    background-color: rgba(0, 0, 0, 0.55);
+p {
+    color: white;
     font-size: 25px;
 }
 
-    /* Texten on navbar */
-    .navbar-inverse .navbar-nav > li > a {
-        /*color: #fff;*/
-                color: #a80000;
-        /*font-family: Shrikhand;*/
-        font-family: Pacifico;
-    }
-
-        /* Texten on navbar :Hover */
-        .navbar-inverse .navbar-nav > li > a:hover {
-            color: #760000;
-        }
-
-    /* Navbar Logo/Brand */
-    .navbar-inverse .navbar-brand {
-        color: #a80000;
-        font-size: 26px;
-            font-family: Pacifico;
-    }
-        /* Navbar Logo/Brand */
-    .navbar-inverse .navbar-brand:hover {
-        color: #fff;
-    }
-
-    /*Ändra färgen på när man trycker på dropdown*/
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        background-color: rgba(205,40,39,0.55);
-    }
-
-/*Ta bort shadow från dropdown*/
-.dropdown-menu {
-    -webkit-box-shadow: none;
-    -ms-box-shadow: none;
-    box-shadow: none;
+label {
+    color: white;
 }
-
-.startImg {
-    
-}
-
-
-/*Ändra pilen i dropdown till vit*/
-.navbar-inverse .navbar-nav > .dropdown > a .caret {
-    border-top-color: #fff;
-    border-bottom-color: #fff;
-}
-
-
-
-/* Change color on hover */
-.navbar-inverse .navbar-nav > li > a:hover {
-    /*color: #fff;*/
-    color: rgba(217, 0, 0, 0.86);
-    color: #9d9d9d;
-
-}
-
-
-/* Ändra logo/Brand */
-.navbar-brand {
-    font-weight: 700;
-}
-
 
 body,
 h1,
@@ -127,12 +61,78 @@ h6,
     /*font-family: Pacifico;*/
     /*font-family: 'Lobster Two';*/
     /*font-family: 'Kaushan Script';*/
-
-
+    color: #a80000;
     font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Bootsrap Overrides */
 
+/*Hela navbaren*/
+.navbar-inverse {
+    background-color: rgba(0, 0, 0, 0.55);
+    font-size: 25px;
+}
+
+    /* Texten on navbar */
+    .navbar-inverse .navbar-nav > li > a {
+        /*color: #fff;*/
+        color: #a80000;
+        /*font-family: Shrikhand;*/
+        font-family: Pacifico;
+    }
+
+        /* Texten on navbar :Hover */
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #760000;
+        }
+
+    /* Navbar Logo/Brand */
+    .navbar-inverse .navbar-brand {
+        color: #a80000;
+        font-size: 26px;
+        font-family: Pacifico;
+    }
+        /* Navbar Logo/Brand */
+        .navbar-inverse .navbar-brand:hover {
+            color: #fff;
+        }
+
+    /*Ändra färgen på när man trycker på dropdown*/
+    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+        background-color: rgba(205,40,39,0.55);
+    }
+
+/*Ta bort shadow från dropdown*/
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+.startImg {
+}
+
+
+/*Ändra pilen i dropdown till vit*/
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+
+
+/* Change color on hover */
+.navbar-inverse .navbar-nav > li > a:hover {
+    /*color: #fff;*/
+    color: rgba(217, 0, 0, 0.86);
+    color: #9d9d9d;
+}
+
+
+/* Ändra logo/Brand */
+.navbar-brand {
+    font-weight: 700;
+}
 
 
 /* Forms on the Site */

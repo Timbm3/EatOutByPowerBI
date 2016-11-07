@@ -9,7 +9,7 @@ namespace EatOutByBI.Domain.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(EatOutByBI.Domain.Models.ApplicationDbContext context)

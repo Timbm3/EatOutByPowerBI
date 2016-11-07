@@ -57,7 +57,26 @@
             color: whitesmoke;
         }
 
+
 /*Menu Nav Dessert Bugg Fix*/
 #NavDessert {
     margin-left: 15px;
 }
+
+/*Vissiting Menu Page*/
+#onMenu > a {
+    color: #a80000;
+}
+
+#onAlaCarte > a {
+    color: #a80000;
+}
+
+#onDrinks > a {
+    color: #a80000;
+}
+
+#onDessert > a {
+    color: #a80000;
+}
+
