@@ -20,6 +20,11 @@ namespace EatOutByBI.Data.Classes
         public int EmployeeTypeID { get; set; }
         public virtual EmployeeType EmployeeType { get; set; }
 
+        public int Factor1 { get; set; }
+        public int Factor2 { get; set; }
+
+
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
     }

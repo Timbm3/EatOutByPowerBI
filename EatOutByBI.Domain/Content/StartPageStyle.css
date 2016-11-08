@@ -1,25 +1,15 @@
-﻿body {
-}
+﻿
 
-img {
-                border: 1px solid rgba(145, 0, 0, 0.69);
-    border: 1px solid rgba(0, 0, 0, 0.33);
-}
+
 
 .startImg > img{
     width: 206%;
 }
 
-.aboutDiv {
-    margin-top: 1%;
-    /*position: relative;left: -50%;*/
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.43);
-}
+
 
 .aboutDiv > section {
     margin-top: 1%;
-    font-family: Raleway, italic;
     margin-left: 10%;
     margin-right: 10%;
     font-family: 'Rancho';
@@ -32,21 +22,10 @@ img {
 font-size: 260%;
 }
 
-.restImg2 > img{
+.restImg2 > img {
     width: 100%;
-    margin-top: 1%;
+
     height: 450px;
-
-}
-
-.foodChoices {
-    margin-top: 1%;
-    background-color: rgba(0, 0, 0, 0.43);
-    text-align: center;
-}
-
-.foodChoice {
-
 }
 
 #fChoice1 > img{
@@ -59,22 +38,10 @@ font-size: 260%;
 
 }
 
- h2 {
-        font-family: 'Rancho';
-    color: #a80000;
-        font-size: 220%;
-}
-
-p {
-    color: white;
-    font-family: 'Rancho';
-    font-size: 120%;
-}
 
 
-.divOfGraphs {
-    margin-top: 1%;
-}
+
+
 
 #graphDiv1 > img{
     width: 93.6%;
@@ -88,11 +55,7 @@ p {
 
 }
 
-.reserveTable {
-    margin-top: 1%;
-    background-color: rgba(0, 0, 0, 0.43);
 
-}
 .reserveTable > img {
         display: block;
     margin-left: auto;
@@ -103,14 +66,10 @@ p {
     float: right;
     color: white;
     margin-right: 1%;
-    font-family: 'Rancho';
      font-size: 120%
 }
-.theFooter > a:hover {
-    text-decoration: none;
-        color: rgba(217, 0, 0, 0.86);
-    color: #9d9d9d;
-}
+
+
 
 
 .theFooter > span {

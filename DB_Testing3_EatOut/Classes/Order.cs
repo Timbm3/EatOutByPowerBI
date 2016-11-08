@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EatOutByBI.Data.Interfaces;
+using System;
 using System.Collections.Generic;
-using EatOutByBI.Data.Interfaces;
 
 namespace EatOutByBI.Data.Classes
 {
@@ -16,9 +16,13 @@ namespace EatOutByBI.Data.Classes
         public int EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
-        public int TimeTableID { get; set; }    
+        public int TimeTableID { get; set; }
         public TimeTable TimeTable { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+
+        public int Factor1 { get; set; }
+        public int Factor2 { get; set; }
+
     }
 }
