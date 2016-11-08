@@ -35,15 +35,38 @@ textarea {
     max-width: 280px;
 }
 
+
+
+/* Default värden till siten*/
+
+div {
+    margin-top: 1%;
+}
+
 p {
     color: white;
     font-size: 25px;
+}
+
+
+
+a:hover {
+        /*color: rgba(217, 0, 0, 0.86);*/
+    color: #9d9d9d;
+    text-decoration: none;
+}
+
+img {
+                border: 1px solid rgba(145, 0, 0, 0.69);
+    border: 1px solid rgba(0, 0, 0, 0.33);
 }
 
 label {
     color: white;
 }
 
+
+a,
 body,
 h1,
 h2,
@@ -57,13 +80,21 @@ h6,
 .h4,
 .h5,
 .h6 {
-    /*font-family: Shrikhand;*/
-    /*font-family: Pacifico;*/
-    /*font-family: 'Lobster Two';*/
-    /*font-family: 'Kaushan Script';*/
+
     color: #a80000;
-    font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Rancho',"Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
+
+
+.divText {
+    background-color: rgba(0, 0, 0, 0.43);
+    text-align: center;
+}
+
+
+
+
 
 /* Bootsrap Overrides */
 
@@ -83,7 +114,8 @@ h6,
 
         /* Texten on navbar :Hover */
         .navbar-inverse .navbar-nav > li > a:hover {
-            color: #760000;
+    color: rgba(217, 0, 0, 0.86);
+    color: #9d9d9d;
         }
 
     /* Navbar Logo/Brand */
@@ -121,12 +153,7 @@ h6,
 
 
 
-/* Change color on hover */
-.navbar-inverse .navbar-nav > li > a:hover {
-    /*color: #fff;*/
-    color: rgba(217, 0, 0, 0.86);
-    color: #9d9d9d;
-}
+
 
 
 /* Ändra logo/Brand */

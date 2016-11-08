@@ -24,5 +24,9 @@ namespace EatOutByBI.Data.Classes
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+
+        public int Factor1 { get; set; }
+        public int Factor2 { get; set; }
+
     }
 }
