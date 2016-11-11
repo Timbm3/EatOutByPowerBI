@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44302</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -203,6 +202,7 @@
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\EmployeeFormsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EmployeesDTOController.cs" />
     <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -372,6 +372,11 @@
     <Content Include="Views\OrderRows\Edit.cshtml" />
     <Content Include="Views\OrderRows\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\EmployeesDTO\Create.cshtml" />
+    <Content Include="Views\EmployeesDTO\Delete.cshtml" />
+    <Content Include="Views\EmployeesDTO\Details.cshtml" />
+    <Content Include="Views\EmployeesDTO\Edit.cshtml" />
+    <Content Include="Views\EmployeesDTO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
