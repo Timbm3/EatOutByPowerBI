@@ -1,5 +1,7 @@
 ﻿using EatOutByBI.Data;
 using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -11,11 +13,40 @@ namespace EatOutByBI.Domain.Controllers
     {
         private EatOutContext db = new EatOutContext();
 
+
+
+        private EmployeeDTO ViewModelFromEmployee(Employee employee)
+        {
+            var viewModel = new EmployeeDTO()
+            {
+                EmployeeID = employee.EmployeeID,
+                Name = employee.Name,
+                EmployeeFormID = employee.EmployeeFormID,
+                EmployeeTypeID = employee.EmployeeTypeID,
+                FormName = employee.EmployeeForm.EmployeeFormName,
+                TypeName = employee.EmployeeType.EmployeeTypeName,
+                EmployeeForms = db.EmployeeForms.ToList(),
+                EmployeeTypes = db.EmployeeTypes.ToList(),
+
+
+            };
+            return viewModel;
+        }
+
+
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = db.Employees.Include(e => e.EmployeeForm).Include(e => e.EmployeeType);
-            return View(employees.ToList());
+            var employee = from e in db.Employees
+                           select new EmployeeDTO()
+                           {
+                               EmployeeID = e.EmployeeID,
+                               Name = e.Name,
+                               FormName = e.EmployeeForm.EmployeeFormName,
+                               TypeName = e.EmployeeType.EmployeeTypeName
+                           };
+
+            return View(employee);
         }
 
         // GET: Employees/Details/5
@@ -30,15 +61,19 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(ViewModelFromEmployee(employee));
         }
 
         // GET: Employees/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeFormID = new SelectList(db.EmployeeForms, "EmployeeFormID", "EmployeeFormName");
-            ViewBag.EmployeeTypeID = new SelectList(db.EmployeeTypes, "EmployeeTypeID", "EmployeeTypeName");
-            return View();
+            var dtoModel = new EmployeeDTO()
+            {
+                EmployeeForms = db.EmployeeForms.ToList(),
+                EmployeeTypes = db.EmployeeTypes.ToList()
+            };
+
+            return View(dtoModel);
         }
 
         // POST: Employees/Create
@@ -46,18 +81,37 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] EmployeeDTO eDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Employees.Add(employee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    var employee = new Employee()
+                    {
+                        Name = eDto.Name,
+                        EmployeeFormID = eDto.EmployeeFormID,
+                        EmployeeTypeID = eDto.EmployeeTypeID,
 
-            ViewBag.EmployeeFormID = new SelectList(db.EmployeeForms, "EmployeeFormID", "EmployeeFormName", employee.EmployeeFormID);
-            ViewBag.EmployeeTypeID = new SelectList(db.EmployeeTypes, "EmployeeTypeID", "EmployeeTypeName", employee.EmployeeTypeID);
-            return View(employee);
+                    };
+
+                    db.Employees.Add(employee);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index", "Employees");
+                }
+                else
+                {
+                    eDto.EmployeeForms = db.EmployeeForms.ToList();
+                    eDto.EmployeeTypes = db.EmployeeTypes.ToList();
+                    return View("Create", eDto);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Employees", "Create"));
+            }
         }
 
         // GET: Employees/Edit/5
@@ -72,9 +126,8 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeFormID = new SelectList(db.EmployeeForms, "EmployeeFormID", "EmployeeFormName", employee.EmployeeFormID);
-            ViewBag.EmployeeTypeID = new SelectList(db.EmployeeTypes, "EmployeeTypeID", "EmployeeTypeName", employee.EmployeeTypeID);
-            return View(employee);
+
+            return View(ViewModelFromEmployee(employee));
         }
 
         // POST: Employees/Edit/5
@@ -82,17 +135,36 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee employee)
+        public ActionResult Edit(
+            [Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee emp,
+            EmployeeDTO eDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(employee).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    emp.EmployeeID = eDto.EmployeeID;
+                    emp.Name = eDto.Name;
+                    emp.EmployeeFormID = eDto.EmployeeFormID;
+                    emp.EmployeeTypeID = eDto.EmployeeTypeID;
+                    db.Entry(emp).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Employees");
+                }
+                else
+                {
+                    eDto.EmployeeForms = db.EmployeeForms.ToList();
+                    eDto.EmployeeTypes = db.EmployeeTypes.ToList();
+
+                    return View("Edit", eDto);
+
+                }
             }
-            ViewBag.EmployeeFormID = new SelectList(db.EmployeeForms, "EmployeeFormID", "EmployeeFormName", employee.EmployeeFormID);
-            ViewBag.EmployeeTypeID = new SelectList(db.EmployeeTypes, "EmployeeTypeID", "EmployeeTypeName", employee.EmployeeTypeID);
-            return View(employee);
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Employees", "Edit"));
+            }
         }
 
         // GET: Employees/Delete/5
@@ -107,7 +179,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(ViewModelFromEmployee(employee));
         }
 
         // POST: Employees/Delete/5
@@ -115,10 +187,18 @@ namespace EatOutByBI.Domain.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Employee employee = db.Employees.Find(id);
-            db.Employees.Remove(employee);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Employee employee = db.Employees.Find(id);
+                db.Employees.Remove(employee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "Employees", "Delete"));
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -1,4 +1,4 @@
-﻿@model EatOutByBI.Data.Classes.EmployeeType
+﻿@model EatOutByBI.Data.DTO.EmployeeTypeDTO
 
 @{
     ViewBag.Title = "Details";
@@ -26,21 +26,7 @@
             @Html.DisplayFor(model => model.EmployeeTypeOrderRow)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateCreated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateModified)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateModified)
-        </dd>
 
     </dl>
 </div>

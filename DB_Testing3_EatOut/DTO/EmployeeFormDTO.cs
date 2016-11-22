@@ -5,6 +5,7 @@ namespace EatOutByBI.Data.DTO
 {
     public class EmployeeFormDTO
     {
+
         public int EmployeeFormID { get; set; }
 
         [DisplayName("Anställnings Form")]

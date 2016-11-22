@@ -6,7 +6,13 @@ namespace EatOutByBI.Data.Classes
 {
     public class Order : IModificationHistory
     {
+        //public Order()
+        //{
+        //    OrderRows = new HashSet<OrderRow>();
+        //}
+
         public int OrderID { get; set; }
+
 
         public virtual ICollection<OrderRow> OrderRows { get; set; }
 

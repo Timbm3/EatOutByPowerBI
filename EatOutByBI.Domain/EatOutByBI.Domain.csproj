@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\EmployeeFormsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesDTOController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OrderRowDTOController.cs" />
     <Compile Include="Controllers\OrderRowsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -377,6 +379,10 @@
     <Content Include="Views\EmployeesDTO\Details.cshtml" />
     <Content Include="Views\EmployeesDTO\Edit.cshtml" />
     <Content Include="Views\EmployeesDTO\Index.cshtml" />
+    <Content Include="Views\EmployeesDTO\Show.cshtml" />
+    <Content Include="Views\EmployeeFormDto\Index.cshtml" />
+    <Content Include="Views\EmployeeFormDto\Create.cshtml" />
+    <Content Include="Views\OrderRowDTO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

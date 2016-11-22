@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EatOutByBI.Data.Classes.EmployeeType>
+﻿@model IEnumerable<EatOutByBI.Data.DTO.EmployeeTypeDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -17,12 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.EmployeeTypeOrderRow)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateModified)
-        </th>
         <th></th>
     </tr>
 
@@ -33,12 +27,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmployeeTypeOrderRow)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModified)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeTypeID }) |

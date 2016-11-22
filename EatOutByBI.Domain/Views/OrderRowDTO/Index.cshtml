@@ -1,0 +1,47 @@
+﻿@*@using EatOutByBI.Data.DTO*@
+@model IEnumerable<EatOutByBI.Data.DTO.OrderRowDTO>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(p => p.ProduktNamn)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(p => p.Products)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(p => p.Kvantitet)
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProduktNamn)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Products)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Kvantitet)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Remove", new { id = item.ProductID})
+            </td>
+        </tr>
+    }
+
+
+
+
+</table>

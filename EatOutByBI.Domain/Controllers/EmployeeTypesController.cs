@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -15,10 +14,33 @@ namespace EatOutByBI.Domain.Controllers
     {
         private EatOutContext db = new EatOutContext();
 
+        private EmployeeTypeDTO ViewModelFromEmpType(EmployeeType empType)
+        {
+
+            var viewModel = new EmployeeTypeDTO()
+            {
+                EmployeeTypeID = empType.EmployeeTypeID,
+                EmployeeTypeName = empType.EmployeeTypeName,
+                EmployeeTypeOrderRow = empType.EmployeeTypeOrderRow
+            };
+
+            return viewModel;
+        }
+
+
         // GET: EmployeeTypes
         public ActionResult Index()
         {
-            return View(db.EmployeeTypes.ToList());
+            var employeeType = from e in db.EmployeeTypes
+                               select new EmployeeTypeDTO()
+                               {
+                                   EmployeeTypeID = e.EmployeeTypeID,
+                                   EmployeeTypeName = e.EmployeeTypeName,
+                                   EmployeeTypeOrderRow = e.EmployeeTypeOrderRow
+
+                               };
+
+            return View(employeeType);
         }
 
         // GET: EmployeeTypes/Details/5
@@ -33,7 +55,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeType);
+            return View(ViewModelFromEmpType(employeeType));
         }
 
         // GET: EmployeeTypes/Create
@@ -47,16 +69,30 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeType employeeType)
+        public ActionResult Create([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeTypeDTO empTypeDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.EmployeeTypes.Add(employeeType);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    var employeeType = new EmployeeType()
+                    {
+                        EmployeeTypeID = empTypeDto.EmployeeTypeID,
+                        EmployeeTypeName = empTypeDto.EmployeeTypeName,
+                        EmployeeTypeOrderRow = empTypeDto.EmployeeTypeOrderRow
+                    };
+                    db.EmployeeTypes.Add(employeeType);
+                    db.SaveChanges();
 
-            return View(employeeType);
+                    return RedirectToAction("Index", "EmployeeTypes");
+                }
+                return View("Create");
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "EmployeeTypes", "Create"));
+            }
         }
 
         // GET: EmployeeTypes/Edit/5
@@ -79,15 +115,26 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeType employeeType)
+        public ActionResult Edit([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeTypeDTO employeeTypeDto, EmployeeType employeeType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(employeeType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    employeeType.EmployeeTypeID = employeeTypeDto.EmployeeTypeID;
+                    employeeType.EmployeeTypeName = employeeTypeDto.EmployeeTypeName;
+                    employeeType.EmployeeTypeOrderRow = employeeTypeDto.EmployeeTypeOrderRow;
+
+                    db.Entry(employeeType).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "EmployeeTypes");
+                }
+                return View("Edit");
             }
-            return View(employeeType);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "EmployeeTypes", "Edit"));
+            }
         }
 
         // GET: EmployeeTypes/Delete/5
@@ -102,7 +149,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeType);
+            return View(ViewModelFromEmpType(employeeType));
         }
 
         // POST: EmployeeTypes/Delete/5

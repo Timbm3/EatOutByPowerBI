@@ -1,4 +1,5 @@
-﻿@model EatOutByBI.Data.Classes.Employee
+﻿@*@model EatOutByBI.Data.Classes.Employee*@
+@model EatOutByBI.Data.DTO.EmployeeDTO
 
 @{
     ViewBag.Title = "Create";
@@ -6,11 +7,10 @@
 
 <h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "EmployeesDTO"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Employee</h4>
         <hr />
@@ -24,20 +24,23 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeFormID, "EmployeeFormID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeFormID, "FormName", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("EmployeeFormID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.EmployeeFormID, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.EmployeeFormID, new SelectList(Model.EmployeeForms, "EmployeeFormID", "EmployeeFormName"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeFormID)
+                @*//FormName, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeTypeID, "EmployeeTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeTypeID, "EmployeeTypes", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Employee Type", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.EmployeeTypeID, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.EmployeeTypeID, new SelectList(Model.EmployeeTypes, "EmployeeTypeID", "EmployeeTypeName"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeTypeID)
+                @*/*TypeName, "", new { @class = "text-danger" })*/*@
             </div>
         </div>
+
 
 
 

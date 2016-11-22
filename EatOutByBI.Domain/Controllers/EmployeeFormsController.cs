@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -15,10 +13,33 @@ namespace EatOutByBI.Domain.Controllers
     {
         private EatOutContext db = new EatOutContext();
 
+
+        private EmployeeFormDTO ViewModelFromEmpForm(EmployeeForm empForm)
+        {
+
+            var viewModel = new EmployeeFormDTO()
+            {
+                EmployeeFormID = empForm.EmployeeFormID,
+                EmployeeFormName = empForm.EmployeeFormName,
+                EmployeeFormOrderRow = empForm.EmployeeFormOrderRow
+            };
+
+            return viewModel;
+        }
+
         // GET: EmployeeForms
         public ActionResult Index()
         {
-            return View(db.EmployeeForms.ToList());
+            var employeeForm = from e in db.EmployeeForms
+                               select new EmployeeFormDTO()
+                               {
+                                   EmployeeFormID = e.EmployeeFormID,
+                                   EmployeeFormName = e.EmployeeFormName,
+                                   EmployeeFormOrderRow = e.EmployeeFormOrderRow
+
+                               };
+
+            return View(employeeForm);
         }
 
         // GET: EmployeeForms/Details/5
@@ -33,7 +54,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeForm);
+            return View(ViewModelFromEmpForm(employeeForm));
         }
 
         // GET: EmployeeForms/Create
@@ -47,16 +68,33 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeFormID,EmployeeFormName,EmployeeFormOrderRow,DateCreated,DateModified")] EmployeeForm employeeForm)
+        public ActionResult Create([Bind(Include = "EmployeeFormID,EmployeeFormName,EmployeeFormOrderRow,DateCreated,DateModified")]  EmployeeFormDTO empFormDto)
         {
-            if (ModelState.IsValid)
+
+
+            try
             {
-                db.EmployeeForms.Add(employeeForm);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var employeeForm = new EmployeeForm()
+                    {
+                        EmployeeFormID = empFormDto.EmployeeFormID,
+                        EmployeeFormName = empFormDto.EmployeeFormName,
+                        EmployeeFormOrderRow = empFormDto.EmployeeFormOrderRow
+                    };
+                    db.EmployeeForms.Add(employeeForm);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index", "EmployeeForms");
+                }
+                return View("Create");
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "EmployeeForms", "Create"));
             }
 
-            return View(employeeForm);
         }
 
         // GET: EmployeeForms/Edit/5
@@ -71,7 +109,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeForm);
+            return View(ViewModelFromEmpForm(employeeForm));
         }
 
         // POST: EmployeeForms/Edit/5
@@ -79,15 +117,28 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeFormID,EmployeeFormName,EmployeeFormOrderRow,DateCreated,DateModified")] EmployeeForm employeeForm)
+        public ActionResult Edit([Bind(Include = "EmployeeFormID,EmployeeFormName,EmployeeFormOrderRow,DateCreated,DateModified")] EmployeeForm employeeForm, EmployeeFormDTO employeeFormDto)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                db.Entry(employeeForm).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    employeeForm.EmployeeFormID = employeeFormDto.EmployeeFormID;
+                    employeeForm.EmployeeFormName = employeeFormDto.EmployeeFormName;
+                    employeeForm.EmployeeFormOrderRow = employeeFormDto.EmployeeFormOrderRow;
+
+                    db.Entry(employeeForm).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "EmployeeForms");
+                }
+                return View("Edit");
             }
-            return View(employeeForm);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "EmployeeForms", "Edit"));
+            }
+
         }
 
         // GET: EmployeeForms/Delete/5
@@ -102,7 +153,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeForm);
+            return View(ViewModelFromEmpForm(employeeForm));
         }
 
         // POST: EmployeeForms/Delete/5
@@ -110,10 +161,18 @@ namespace EatOutByBI.Domain.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EmployeeForm employeeForm = db.EmployeeForms.Find(id);
-            db.EmployeeForms.Remove(employeeForm);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                EmployeeForm employeeForm = db.EmployeeForms.Find(id);
+                db.EmployeeForms.Remove(employeeForm);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "EmployeeForms", "Delete"));
+            }
+
         }
 
         protected override void Dispose(bool disposing)

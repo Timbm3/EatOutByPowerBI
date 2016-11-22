@@ -1,5 +1,6 @@
 ﻿using EatOutByBI.Data.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,6 +15,8 @@ namespace EatOutByBI.Data.Classes
         [StringLength(30)]
         public string EmployeeTypeName { get; set; }
         public int EmployeeTypeOrderRow { get; set; }
+        public IList<Employee> Employees { get; set; }
+
 
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
