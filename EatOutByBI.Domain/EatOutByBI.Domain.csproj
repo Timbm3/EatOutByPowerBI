@@ -468,6 +468,7 @@
     <Content Include="Views\EmployeeFormDto\Index.cshtml" />
     <Content Include="Views\EmployeeFormDto\Create.cshtml" />
     <Content Include="Views\OrderRowDTO\Index.cshtml" />
+    <Content Include="Views\AdminPage\AdminAddProdEmp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

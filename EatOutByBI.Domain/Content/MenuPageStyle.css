@@ -64,11 +64,18 @@
 }
 
 /*Vissiting Menu Page*/
-#onMenu > a {
+#onMenu,
+#onAlaCarte,
+#onDrinks,
+#onDessert > a {
     color: #a80000;
 }
 
-#onAlaCarte > a {
+/*AdminPage*/
+p.onMenuChoice > a {
+    color: #a80000;
+}
+/*#onAlaCarte > a {
     color: #a80000;
 }
 
@@ -78,5 +85,5 @@
 
 #onDessert > a {
     color: #a80000;
-}
+}*/
 
