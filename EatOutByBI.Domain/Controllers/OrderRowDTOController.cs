@@ -80,12 +80,12 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // POST
-        [HttpPost]
-        public ActionResult AddProduct(OrderRowDTO oRDto)
-        {
+        //[HttpPost]
+        //public ActionResult AddProduct(OrderRowDTO oRDto)
+        //{
 
-            orList.Add(oRDto);
-        }
+        //    orList.Add(oRDto);
+        //}
 
     }
 }
