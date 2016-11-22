@@ -16,8 +16,12 @@ namespace EatOutByBI.Data.Classes
         public string ProductGroupName { get; set; }
         public int ProductGroupOrderRow { get; set; }
 
+        public int ProductTypeID { get; set; }
+        public virtual ProductType ProductType { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+
     }
 }
 

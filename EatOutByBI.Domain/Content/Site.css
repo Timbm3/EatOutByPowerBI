@@ -39,9 +39,9 @@ textarea {
 
 /* Default värden till siten*/
 
-div {
+/*div {
     margin-top: 1%;
-}
+}*/
 
 p {
     color: white;
@@ -91,6 +91,11 @@ h6,
     background-color: rgba(0, 0, 0, 0.43);
     text-align: center;
 }
+
+/*[type='radio'] {
+    display: none;
+}*/
+
 
 
 
@@ -195,4 +200,28 @@ h6,
     border-radius: 9px;
 }
 
-/*Menu site*/
+/*Booking Site*/
+.hidden {
+    display: none;
+}​
+
+.bookingBtns:focus{
+    background-color: whitesmoke;
+}
+
+ #btnBooking1:focus {
+    background-color: whitesmoke;
+}
+
+ #btnBooking2:focus {
+    background-color: whitesmoke;
+}
+
+#btnBooking3:focus {
+    background-color: whitesmoke;
+}
+
+#horizontalTest > li {
+    list-style-type: none;
+    display: inline;
+}

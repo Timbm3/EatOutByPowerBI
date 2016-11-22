@@ -30,5 +30,7 @@ namespace EatOutByBI.Data.Classes
         public int Factor1 { get; set; }
         public int Factor2 { get; set; }
 
+        public DateTime TimeStamp { get; set; } = DateTime.UtcNow;
+
     }
 }
