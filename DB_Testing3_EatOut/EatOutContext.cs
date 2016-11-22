@@ -35,6 +35,9 @@ namespace EatOutByBI.Data
 
         public DbSet<TimeTable> TimeTables { get; set; }
 
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<BookingTime> BookingTimes { get; set; }
+
 
         public override int SaveChanges()
         {
@@ -50,6 +53,7 @@ namespace EatOutByBI.Data
                 {
                     history.DateCreated = DateTime.Now;
                 }
+                
             }
 
             int result = base.SaveChanges();

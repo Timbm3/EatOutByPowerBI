@@ -15,7 +15,6 @@ namespace EatOutByBI.Data.Classes
         [Required]
         public string ProductTypeName { get; set; }
         public int ProductTypeOrderRow { get; set; }
-
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
     }

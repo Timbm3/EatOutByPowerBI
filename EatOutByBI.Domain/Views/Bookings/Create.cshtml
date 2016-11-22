@@ -1,0 +1,130 @@
+﻿@using System.Web.UI.WebControls
+@*@model  EatOutByBI.Data.Classes.Booking*@
+@model  EatOutByBI.Data.DTO.BookingDTO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Booking</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row rightMenu" style="padding: 5px">
+        <div class="col-sm-3">
+
+            <!-- Examples of creating a Datepicker -->
+            @*<label>Välj Datum</label>*@
+            <h3>Välj Tid</h3>
+            <br />
+            @*<input id="testGe" class="date-picker" style="width: 200px" />*@
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control date-picker getMe" } })
+            @*@Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })*@
+            <br />
+            <input id="NxtAltBooking1" type="button" value="Nästa"/>
+            @*<a id="NxtAltBooking1">Nästa</a>*@
+        </div>
+
+        <div hidden="" id="ShowBookingTime" class="col-sm-4">
+            <h3>Välj Tid</h3>
+            <br />
+            <div data-toggle="buttons">
+
+                <ul id="horizontalTest">
+                    @foreach (var item in Model.BookingTimes)
+                    {
+                        <li>
+                            <input id="btnBooking_@item.BookingTimeId" value="@item.Time" type="button" class="btn bookingBtns" name="@item.BookingTimeId" autocomplete="off">
+
+                        </li>
+                        <li>
+                            <input id="btnHdn" value="" type="button" class="btn bookingBtns hidden" name="optionsRadios" autocomplete="off">
+                        </li>
+                    }
+                    @*<li>
+                        <input id="btnBooking1" value="17:00" type="button" class="btn bookingBtns" name="2" autocomplete="off">
+
+                    </li>
+                    <li>
+                        <input id="btnBooking2" value="19:00" type="button" class="btn bookingBtns" name="3" autocomplete="off">
+
+                    </li>
+                    <li>
+                        <input id="btnBooking3" value="21:00" type="button" class="btn bookingBtns" name="4" autocomplete="off">
+
+                    </li>*@
+                </ul>
+                @Html.ValidationMessageFor(model => model.DateAndTime, "", new { @class = "text-danger" })
+            </div>
+            <br/>
+            <input id="NxtAltBooking2" type="button" value="Nästa" />
+
+            @*<a id="NxtAltBooking2">Nästa</a>*@
+        </div>
+
+        <div hidden="" id="ShowBookingForm" class="col-sm-5">
+            <h3>Booking</h3>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BookingTimeId, "BookingTimeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BookingTimeId, new { htmlAttributes = new { @class = "form-control hdnInpBookingId" } })
+                        @Html.ValidationMessageFor(model => model.BookingTimeId, "", new { @class = "text-danger" })
+                        <br/>
+                        @Html.EditorFor(model => model.DateAndTime, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })
+                        @*@Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control hdnInpBookingTime" } })
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*@Html.Hidden("Persons", Json.Encode(Model.Item1))*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    //$.each($('.bookingBtns'), function (index, valuue) {
+    //    console.log(index + ':' + $(valuue).val());
+    //});
+</script>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/AppScripts.js")
+}

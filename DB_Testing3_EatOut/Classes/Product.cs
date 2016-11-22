@@ -15,21 +15,15 @@ namespace EatOutByBI.Data.Classes
         [Required]
         public string ProductName { get; set; }
 
-
-
-        public int OrderRowID { get; set; }
-        public List<OrderRow> OrderRow { get; set; }
-
-        public int ProductTypeID { get; set; }
-        public virtual ProductType ProductType { get; set; }
-
         public int ProductGroupID { get; set; }
         public virtual ProductGroup ProductGroup { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public int Amount { get; set; }
+        public string Unit { get; set; }
 
         public int Factor1 { get; set; }
         public int Factor2 { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
 
 
     }
