@@ -35,6 +35,8 @@ namespace EatOutByBI.Data
 
         public DbSet<TimeTable> TimeTables { get; set; }
 
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingTime> BookingTimes { get; set; }
 

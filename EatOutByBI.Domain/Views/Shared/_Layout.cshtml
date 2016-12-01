@@ -11,14 +11,17 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Pacifico|Shrikhand|Raleway:400,400i,500|Rancho|Special+Elite|Alegreya" rel="stylesheet">
     <link href="~/Content/StartPageStyle.css" rel="stylesheet" />
     <link href="~/Content/MenuPageStyle.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
+
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <script src="~/Scripts/sweetalert.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
     <!-- jQuery UI CSS Reference -->
-    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
     <!-- Required jQuery and jQuery UI Javascript references -->
-    <script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")"></script>*@
+    @*<script src="@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")"></script>*@
 
 </head>
 <body>
@@ -37,6 +40,7 @@
                     <li>@Html.ActionLink("Om oss", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Meny", "Index", "Menu")</li>
+                    <li>@Html.ActionLink("Boka bord", "Create", "Bookings")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -67,13 +71,14 @@
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
     <!-- jQuery UI CSS Reference -->
-    <link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />
+    @*<link href="@Url.Content("~/Content/themes/base/jquery-ui.min.css")" rel="stylesheet" />*@
     <!-- Required jQuery and jQuery UI Javascript references -->
-    <script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")"></script>*@
     <script src="@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")"></script>
 </body>
 </html>

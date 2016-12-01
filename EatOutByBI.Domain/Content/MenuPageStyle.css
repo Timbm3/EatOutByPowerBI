@@ -6,7 +6,8 @@
 
 .rightMenu {
     background-color: rgba(245, 245, 245, 0.69);
-    margin-left: 5px;
+    /*margin-left: 5px;*/
+    padding: 5px 5px;
     border-radius: 5px;
     font-size: 23px;
 }
@@ -64,26 +65,9 @@
 }
 
 /*Vissiting Menu Page*/
-#onMenu,
-#onAlaCarte,
-#onDrinks,
-#onDessert > a {
+p.onMenuChoice > a {
     color: #a80000;
 }
 
 /*AdminPage*/
-p.onMenuChoice > a {
-    color: #a80000;
-}
-/*#onAlaCarte > a {
-    color: #a80000;
-}
-
-#onDrinks > a {
-    color: #a80000;
-}
-
-#onDessert > a {
-    color: #a80000;
-}*/
 

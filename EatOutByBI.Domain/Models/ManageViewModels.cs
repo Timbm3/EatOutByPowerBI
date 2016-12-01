@@ -41,6 +41,8 @@ namespace EatOutByBI.Domain.Models
 
     public class ChangePasswordViewModel
     {
+        public string UserName { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]

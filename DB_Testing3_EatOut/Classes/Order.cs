@@ -24,6 +24,10 @@ namespace EatOutByBI.Data.Classes
 
         public int TimeTableID { get; set; }
         public TimeTable TimeTable { get; set; }
+
+        public int PaymentMethodId { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 

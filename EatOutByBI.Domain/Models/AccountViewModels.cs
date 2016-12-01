@@ -63,6 +63,8 @@ namespace EatOutByBI.Domain.Models
 
     public class RegisterViewModel
     {
+        public string Id { get; set; }
+
         [Required]
         [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
@@ -111,6 +113,8 @@ namespace EatOutByBI.Domain.Models
 
     public class ForgotPasswordViewModel
     {
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

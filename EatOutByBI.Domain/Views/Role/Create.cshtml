@@ -8,8 +8,9 @@
 
 @using (Html.BeginForm())
 {
-    <p> Enter User Role Name:</p>
-
-    @Html.EditorFor(m => m.Name)
-    <input type="submit" value="Create Role" />
+        <div class="rightMenu">
+        <p> Enter User Role Name:</p>
+        @Html.EditorFor(m => m.Name)
+        <input type="submit" value="Create Role" />
+    </div>
 }

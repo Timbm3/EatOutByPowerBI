@@ -62,6 +62,7 @@
     <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\OrderRow.cs" />
+    <Compile Include="Classes\PaymentMethod.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductGroup.cs" />
     <Compile Include="Classes\ProductType.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DTO\ProductTypeDTO.cs" />
     <Compile Include="DTO\SeatDTO.cs" />
     <Compile Include="DTO\TimeTableDTO.cs" />
+    <Compile Include="DTO\UsersDTO.cs" />
     <Compile Include="EatOutContext.cs" />
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
@@ -89,10 +91,6 @@
     <Compile Include="Migrations\201611230858304_NewDatabase1.cs" />
     <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
       <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611300956358_EventAdded.cs" />
-    <Compile Include="Migrations\201611300956358_EventAdded.Designer.cs">
-      <DependentUpon>201611300956358_EventAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -111,9 +109,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611230858304_NewDatabase1.resx">
       <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611300956358_EventAdded.resx">
-      <DependentUpon>201611300956358_EventAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

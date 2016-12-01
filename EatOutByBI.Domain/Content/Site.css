@@ -51,13 +51,13 @@ p {
 
 
 a:hover {
-        /*color: rgba(217, 0, 0, 0.86);*/
+    /*color: rgba(217, 0, 0, 0.86);*/
     color: #9d9d9d;
     text-decoration: none;
 }
 
 img {
-                border: 1px solid rgba(145, 0, 0, 0.69);
+    border: 1px solid rgba(145, 0, 0, 0.69);
     border: 1px solid rgba(0, 0, 0, 0.33);
 }
 
@@ -80,10 +80,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-
     color: #a80000;
     font-family: 'Rancho',"Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 
 
@@ -119,8 +117,8 @@ h6,
 
         /* Texten on navbar :Hover */
         .navbar-inverse .navbar-nav > li > a:hover {
-    color: rgba(217, 0, 0, 0.86);
-    color: #9d9d9d;
+            color: rgba(217, 0, 0, 0.86);
+            color: #9d9d9d;
         }
 
     /* Navbar Logo/Brand */
@@ -168,9 +166,6 @@ h6,
 
 /* Forms on the Site */
 
-/* Forms on the Site*/
-
-
 .form-group {
     margin-bottom: 20px;
 }
@@ -202,21 +197,21 @@ h6,
 /*Booking Site*/
 .hidden {
     display: none;
-}​
+}
 
-.bookingBtns:focus{
+​ .bookingBtns:focus {
     background-color: whitesmoke;
 }
 
- #btnBooking1:focus {
+#btnBooking_4:focus {
     background-color: whitesmoke;
 }
 
- #btnBooking2:focus {
+#btnBooking_2:focus {
     background-color: whitesmoke;
 }
 
-#btnBooking3:focus {
+#btnBooking_3:focus {
     background-color: whitesmoke;
 }
 
@@ -343,3 +338,42 @@ ul#menu li a.currentMenuItem {
     background-color: black;   
     color: white;
 }
+
+#lblTest {
+    padding: 5px 138px;
+}
+
+/*Admin Page*/
+.tblAddRole > table {
+    background-color: whitesmoke;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    font-size: 20px;
+    float: right;
+}
+
+.tblAddRole > table > td{
+align-content: center
+}
+
+#tblHead {
+    height: 30px;
+    background-color: #336699;
+    color: #FFFFFF;
+    border: solid 1px #659EC7;
+}
+
+#tblRoles {
+    width: 100%;
+    height: 100%;
+    border: dotted 1px;
+    background-color: gainsboro;
+    padding-left: 10px;
+}
+
+#tblName {
+    width:100%; 
+    border:dotted 1px;
+}
+

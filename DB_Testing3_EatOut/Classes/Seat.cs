@@ -17,11 +17,6 @@ namespace EatOutByBI.Data.Classes
         [StringLength(30)]
         public string SeatPlace { get; set; }
 
-
-        //public int TableNr { get; set; }
-        //public bool Bar { get; set; }
-        //public bool Outside { get; set; }
-
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 

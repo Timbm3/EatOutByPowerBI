@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using EatOutByBI.Data;
@@ -97,8 +98,8 @@ namespace EatOutByBI.Domain.Controllers
                 Telephone = bookingDto.Telephone,
                 Email = bookingDto.Email,
                 Date = bookingDto.Date,
-                DateAndTime = bookingDto.DateAndTime,
-                //DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + bookingDto.Time),
+                //DateAndTime = bookingDto.DateAndTime,
+                DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + bookingDto.Time),
                 BookingTimeId = bookingDto.BookingTimeId,
                 BookingTime = bookingDto.BookingTimes.ToList()
             };
@@ -107,11 +108,13 @@ namespace EatOutByBI.Domain.Controllers
             {
                 db.Bookings.Add(bDTo);
                 db.SaveChanges();
+                Thread.Sleep(5000);
                 return RedirectToAction("Index");
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);
-            return View("Create", bookingDto);
+            Thread.Sleep(5000);
+            return View(bookingDto);
         }
 
         // GET: Bookings/Edit/5

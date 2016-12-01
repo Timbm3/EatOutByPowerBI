@@ -29,5 +29,9 @@ namespace EatOutByBI.Domain.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<EatOutByBI.Domain.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<EatOutByBI.Domain.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
