@@ -199,12 +199,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
-    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BookingTimesController.cs" />
     <Compile Include="Controllers\EmployeeFormsController.cs" />
+    <Compile Include="Controllers\EmployeePageController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\EmployeesDTOController.cs" />
     <Compile Include="Controllers\EmployeeTypesController.cs" />
@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderRowDTOController.cs" />
     <Compile Include="Controllers\OrderRowsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
@@ -265,10 +266,6 @@
     <Compile Include="Migrations\201611151352026_addValidationBooking2.cs" />
     <Compile Include="Migrations\201611151352026_addValidationBooking2.Designer.cs">
       <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611281434573_AddPaymentMethos.cs" />
-    <Compile Include="Migrations\201611281434573_AddPaymentMethos.Designer.cs">
-      <DependentUpon>201611281434573_AddPaymentMethos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -477,15 +474,15 @@
     <Content Include="Views\EmployeeFormDto\Create.cshtml" />
     <Content Include="Views\OrderRowDTO\Index.cshtml" />
     <Content Include="Views\AdminPage\AdminAddProdEmp.cshtml" />
-    <Content Include="Views\Manager\Index.cshtml" />
-    <Content Include="Views\Manager\EmpDiagrams.cshtml" />
-    <Content Include="Views\ApplicationUsers\Create.cshtml" />
-    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
-    <Content Include="Views\ApplicationUsers\Details.cshtml" />
-    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
-    <Content Include="Views\ApplicationUsers\Index.cshtml" />
-    <Content Include="Views\AdminPage\Employees.cshtml" />
-    <Content Include="Views\AdminPage\Edit.cshtml" />
+    <Content Include="Views\EmployeePage\Index.cshtml" />
+    <Content Include="Views\EmployeePage\ListEmployees.cshtml" />
+    <Content Include="Views\OrderRowDTO\AddProduct.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\_OrderItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -538,9 +535,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611151352026_addValidationBooking2.resx">
       <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611281434573_AddPaymentMethos.resx">
-      <DependentUpon>201611281434573_AddPaymentMethos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

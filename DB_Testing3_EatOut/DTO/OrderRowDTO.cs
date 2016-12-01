@@ -5,10 +5,11 @@ namespace EatOutByBI.Data.DTO
 {
     public class OrderRowDTO
     {
-        //public OrderRowDTO()
-        //{
-        //    Products = new HashSet<Product>();
-        //}
+        public OrderRowDTO()
+        {
+            Products = new HashSet<Product>();
+            ProduktNamn = "HEJ";
+        }
         public int OrderRowID { get; set; }
 
         public int ProductID { get; set; }
@@ -22,6 +23,9 @@ namespace EatOutByBI.Data.DTO
         public IEnumerable<Product> Products { get; set; }
 
         //public int OrderID { get; set; }
+
+
+
 
     }
 }

@@ -14,7 +14,7 @@ namespace EatOutByBI.Domain.Controllers
         private EatOutContext db = new EatOutContext();
         private OrderRowDTO or = new OrderRowDTO();
         private OrderRowViewModel orW = new OrderRowViewModel();
-        private IList<OrderRowDTO> orList = new List<OrderRowDTO>();
+        private List<OrderRowDTO> orList = new List<OrderRowDTO>();
         //private OrderRowDTO AllDto()
         //{
         //    var model = new List<OrderRowDTO>()
@@ -41,12 +41,19 @@ namespace EatOutByBI.Domain.Controllers
             //oDto.ProductID = or.ProductID;
 
 
+            //var list2 = from list in orList
+            //            select list.ProductID;
+
+
             //model.Add(oDto);
 
             //ViewBag.ListProducts = db.Products.ToList();
 
+            //orList.ToList()
 
-            return View(orList.ToList());
+
+
+            return View(orList);
         }
 
         //public ActionResult ShowProduct()
@@ -66,10 +73,10 @@ namespace EatOutByBI.Domain.Controllers
         //}
 
 
-            // GET
+        // GET
         public ActionResult AddProduct()
         {
-            
+
             var viewModel = new OrderRowDTO()
             {
                 Products = db.Products.ToList()
@@ -81,10 +88,27 @@ namespace EatOutByBI.Domain.Controllers
 
         // POST
         //[HttpPost]
-        //public ActionResult AddProduct(OrderRowDTO oRDto)
+        //public ActionResult AddProduct(OrderRowDTO oRDto, Product pro)
         //{
 
-        //    orList.Add(oRDto);
+        //    var model = new OrderRowDTO()
+        //    {
+        //        ProductID = oRDto.ProductID,
+        //        ProduktNamn = oRDto.ProduktNamn,
+        //        Kvantitet = oRDto.Kvantitet,
+        //        OrderRowID = oRDto.OrderRowID,
+        //        Products = new List<Product>()
+        //        {
+        //            pro.ProductID = oRDto.ProductID.
+        //        }
+        //    };
+
+        //    db.OrderRows.Add(model);
+        //    return View("Index");
+
+
+
+
         //}
 
     }

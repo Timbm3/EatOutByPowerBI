@@ -9,7 +9,7 @@ namespace EatOutByBI.Data
     public class EatOutContext : DbContext
     {
 
-        public EatOutContext() : base("EatOutByBI.Domain")
+        public EatOutContext() : base("EatOutByBI.Domain2")
         {
             //Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
 
@@ -55,7 +55,7 @@ namespace EatOutByBI.Data
                 {
                     history.DateCreated = DateTime.Now;
                 }
-                
+
             }
 
             int result = base.SaveChanges();

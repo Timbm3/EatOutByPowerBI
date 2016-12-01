@@ -83,49 +83,13 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201611110931275_ConfigureClasses.cs" />
-    <Compile Include="Migrations\201611110931275_ConfigureClasses.Designer.cs">
-      <DependentUpon>201611110931275_ConfigureClasses.cs</DependentUpon>
+    <Compile Include="Migrations\201611230850322_NewDatabase.cs" />
+    <Compile Include="Migrations\201611230850322_NewDatabase.Designer.cs">
+      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611111226219_BookingSystemV1.cs" />
-    <Compile Include="Migrations\201611111226219_BookingSystemV1.Designer.cs">
-      <DependentUpon>201611111226219_BookingSystemV1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611141305031_tesstt.cs" />
-    <Compile Include="Migrations\201611141305031_tesstt.Designer.cs">
-      <DependentUpon>201611141305031_tesstt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151002205_addDate.cs" />
-    <Compile Include="Migrations\201611151002205_addDate.Designer.cs">
-      <DependentUpon>201611151002205_addDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151012003_addDate2.cs" />
-    <Compile Include="Migrations\201611151012003_addDate2.Designer.cs">
-      <DependentUpon>201611151012003_addDate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151018157_addDate3.cs" />
-    <Compile Include="Migrations\201611151018157_addDate3.Designer.cs">
-      <DependentUpon>201611151018157_addDate3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151019171_addDate4.cs" />
-    <Compile Include="Migrations\201611151019171_addDate4.Designer.cs">
-      <DependentUpon>201611151019171_addDate4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151344150_addValidationBooking.cs" />
-    <Compile Include="Migrations\201611151344150_addValidationBooking.Designer.cs">
-      <DependentUpon>201611151344150_addValidationBooking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611151352303_addValidationBooking2.cs" />
-    <Compile Include="Migrations\201611151352303_addValidationBooking2.Designer.cs">
-      <DependentUpon>201611151352303_addValidationBooking2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611161512215_bookingdto.cs" />
-    <Compile Include="Migrations\201611161512215_bookingdto.Designer.cs">
-      <DependentUpon>201611161512215_bookingdto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611170804226_listTime.cs" />
-    <Compile Include="Migrations\201611170804226_listTime.Designer.cs">
-      <DependentUpon>201611170804226_listTime.cs</DependentUpon>
+    <Compile Include="Migrations\201611230858304_NewDatabase1.cs" />
+    <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
+      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201611281434031_AddPaymentMethos.cs" />
     <Compile Include="Migrations\201611281434031_AddPaymentMethos.Designer.cs">
@@ -142,38 +106,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611110931275_ConfigureClasses.resx">
-      <DependentUpon>201611110931275_ConfigureClasses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611230850322_NewDatabase.resx">
+      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611111226219_BookingSystemV1.resx">
-      <DependentUpon>201611111226219_BookingSystemV1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611141305031_tesstt.resx">
-      <DependentUpon>201611141305031_tesstt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151002205_addDate.resx">
-      <DependentUpon>201611151002205_addDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151012003_addDate2.resx">
-      <DependentUpon>201611151012003_addDate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151018157_addDate3.resx">
-      <DependentUpon>201611151018157_addDate3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151019171_addDate4.resx">
-      <DependentUpon>201611151019171_addDate4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151344150_addValidationBooking.resx">
-      <DependentUpon>201611151344150_addValidationBooking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611151352303_addValidationBooking2.resx">
-      <DependentUpon>201611151352303_addValidationBooking2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611161512215_bookingdto.resx">
-      <DependentUpon>201611161512215_bookingdto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611170804226_listTime.resx">
-      <DependentUpon>201611170804226_listTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611230858304_NewDatabase1.resx">
+      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281434031_AddPaymentMethos.resx">
       <DependentUpon>201611281434031_AddPaymentMethos.cs</DependentUpon>
