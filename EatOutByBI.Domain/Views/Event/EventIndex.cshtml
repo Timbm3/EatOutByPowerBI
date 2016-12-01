@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EatOutByBI.Data.Classes.Event>
+@{
+    ViewBag.Title = "EventIndex";
+}
+
+<h2>Event Index</h2>
+
+<div class="row">
+
+    @*<div class="col-sm-3 menuNav">
+        <p>@Html.ActionLink("Grafer", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Antällda", "ListEmployees", "EmployeePage")</p>
+        <p>@Html.ActionLink("Lägg till en order", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Se orders", "Index", "EmployeePage")</p>
+        <p class="onMenuChoice">@Html.ActionLink("Se Events", "EventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Event", "CreateEvent", "Event")</p>
+        <p>@Html.ActionLink("Se Anställda Events", "EmployeeEventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Anställda Events", "CreateEmployeeEvent", "Event")</p>
+    </div>*@
+    <div class="col-sm-3">
+        @Html.Partial("_EmployeePagePartial")
+    </div>
+    <ul class="events  col-sm-4">
+        @foreach (var events in Model)
+        {
+            <li class="">
+
+                <div class="eventHeader">
+                    <h4 class="nameOfEvent">
+                        @events.NameOfEvent
+                    </h4>
+                </div>
+
+
+                <div class="picDiv">
+                    @{
+                        var base64 = Convert.ToBase64String(events.Image);
+                        var imgsrc = $"data:image/gif;base64,{base64}";
+                    }
+                    <img src="@imgsrc" style="max-width: 340px; max-height: 240px"/>
+                </div>
+                <div class="date">
+                    <div class="weekDay">
+                        @events.DateTime.ToString("dddd")
+                    </div>
+                    <div class="month">
+                        @events.DateTime.ToString("MMM")
+                    </div>
+                    <div class="day">
+                        @events.DateTime.ToString("d ")
+                    </div>
+
+                    @*"dddd"
+                        The full name of the day of the week.*@
+                </div>
+                <div class="details">
+                    <span class="eventType">
+                        @events.EventType.Name
+                    </span>
+                    <p class="eventDescription">@events.Description</p>
+
+                </div>
+
+
+            </li>
+        }
+    </ul>
+</div>

@@ -7,13 +7,19 @@
 <h2>Index</h2>
 
 <div class="row">
-    <div class="col-sm-3 menuNav">
+    @*<div class="col-sm-3 menuNav">
         <p class="onMenuChoice">@Html.ActionLink("Grafer", "Index", "EmployeePage")</p>  
         <p>@Html.ActionLink("Antällda", "ListEmployees", "EmployeePage")</p>
         <p>@Html.ActionLink("Lägg till en order", "Index", "EmployeePage")</p>
         <p>@Html.ActionLink("Se orders", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Se Events", "EventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Event", "CreateEvent", "Event")</p>
+        <p>@Html.ActionLink("Se Anställda Events", "EmployeeEventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Anställda Events", "CreateEmployeeEvent", "Event")</p>
+    </div>*@
+    <div class="col-sm-3">
+        @Html.Partial("_EmployeePagePartial")
     </div>
-
     <div class="Graf col-sm-9">
         <iframe width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiODJhNGEyZWEtZDc0Yy00MzA4LWIxYzQtMjc3MzRkZjdjNGM1IiwidCI6IjEwMWMxMTg1LTc3ZWMtNDBjMy1hZTdhLTU5Y2FiZjQ4ZDFkYSIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
     </div>

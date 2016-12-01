@@ -59,6 +59,7 @@
     <Compile Include="Classes\BookingTime.cs" />
     <Compile Include="Classes\EmployeeForm.cs" />
     <Compile Include="Classes\EmployeeType.cs" />
+    <Compile Include="Classes\Event.cs" />
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\OrderRow.cs" />
     <Compile Include="Classes\Product.cs" />
@@ -89,10 +90,15 @@
     <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
       <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611300956358_EventAdded.cs" />
+    <Compile Include="Migrations\201611300956358_EventAdded.Designer.cs">
+      <DependentUpon>201611300956358_EventAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Seat.cs" />
+    <Compile Include="ViewModels\EventViewModel.cs" />
     <Compile Include="ViewModels\OrderRowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611230858304_NewDatabase1.resx">
       <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611300956358_EventAdded.resx">
+      <DependentUpon>201611300956358_EventAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

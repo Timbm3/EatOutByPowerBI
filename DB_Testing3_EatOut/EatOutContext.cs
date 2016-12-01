@@ -39,6 +39,15 @@ namespace EatOutByBI.Data
         public DbSet<BookingTime> BookingTimes { get; set; }
 
 
+
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventType> EventTypes { get; set; }
+
+        public DbSet<EmployeeEvent> EmployeeEvents { get; set; }
+        public DbSet<EmployeeEventType> EmployeeEventTypes { get; set; }
+
+
+
         public override int SaveChanges()
         {
             foreach (var history in this.ChangeTracker.Entries()

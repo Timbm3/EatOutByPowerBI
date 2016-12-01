@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EatOutByBI.Data.Classes.EmployeeEvent>
+@{
+    ViewBag.Title = "EmployeeEventIndex";
+}
+
+<h2>Employee Event Index</h2>
+
+<div class="row">
+    @*<div class="col-sm-3 menuNav">
+        <p>@Html.ActionLink("Grafer", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Antällda", "ListEmployees", "EmployeePage")</p>
+        <p>@Html.ActionLink("Lägg till en order", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Se orders", "Index", "EmployeePage")</p>
+        <p>@Html.ActionLink("Se Events", "EventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Event", "CreateEvent", "Event")</p>
+        <p class="onMenuChoice">@Html.ActionLink("Se Anställda Events", "EmployeeEventIndex", "Event")</p>
+        <p>@Html.ActionLink("Skapa Anställda Events", "CreateEmployeeEvent", "Event")</p>
+    </div>*@
+    <div class="col-sm-3">
+        @Html.Partial("_EmployeePagePartial")
+    </div>
+
+    <ul class="eventEmpE col-sm-5">
+        @foreach (var eventE in Model)
+        {
+            <li class="">
+                <div class="dateEmpE">
+                    <div class="monthEmpE">
+                        @eventE.DateTime.ToString("MMM")
+                    </div>
+                    <div class="dayEmpE">
+                        @eventE.DateTime.ToString("d ")
+                    </div>
+                </div>
+                <div class="detailsEmpE">
+                    <span class="nameOfEventEmpE">
+                        @eventE.NameOfEvent
+                    </span>
+                    <span class="typeEmpE">
+                        @eventE.EmployeeEventType.Name
+                    </span>
+                    <span class="descriptionEmpE">
+                        @eventE.Description
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
