@@ -199,6 +199,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\OrderRowDTOController.cs" />
     <Compile Include="Controllers\OrderRowsController.cs" />
@@ -264,6 +266,10 @@
     <Compile Include="Migrations\201611151352026_addValidationBooking2.Designer.cs">
       <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281434573_AddPaymentMethos.cs" />
+    <Compile Include="Migrations\201611281434573_AddPaymentMethos.Designer.cs">
+      <DependentUpon>201611281434573_AddPaymentMethos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -279,6 +285,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\MenuPageStyle.css" />
     <Content Include="Content\StartPageStyle.css" />
+    <Content Include="Content\sweetalert.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -367,6 +374,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -469,6 +477,15 @@
     <Content Include="Views\EmployeeFormDto\Create.cshtml" />
     <Content Include="Views\OrderRowDTO\Index.cshtml" />
     <Content Include="Views\AdminPage\AdminAddProdEmp.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Manager\EmpDiagrams.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\AdminPage\Employees.cshtml" />
+    <Content Include="Views\AdminPage\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -521,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611151352026_addValidationBooking2.resx">
       <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281434573_AddPaymentMethos.resx">
+      <DependentUpon>201611281434573_AddPaymentMethos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

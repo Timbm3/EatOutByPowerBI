@@ -19,6 +19,7 @@ namespace EatOutByBI.Data.Classes
         public virtual ProductGroup ProductGroup { get; set; }
         public int Amount { get; set; }
         public string Unit { get; set; }
+        public decimal Price { get; set; }
 
         public int Factor1 { get; set; }
         public int Factor2 { get; set; }

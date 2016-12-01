@@ -6,73 +6,77 @@ $(function () {
 });
 
 
-//Function for Next button, can not be pressed if inputvalue is empty
-var $input = $('#Date');
-var $button = $('#NxtAltBooking1');
+$(document).ready(function ()
+{
+    //Function for Next button, can not be pressed if inputvalue is empty
+    var $input = $('#Date');
+    var $button = $('#NxtAltBooking1');
 
-setInterval(function () {
-    if ($input.val().length > 0) {
-        $button.attr('disabled', false);
-    } else {
-        $button.attr('disabled', true);
-    }
-}, 100);
+    setInterval(function () {
+        if ($input.val().length > 0) {
+            $button.attr('disabled', false);
+        } else {
+            $button.attr('disabled', true);
+        }
+    }, 100);
 
 
-//Functions for Displaing hidden divs when next button is pressed
-$(document).ready(function () {
+    //Functions for Displaing hidden divs when next button is pressed + pass date to hidden date input
     $("#NxtAltBooking1").click(function () {
+        var dateForBooking = document.getElementById('Date').value;
         $("#ShowBookingTime").show("show"),
             $('#NxtAltBooking1').hide("hide");
+        $('.hdnInpBookingDate').val(dateForBooking);
     });
-});
 
-$(document).ready(function () {
     $("#NxtAltBooking2").click(function () {
         $("#ShowBookingForm").show("show"),
             $('#NxtAltBooking2').hide("hide");
     });
-});
 
 
-//Function for Sending date and time values to DateAndTime Hidden Input
-$(document).ready(function () {
+    //Function for Sending date and time values to DateAndTime Hidden Input
     $.each($('.bookingBtns'), function (index, value) {
         $('#btnBooking_' + index).click(function () {
-            var dateForBooking = document.getElementById('Date').value;
+            //var dateForBooking = document.getElementById('Date').value;
             var timeForBooking = document.getElementById('btnBooking_' + index).value;
             var idForBooking = document.getElementById('btnBooking_' + index).name;
-            $('.hdnInpBookingDate').val(dateForBooking + ' ' + timeForBooking);
+            $('.hdnInpBookingTime').val(timeForBooking);
             $('.hdnInpBookingId').val(idForBooking);
+            $('#lblTest').text(timeForBooking);
         });
     });
+
+
+    //Get date and add to hidden date input when create button is clicked
+    $('#btnCreate').click(function () {
+        var dateForBooking = document.getElementById('Date').value;
+        $('.hdnInpBookingDate').val(dateForBooking);
+    });
+
+
+    //Getting value from all input fields and sending to styled alertbox
+    $('#btnCreate').click(function () {
+        var dateForBooking = $('.hdnInpBookingDate').val();
+        var timeForBooking = $('.hdnInpBookingTime').val();
+        var nameForBooking = $('.inpBookingName').val();
+        var phoneForBooking = $('.inpBookingPhone').val();
+        var emailforBooking = $('.inpBookingEmail').val();
+
+        if (dateForBooking.length > 0 &&
+            timeForBooking.length > 0 &&
+            nameForBooking.length > 0 &&
+            phoneForBooking.length > 0 &&
+            emailforBooking.length > 0) {
+
+            swal("Välkommen " + nameForBooking,
+               "Datum: " + dateForBooking + "\n" +
+               "Tid: " + timeForBooking + "\n" +
+               "Email: " + emailforBooking + "\n" +
+               "Telefon: " + phoneForBooking + "\n" +
+               "Vi kommer att skicka ett mail med boknings informationen till dig", "success");
+
+        }
+    });
+
 });
-
-
-
-// Old version and test versions
-//$(document).ready(function () {
-//    $('#btnBooking_2').click(function () {
-//        var dateForBooking = document.getElementById('btnBooking_2').value;
-//        $('.hdnInpBookingTime').val(dateForBooking);
-//        });
-//});
-
-//$(document).ready(function () {
-//    $('#NxtAltBooking1').click(function () {
-//        var dateForBooking = document.getElementById('Date').value;
-//        $('.hdnInpBookingDate').val(dateForBooking);
-//    });
-//});
-
-//$(document).ready(function () {
-//    $('#ui-datepicker-div').click(function () {
-//        var dateForBooking = document.getElementById('Date').value;
-//        var timeForBooking = document.getElementById('btnBooking1').value;
-//        var idForBooking = document.getElementById('btnBooking1').name;
-//        $('.hdnInpBookingDate').val(dateForBooking + ' 17:00:00');
-//        $('.hdnInpBookingId').val(idForBooking);
-//    });
-//});
-
-
