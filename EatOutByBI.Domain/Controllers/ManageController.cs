@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using EatOutByBI.Data.DTO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -32,9 +34,9 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -224,17 +226,23 @@ namespace EatOutByBI.Domain.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model, ApplicationUser applicationUser)
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model, UsersDTO userDto, ApplicationUser appUser)
         {
+
+            model.UserId = userDto.UserId;
+            model.NewPassword = userDto.NewPassword;
+            model.OldPassword = userDto.OldPassword;
+            model.ConfirmPassword = userDto.ConfirmPassword;
             //model.OldPassword = applicationUser.PasswordHash;
 
             var currentUser = User.Identity.GetUserId();
 
             if (!ModelState.IsValid)
             {
+
                 return View(model);
             }
-            var result = await UserManager.ChangePasswordAsync(currentUser, model.OldPassword, model.ConfirmPassword);
+            var result = await UserManager.ChangePasswordAsync(userDto.UserId, userDto.OldPassword, userDto.NewPassword);
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
@@ -248,27 +256,61 @@ namespace EatOutByBI.Domain.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Manage/SetPassword
-        public ActionResult SetPassword()
+
+
+
+        private SetPasswordViewModel ViewModelFroTest(ApplicationUser applicationUser)
         {
-            return View();
+            var viewModel = new SetPasswordViewModel()
+            {
+                UserId = applicationUser.Id
+            };
+
+
+            return viewModel;
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult SetPassword(string id)
+        {
+            var db = new ApplicationDbContext();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View(ViewModelFroTest(applicationUser));
         }
 
         //
+        // GET: /Manage/SetPassword
+        //public ActionResult SetPassword()
+        //{
+        //    return View();
+        //}
+
+        //
         // POST: /Manage/SetPassword
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model, ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
-               
+                var curretUser = User.Identity.GetUserId();
 
-                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-                if (result.Succeeded)
+                var removeUserPassWithId = await UserManager.RemovePasswordAsync(model.UserId);
+
+                var result = await UserManager.AddPasswordAsync(model.UserId, model.NewPassword);
+                if (result.Succeeded && removeUserPassWithId.Succeeded)
                 {
-                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    var user = await UserManager.FindByIdAsync(model.UserId);
                     if (user != null)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -339,7 +381,7 @@ namespace EatOutByBI.Domain.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -390,6 +432,6 @@ namespace EatOutByBI.Domain.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

@@ -38,6 +38,55 @@ namespace EatOutByBI.Data.DTO
         public int BookingTimeId { get; set; }
 
 
+        public int Pers { get; set; }
+
+        public int Plats { get; set; }
+
+
+        int _AntlPlatser;
+        int _AntalPersoner;
+        int _PlatsRäknare;
+        private bool _isAvailable = true;
+
+        public int AntalPlatser
+        {
+            get { return _AntlPlatser; }
+            set
+            {
+                _AntlPlatser = value;
+                _AntlPlatser = _AntlPlatser - _AntalPersoner;
+            }
+        }
+
+        public int AntalPersoner
+        {
+            get { return _AntalPersoner; }
+            set
+            {
+                _AntalPersoner = value;
+                _AntlPlatser = _AntlPlatser - _AntalPersoner;
+            }
+        }
+
+        public int PlatsRäknare { get { return _AntlPlatser; } }
+
+        public bool IsAvailable
+        {
+            get
+            {
+                if (_AntlPlatser <= 0)
+                {
+                    return _isAvailable = false;
+                }
+                else
+                {
+                    return _isAvailable = true;
+
+                }
+
+            }
+            set { _isAvailable = value; }
+        }
 
     }
 }

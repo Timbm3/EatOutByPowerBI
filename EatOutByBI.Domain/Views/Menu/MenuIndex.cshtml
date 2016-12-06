@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EatOutByBI.Data.Classes.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MenuIndex";
 }
 
 
@@ -17,10 +17,7 @@
 <div class="container menuWrapper">
     <div class="row">
         <div class="col-sm-3 menuNav">
-            <p class="onMenuChoice">@Html.ActionLink("Meny", "Index", "Menu")</p>
-            <p>@Html.ActionLink("À la Carte", "ALaCarte", "Menu")</p>
-            <p>@Html.ActionLink("Dryck", "Drinks", "Menu")</p>
-            <p>@Html.ActionLink("Efterrätter", "Desserts", "Menu")</p>
+            @Html.Partial("_MenuPagePartial")
         </div>
 
         <div class="col-sm-8 rightMenu">

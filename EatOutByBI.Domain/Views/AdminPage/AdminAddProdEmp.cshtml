@@ -6,19 +6,21 @@
 <h2>AdminAddProdEmp</h2>
 <div class="row">
     <div class="col-sm-3 menuNav">
-        <p>@Html.ActionLink("Admin", "Index", "AdminPage")</p>
-        <p class="onMenuChoice">@Html.ActionLink("Lägg till Prod/Anställd", "AdminAddProdEmp", "AdminPage")</p>
-        <p>@Html.ActionLink("Lägg till Användar Roll", "Index", "Role")</p>
-        <p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>
+        @Html.Partial("_AdminPagePartial")
+
+        @*<p>@Html.ActionLink("Admin", "Index", "AdminPage")</p>
+            <p class="onMenuChoice">@Html.ActionLink("Lägg till Prod/Anställd", "AdminAddProdEmp", "AdminPage")</p>
+            <p>@Html.ActionLink("Lägg till Användar Roll", "Index", "Role")</p>
+            <p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>*@
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-9 standardMenu">
 
         <div>
             <p>
                 Välj bland alternativen nedanför för att lägga till t.ex product
             </p>
         </div><br />
-        
+
 
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">

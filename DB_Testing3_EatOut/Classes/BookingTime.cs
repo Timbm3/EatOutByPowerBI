@@ -13,7 +13,10 @@ namespace EatOutByBI.Data.Classes
         public int BookingTimeId { get; set; }
 
         [Required]
-        public string Time { get; set; } 
+        public string Time { get; set; }
+
+        public int Plats { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 

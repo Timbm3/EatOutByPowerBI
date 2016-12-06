@@ -15,10 +15,7 @@
 <div class="conteiner">
     <div class="row">
         <div id="NavDessert" class="col-sm-3 menuNav">
-            <p>@Html.ActionLink("Meny", "Index", "Menu")</p>
-            <p>@Html.ActionLink("À la Carte", "ALaCarte", "Menu")</p>
-            <p>@Html.ActionLink("Dryck", "Drinks", "Menu")</p>
-            <p class="onMenuChoice">@Html.ActionLink("Efterrätter", "Desserts", "Menu")</p>
+            @Html.Partial("_MenuPagePartial")
         </div>
 
         <div class="col-sm-8 rightMenu">

@@ -148,7 +148,6 @@ namespace EatOutByBI.Domain.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        //[AllowAnonymous]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)

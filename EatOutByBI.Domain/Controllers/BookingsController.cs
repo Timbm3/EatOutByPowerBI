@@ -19,7 +19,7 @@ namespace EatOutByBI.Domain.Controllers
         private EatOutContext db = new EatOutContext();
 
         // GET: Bookings
-        public ActionResult Index()
+        public ActionResult BookingsIndex()
         {
             var dtoBooking = from b in db.Bookings.OrderByDescending(a => a.BookingId)
                              select new BookingDTO()
@@ -31,6 +31,11 @@ namespace EatOutByBI.Domain.Controllers
                                  Date = b.Date,
                                  DateAndTime = b.DateAndTime,
                                  BookingTimeId = b.BookingTimeId,
+
+
+                                 AntalPersoner = b.AntalPersoner,
+                                 AntalPlatser = b.AntalPlatser,
+                                 IsAvailable = b.IsAvailable
                                  //BookingTimes = b.BookingTime.ToList()
                              };
             //var bookings = db.Bookings.Include(b => b.BookingTime);bookings.ToList()
@@ -38,7 +43,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Bookings/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult BookingsDetails(int? id)
         {
             if (id == null)
             {
@@ -69,7 +74,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Bookings/Create
-        public ActionResult Create()
+        public ActionResult BookingsCreate()
         {
 
             var dtoMod = new BookingDTO()
@@ -87,7 +92,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time")] BookingDTO bookingDto)
+        public ActionResult BookingsCreate([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AntalPersoner,AntalPlatser")] BookingDTO bookingDto)
         {
 
             var bDTo = new Booking()
@@ -101,7 +106,15 @@ namespace EatOutByBI.Domain.Controllers
                 //DateAndTime = bookingDto.DateAndTime,
                 DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + bookingDto.Time),
                 BookingTimeId = bookingDto.BookingTimeId,
-                BookingTime = bookingDto.BookingTimes.ToList()
+                BookingTime = bookingDto.BookingTimes.ToList(),
+
+                Pers = bookingDto.Plats - bookingDto.Pers,
+                
+
+                AntalPersoner = bookingDto.AntalPersoner,
+                AntalPlatser = bookingDto.AntalPlatser,
+                //AntalPlatser = Convert.ToInt32(bookingDto.AntalPlatser - bookingDto.AntalPersoner),
+                IsAvailable = bookingDto.IsAvailable
             };
 
             if (ModelState.IsValid)
@@ -109,7 +122,7 @@ namespace EatOutByBI.Domain.Controllers
                 db.Bookings.Add(bDTo);
                 db.SaveChanges();
                 Thread.Sleep(5000);
-                return RedirectToAction("Index");
+                return RedirectToAction("BookingsIndex");
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);
@@ -144,14 +157,14 @@ namespace EatOutByBI.Domain.Controllers
             {
                 db.Entry(booking).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("BookingsIndex");
             }
             ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
             return View(booking);
         }
 
         // GET: Bookings/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult BookingsDelete(int? id)
         {
             if (id == null)
             {
@@ -173,7 +186,7 @@ namespace EatOutByBI.Domain.Controllers
             booking = db.Bookings.Find(id);
             db.Bookings.Remove(booking);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("BookingsIndex");
         }
 
         protected override void Dispose(bool disposing)

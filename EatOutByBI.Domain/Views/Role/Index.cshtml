@@ -12,15 +12,40 @@
 
 <div class="row">
     <div class="col-sm-3 menuNav">
-        <p class="onMenuChoice">@Html.ActionLink("Admin", "Index", "AdminPage")</p>
+        @Html.Partial("_AdminPagePartial")
+        @*<p class="onMenuChoice">@Html.ActionLink("Admin", "Index", "AdminPage")</p>
         <p>@Html.ActionLink("Lägg till Prod/Anställd", "AdminAddProdEmp", "AdminPage")</p>
         <p>@Html.ActionLink("Lägg till Användar Roll", "Index", "Role")</p>
-        <p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>
+        <p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>*@
     </div>
-    <div class="col-sm-7 tblAddRole">
+    <div class="col-sm-7 tblAddRole standardMenu">
         <div>
             <p>Här nedanför ser ni villka roller som finns, vill ni ska nya kan du göra det här nedanför</p>
         </div>
+        <h3> @Html.ActionLink("Click to Create New Role", "Create", "Role") </h3>
+
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>Roles</h3>
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
         <table cellpadding="6" cellspacing="6">
             <tr id="tblHead">
                 <td colspan="2">
@@ -44,7 +69,6 @@
                 <td>
 
 
-                    <h3> @Html.ActionLink("Click to Create New Role", "Create", "Role") </h3>
                 </td>
             </tr>
         </table>

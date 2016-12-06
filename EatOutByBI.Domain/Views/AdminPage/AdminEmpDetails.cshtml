@@ -1,0 +1,42 @@
+﻿@model EatOutByBI.Data.DTO.UsersDTO
+@{
+    ViewBag.Title = "AdminUserDetails";
+}
+
+<h2>Details</h2>
+
+
+<div class="standardMenu">
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+
+    </dl>
+
+    <p>
+        @Html.ActionLink("Edit", "AdminEmpEdit", new { id = Model.UserId }) |
+        @Html.ActionLink("Back to List", "Employees")
+    </p>
+</div>

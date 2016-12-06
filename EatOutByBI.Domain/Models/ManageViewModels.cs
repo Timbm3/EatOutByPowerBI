@@ -27,6 +27,8 @@ namespace EatOutByBI.Domain.Models
 
     public class SetPasswordViewModel
     {
+        public string UserId { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -41,7 +43,7 @@ namespace EatOutByBI.Domain.Models
 
     public class ChangePasswordViewModel
     {
-        public string UserName { get; set; }
+        public string UserId { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

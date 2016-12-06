@@ -225,61 +225,59 @@ h6,
 /* Page-level styles */
 .eventEmpE {
     list-style: none;
-
 }
 
-.eventEmpE > li {
-    position: relative;
-    margin-bottom: 30px;
-    background-color: rgba(0, 0, 0, 0.43);
-    
-}
-
-.eventEmpE > li .dateEmpE {
-    background: red;
-    color: white;
-    text-align: center;
-    width: 60px;
-    -ms-border-radius: 8px;
-    border-radius: 8px;
-}
-
-.eventEmpE > li .dateEmpE .monthEmpE{
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 2px 6px;
-}
-
-.eventEmpE > li .dateEmpE .dayEmpE {
-        background: #f7f7f7;
-        color: #333;
-        font-size: 20px;
-        padding: 6px 12px;
-    }
-
-.eventEmpE > li .detailsEmpE {
-    position: absolute;
-    top: 2px;
-    left: 70px;    
-}
-
-.eventEmpE > li .detailsEmpE .nameOfEventEmpE {
-        font-weight: bold;
-        display: block;
-        font-size: 22px
-    }
-
-.eventEmpE > li .detailsEmpE .typeEmpE {
-        font-size: 15px;
-    }
-
-.eventEmpE > li .detailsEmpE .descriptionEmpE {
+    .eventEmpE > li {
         position: relative;
-        left: 60px;
-        top: -22px;
-        font-size: 15px;
+        margin-bottom: 30px;
+        background-color: rgba(0, 0, 0, 0.43);
     }
+
+        .eventEmpE > li .dateEmpE {
+            background: red;
+            color: white;
+            text-align: center;
+            width: 60px;
+            -ms-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+            .eventEmpE > li .dateEmpE .monthEmpE {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 2px 6px;
+            }
+
+            .eventEmpE > li .dateEmpE .dayEmpE {
+                background: #f7f7f7;
+                color: #333;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+
+        .eventEmpE > li .detailsEmpE {
+            position: absolute;
+            top: 2px;
+            left: 70px;
+        }
+
+            .eventEmpE > li .detailsEmpE .nameOfEventEmpE {
+                font-weight: bold;
+                display: block;
+                font-size: 22px;
+            }
+
+            .eventEmpE > li .detailsEmpE .typeEmpE {
+                font-size: 15px;
+            }
+
+            .eventEmpE > li .detailsEmpE .descriptionEmpE {
+                position: relative;
+                left: 60px;
+                top: -22px;
+                font-size: 15px;
+            }
 
 
 .events > li .date {
@@ -290,33 +288,38 @@ h6,
 .events > li .eventHeader {
     text-align: center;
 }
+
 .nameOfEvent {
-    
 }
 
 .events > li .date .weekDay {
     position: absolute;
     left: 90px;
 }
+
 .events > li .date .day {
     position: absolute;
-        left: 160px;
+    left: 160px;
 }
+
 .events > li .date .month {
     position: absolute;
     left: 180px;
 }
+
 .events > li .details {
     margin-top: 20px;
     text-align: center;
 }
+
 .events {
-list-style-type: none;
+    list-style-type: none;
 }
-.events > li {
+
+    .events > li {
         margin-top: 5%;
         background-color: rgba(0, 0, 0, 0.43);
-}
+    }
 
 .picDiv {
     position: relative;
@@ -333,18 +336,26 @@ ul#menu li a {
     text-decoration: none;
     font-size: 25px;
 }
- 
-ul#menu li a.currentMenuItem {
-    background-color: black;   
-    color: white;
-}
+
+    ul#menu li a.currentMenuItem {
+        background-color: black;
+        color: white;
+    }
 
 #lblTest {
     padding: 5px 138px;
 }
 
 /*Admin Page*/
-.tblAddRole > table {
+.standardMenu {
+    background-color: rgba(245, 245, 245, 0.69);
+    font-size: 15px;
+    padding: 5px 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*.tblAddRole > table {
     background-color: whitesmoke;
     width: 500px;
     height: 200px;
@@ -375,5 +386,5 @@ align-content: center
 #tblName {
     width:100%; 
     border:dotted 1px;
-}
+}*/
 

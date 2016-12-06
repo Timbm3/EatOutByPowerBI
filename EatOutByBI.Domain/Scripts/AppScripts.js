@@ -20,6 +20,10 @@ $(document).ready(function ()
         }
     }, 100);
 
+    $("#NxtAltBooking1").click(function () {
+        var test = $("#Date").val();
+        alert(test);
+    });
 
     //Functions for Displaing hidden divs when next button is pressed + pass date to hidden date input
     $("#NxtAltBooking1").click(function () {
