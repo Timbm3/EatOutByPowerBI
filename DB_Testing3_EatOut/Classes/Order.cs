@@ -28,6 +28,8 @@ namespace EatOutByBI.Data.Classes
         public int PaymentMethodId { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
 
+
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
 

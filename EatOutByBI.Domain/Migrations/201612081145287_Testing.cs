@@ -3,7 +3,7 @@ namespace EatOutByBI.Domain.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddPaymentMethos : DbMigration
+    public partial class Testing : DbMigration
     {
         public override void Up()
         {
