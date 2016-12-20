@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Booked.cs" />
     <Compile Include="Classes\Booking.cs" />
     <Compile Include="Classes\BookingTime.cs" />
     <Compile Include="Classes\EmployeeForm.cs" />
@@ -84,33 +85,9 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201611230850322_NewDatabase.cs" />
-    <Compile Include="Migrations\201611230850322_NewDatabase.Designer.cs">
-      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611230858304_NewDatabase1.cs" />
-    <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
-      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612011238570_Merge.cs" />
-    <Compile Include="Migrations\201612011238570_Merge.Designer.cs">
-      <DependentUpon>201612011238570_Merge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612051338453_TestingPlatser.cs" />
-    <Compile Include="Migrations\201612051338453_TestingPlatser.Designer.cs">
-      <DependentUpon>201612051338453_TestingPlatser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612051341313_testing2.cs" />
-    <Compile Include="Migrations\201612051341313_testing2.Designer.cs">
-      <DependentUpon>201612051341313_testing2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612051420199_testing3.cs" />
-    <Compile Include="Migrations\201612051420199_testing3.Designer.cs">
-      <DependentUpon>201612051420199_testing3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612051421197_testing4.cs" />
-    <Compile Include="Migrations\201612051421197_testing4.Designer.cs">
-      <DependentUpon>201612051421197_testing4.cs</DependentUpon>
+    <Compile Include="Migrations\201612200956361_needCode.cs" />
+    <Compile Include="Migrations\201612200956361_needCode.Designer.cs">
+      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -124,26 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611230850322_NewDatabase.resx">
-      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611230858304_NewDatabase1.resx">
-      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612011238570_Merge.resx">
-      <DependentUpon>201612011238570_Merge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612051338453_TestingPlatser.resx">
-      <DependentUpon>201612051338453_TestingPlatser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612051341313_testing2.resx">
-      <DependentUpon>201612051341313_testing2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612051420199_testing3.resx">
-      <DependentUpon>201612051420199_testing3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612051421197_testing4.resx">
-      <DependentUpon>201612051421197_testing4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612200956361_needCode.resx">
+      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

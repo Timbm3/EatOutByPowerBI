@@ -199,6 +199,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
+    <Compile Include="Controllers\BookedsController.cs" />
     <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BookingTimesController.cs" />
@@ -414,7 +415,6 @@
     <Content Include="Views\EmployeesDTO\Details.cshtml" />
     <Content Include="Views\EmployeesDTO\Edit.cshtml" />
     <Content Include="Views\EmployeesDTO\Index.cshtml" />
-    <Content Include="Views\Bookings\BookingsCreate.cshtml" />
     <Content Include="Views\Bookings\BookingsDelete.cshtml" />
     <Content Include="Views\Bookings\BookingsDetails.cshtml" />
     <Content Include="Views\Bookings\Edit.cshtml" />
@@ -449,6 +449,14 @@
     <Content Include="Views\AdminPage\AdminEmpDelete.cshtml" />
     <Content Include="Views\Shared\_AdminPagePartial.cshtml" />
     <Content Include="Views\Shared\_MenuPagePartial.cshtml" />
+    <Content Include="Views\Bookeds\Create.cshtml" />
+    <Content Include="Views\Bookeds\Delete.cshtml" />
+    <Content Include="Views\Bookeds\Details.cshtml" />
+    <Content Include="Views\Bookeds\Edit.cshtml" />
+    <Content Include="Views\Bookeds\Index.cshtml" />
+    <Content Include="Views\Bookings\BookingsPreCreate.cshtml" />
+    <Content Include="Views\Bookings\_BookingsPreCreatePartial.cshtml" />
+    <Content Include="Views\Bookings\BookingsCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

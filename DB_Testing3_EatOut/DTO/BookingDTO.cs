@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,12 @@ namespace EatOutByBI.Data.DTO
         public int BookingTimeId { get; set; }
 
 
-        public int Pers { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int BookedId { get; set; }
+        public ICollection<Booked> Booked { get; set; }
+        public int NrOfPeople { get; set; }
 
-        public int Plats { get; set; }
+        public int AvailableSeats { get; set; }
 
 
         int _AntlPlatser;
@@ -86,6 +90,37 @@ namespace EatOutByBI.Data.DTO
 
             }
             set { _isAvailable = value; }
+        }
+
+        public static Booking DtoMappToBooking(BookingDTO bookingDto, DateTime converToDatAndTime)
+        {
+            var bDTo = new Booking()
+            {
+
+                BookingId = bookingDto.BookingId,
+                Name = bookingDto.Name,
+                Telephone = bookingDto.Telephone,
+                Email = bookingDto.Email,
+                Date = bookingDto.Date,
+                //DateAndTime = bookingDto.DateAndTime,
+                DateAndTime = converToDatAndTime,
+                BookingTimeId = bookingDto.BookingTimeId,
+                BookingTime = bookingDto.BookingTimes.ToList(),
+
+                NrOfPeople = bookingDto.NrOfPeople,
+
+            };
+            return bDTo;
+        }
+
+        public static int ConvertDateFiledToBookedId(BookingDTO bookingDto)
+        {
+            var stringConvertBookedId = bookingDto.Date;
+
+            string[] splitBookedId = stringConvertBookedId.Split('/');
+
+            int finalBookedId = Convert.ToInt32(splitBookedId[0] + splitBookedId[1] + splitBookedId[2]);
+            return finalBookedId;
         }
 
     }
