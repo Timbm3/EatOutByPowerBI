@@ -16,9 +16,6 @@ namespace EatOutByBI.Domain.Controllers
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.Employee).Include(o => o.Seat).Include(o => o.TimeTable);
-
-
-
             //var Dto = new OrderDTO();
             //var orders = Dto.OrderRowDtos.ToList();
             return View(orders.ToList());
@@ -40,33 +37,21 @@ namespace EatOutByBI.Domain.Controllers
         }
 
 
-
-
-
         // GET: Order/Create
         public ActionResult Create(OrderRowDTO oDto)
         {
-
-
-
             var viewModel = new OrderDTO()
             {
                 Employees = db.Employees.ToList(),
                 Seats = db.Seats.ToList(),
                 ProduktNamn = oDto.ProduktNamn,
                 Kvantitet = oDto.Kvantitet,
-
             };
             var viewModel2 = new OrderRowDTO()
             {
                 Products = oDto.Products,
-
             };
-
             return View(viewModel);
-
-
-
         }
 
         // POST: Order/Create
@@ -96,8 +81,6 @@ namespace EatOutByBI.Domain.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index", "Order");
-
-
         }
 
         // GET: Order/Edit/5
