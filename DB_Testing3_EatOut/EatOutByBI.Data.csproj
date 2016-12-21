@@ -85,18 +85,6 @@
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201611230850322_NewDatabase.cs" />
-    <Compile Include="Migrations\201611230850322_NewDatabase.Designer.cs">
-      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611230858304_NewDatabase1.cs" />
-    <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
-      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200956361_needCode.cs" />
-    <Compile Include="Migrations\201612200956361_needCode.Designer.cs">
-      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,17 +95,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612200956361_needCode.resx">
-      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611230850322_NewDatabase.resx">
-      <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611230858304_NewDatabase1.resx">
-      <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
