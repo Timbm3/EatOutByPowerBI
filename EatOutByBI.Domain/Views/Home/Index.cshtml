@@ -2,11 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row" >
+<div class="row">
     <div class="startImg col-md-6">
-        <img src="~/Pictures/slide5.jpg" /> 
+        <img src="~/Pictures/slide5.jpg" />
     </div>
-    
+
     @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Boka bord &raquo;</a></p>*@
 </div>
 
@@ -59,54 +59,57 @@
 </div>
 
 @*<div class="divOfGraphs row divText">
-    <div id="graphDiv1" class="graphDiv col-md-6">
-        <img src="~/Pictures/graph4.png" />
+        <div id="graphDiv1" class="graphDiv col-md-6">
+            <img src="~/Pictures/graph4.png" />
 
-    </div>
-    <div id="graphDiv2" class="graphDiv col-md-6">
+        </div>
+        <div id="graphDiv2" class="graphDiv col-md-6">
 
-        <img src="~/Pictures/graph2.png" />
-    </div>
-</div>*@
+            <img src="~/Pictures/graph2.png" />
+        </div>
+    </div>*@
 
 
 
 <div>
     <div class="reserveTable divText">
-        <img src="~/Pictures/bokabord1.png" />
+        <img src="~/Pictures/bokabord1.png"/>
     </div>
+    @{
+        Html.RenderPartial("Contact");
+    }
 </div>
 
 
 @*<div class="row">
-    <div class="col-md-4">
-        <h2>Varmrätter</h2>
-        <p>
-            Dagens Rätt:<br />
-            Smakrik wok med ingefära, kycklingfiléer, peppar och champinjoner och vitlök.<br />
-            Vegitarisk:<br />
-            Vegetarisk gul curry med tofu, potatis, morot och kokosmjölk<br />
-            Tillbehör:<br />
-            Hemmagjorda vegetariska vårrullar med söt chili.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Varmrätter &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Dessert</h2>
-        <p>
-            Dagens Dessert:<br />
-            APPLE-äpplekaka, vaniljglass
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Desserter &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Dryck</h2>
-        <p>
-            Dagens Dryck:<br />
-            Heineken 40 cl<br />
-            Vatten ingår till alla rätter.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Drycker &raquo;</a></p>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <h2>Varmrätter</h2>
+            <p>
+                Dagens Rätt:<br />
+                Smakrik wok med ingefära, kycklingfiléer, peppar och champinjoner och vitlök.<br />
+                Vegitarisk:<br />
+                Vegetarisk gul curry med tofu, potatis, morot och kokosmjölk<br />
+                Tillbehör:<br />
+                Hemmagjorda vegetariska vårrullar med söt chili.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Varmrätter &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Dessert</h2>
+            <p>
+                Dagens Dessert:<br />
+                APPLE-äpplekaka, vaniljglass
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Desserter &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Dryck</h2>
+            <p>
+                Dagens Dryck:<br />
+                Heineken 40 cl<br />
+                Vatten ingår till alla rätter.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Drycker &raquo;</a></p>
+        </div>
+    </div>*@
 <link href="~/Content/StartPageStyle.css" rel="stylesheet" />

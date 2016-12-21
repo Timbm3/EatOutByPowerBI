@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Booked.cs" />
     <Compile Include="Classes\Booking.cs" />
     <Compile Include="Classes\BookingTime.cs" />
     <Compile Include="Classes\EmployeeForm.cs" />
@@ -92,6 +93,10 @@
     <Compile Include="Migrations\201611230858304_NewDatabase1.Designer.cs">
       <DependentUpon>201611230858304_NewDatabase1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612200956361_needCode.cs" />
+    <Compile Include="Migrations\201612200956361_needCode.Designer.cs">
+      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +109,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612200956361_needCode.resx">
+      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611230850322_NewDatabase.resx">
       <DependentUpon>201611230850322_NewDatabase.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,7 @@
 ﻿using EatOutByBI.Data.Classes;
 using EatOutByBI.Data.Interfaces;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
@@ -9,7 +10,7 @@ namespace EatOutByBI.Data
     public class EatOutContext : DbContext
     {
 
-        public EatOutContext() : base("EatOutByBI.Domain2")
+        public EatOutContext() : base("EatOutByBI.Domain4")
         {
             //Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
 
@@ -39,6 +40,7 @@ namespace EatOutByBI.Data
 
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingTime> BookingTimes { get; set; }
+        public DbSet<Booked> Bookeds { get; set; }
 
 
 
@@ -49,6 +51,12 @@ namespace EatOutByBI.Data
         public DbSet<EmployeeEventType> EmployeeEventTypes { get; set; }
 
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Booked>()
+        //        .Property(x => x.BookedId)
+        //        .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+        //}
 
         public override int SaveChanges()
         {
