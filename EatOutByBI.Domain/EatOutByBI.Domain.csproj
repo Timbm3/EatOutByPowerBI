@@ -199,7 +199,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
-    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BookingTimesController.cs" />
@@ -224,13 +223,49 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612010836326_First.cs" />
-    <Compile Include="Migrations\201612010836326_First.Designer.cs">
-      <DependentUpon>201612010836326_First.cs</DependentUpon>
+    <Compile Include="Migrations\201611080927044_AddFactorTest.cs" />
+    <Compile Include="Migrations\201611080927044_AddFactorTest.Designer.cs">
+      <DependentUpon>201611080927044_AddFactorTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612081145287_Testing.cs" />
-    <Compile Include="Migrations\201612081145287_Testing.Designer.cs">
-      <DependentUpon>201612081145287_Testing.cs</DependentUpon>
+    <Compile Include="Migrations\201611080935103_AddFactorTest2.cs" />
+    <Compile Include="Migrations\201611080935103_AddFactorTest2.Designer.cs">
+      <DependentUpon>201611080935103_AddFactorTest2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611080949204_AddFactorTest3.cs" />
+    <Compile Include="Migrations\201611080949204_AddFactorTest3.Designer.cs">
+      <DependentUpon>201611080949204_AddFactorTest3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611080958397_AddFactorTest5.cs" />
+    <Compile Include="Migrations\201611080958397_AddFactorTest5.Designer.cs">
+      <DependentUpon>201611080958397_AddFactorTest5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611110930463_ConfigureClasses.cs" />
+    <Compile Include="Migrations\201611110930463_ConfigureClasses.Designer.cs">
+      <DependentUpon>201611110930463_ConfigureClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611110939449_ConfigureClasses2.cs" />
+    <Compile Include="Migrations\201611110939449_ConfigureClasses2.Designer.cs">
+      <DependentUpon>201611110939449_ConfigureClasses2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611111229239_BookingSystemV1.cs" />
+    <Compile Include="Migrations\201611111229239_BookingSystemV1.Designer.cs">
+      <DependentUpon>201611111229239_BookingSystemV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611141303578_tesstt.cs" />
+    <Compile Include="Migrations\201611141303578_tesstt.Designer.cs">
+      <DependentUpon>201611141303578_tesstt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611151022399_addDate.cs" />
+    <Compile Include="Migrations\201611151022399_addDate.Designer.cs">
+      <DependentUpon>201611151022399_addDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611151347315_addValidationBooking.cs" />
+    <Compile Include="Migrations\201611151347315_addValidationBooking.Designer.cs">
+      <DependentUpon>201611151347315_addValidationBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611151352026_addValidationBooking2.cs" />
+    <Compile Include="Migrations\201611151352026_addValidationBooking2.Designer.cs">
+      <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -408,8 +443,8 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
-    <Content Include="Views\AdminPage\Index.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\AdminPage\AdminIndex.cshtml" />
+    <Content Include="Views\Menu\MenuIndex.cshtml" />
     <Content Include="Views\Menu\ALaCarte.cshtml" />
     <Content Include="Views\Menu\Drinks.cshtml" />
     <Content Include="Views\Menu\Desserts.cshtml" />
@@ -418,23 +453,21 @@
     <Content Include="Views\OrderRows\Details.cshtml" />
     <Content Include="Views\OrderRows\Edit.cshtml" />
     <Content Include="Views\OrderRows\Index.cshtml" />
-    <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\EmployeesDTO\Create.cshtml" />
     <Content Include="Views\EmployeesDTO\Delete.cshtml" />
     <Content Include="Views\EmployeesDTO\Details.cshtml" />
     <Content Include="Views\EmployeesDTO\Edit.cshtml" />
     <Content Include="Views\EmployeesDTO\Index.cshtml" />
-    <Content Include="Views\Bookings\Create.cshtml" />
-    <Content Include="Views\Bookings\Delete.cshtml" />
-    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\BookingsCreate.cshtml" />
+    <Content Include="Views\Bookings\BookingsDelete.cshtml" />
+    <Content Include="Views\Bookings\BookingsDetails.cshtml" />
     <Content Include="Views\Bookings\Edit.cshtml" />
-    <Content Include="Views\Bookings\Index.cshtml" />
+    <Content Include="Views\Bookings\BookingsIndex.cshtml" />
     <Content Include="Views\BookingTimes\Create.cshtml" />
     <Content Include="Views\BookingTimes\Delete.cshtml" />
     <Content Include="Views\BookingTimes\Details.cshtml" />
     <Content Include="Views\BookingTimes\Edit.cshtml" />
     <Content Include="Views\BookingTimes\Index.cshtml" />
-    <Content Include="Views\Booking\_PartialBookingTime.cshtml" />
     <Content Include="Views\EmployeesDTO\Show.cshtml" />
     <Content Include="Views\EmployeeFormDto\Index.cshtml" />
     <Content Include="Views\EmployeeFormDto\Create.cshtml" />
@@ -454,6 +487,12 @@
     <Content Include="Views\Event\CreateEvent.cshtml" />
     <Content Include="Views\Event\CreateEmployeeEvent.cshtml" />
     <Content Include="Views\Shared\_EmployeePagePartial.cshtml" />
+    <Content Include="Views\AdminPage\Employees.cshtml" />
+    <Content Include="Views\AdminPage\AdminEmpDetails.cshtml" />
+    <Content Include="Views\AdminPage\AdminEmpEdit.cshtml" />
+    <Content Include="Views\AdminPage\AdminEmpDelete.cshtml" />
+    <Content Include="Views\Shared\_AdminPagePartial.cshtml" />
+    <Content Include="Views\Shared\_MenuPagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -474,11 +513,43 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612010836326_First.resx">
-      <DependentUpon>201612010836326_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611080927044_AddFactorTest.resx">
+      <DependentUpon>201611080927044_AddFactorTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612081145287_Testing.resx">
-      <DependentUpon>201612081145287_Testing.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611080935103_AddFactorTest2.resx">
+      <DependentUpon>201611080935103_AddFactorTest2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611080949204_AddFactorTest3.resx">
+      <DependentUpon>201611080949204_AddFactorTest3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611080958397_AddFactorTest5.resx">
+      <DependentUpon>201611080958397_AddFactorTest5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611110930463_ConfigureClasses.resx">
+      <DependentUpon>201611110930463_ConfigureClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611110939449_ConfigureClasses2.resx">
+      <DependentUpon>201611110939449_ConfigureClasses2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111229239_BookingSystemV1.resx">
+      <DependentUpon>201611111229239_BookingSystemV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611141303578_tesstt.resx">
+      <DependentUpon>201611141303578_tesstt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611151022399_addDate.resx">
+      <DependentUpon>201611151022399_addDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611151347315_addValidationBooking.resx">
+      <DependentUpon>201611151347315_addValidationBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611151352026_addValidationBooking2.resx">
+      <DependentUpon>201611151352026_addValidationBooking2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611071001433_InitialMigrations.resx">
+      <DependentUpon>201611071001433_InitialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

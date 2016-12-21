@@ -3,7 +3,7 @@
 @model  EatOutByBI.Data.DTO.BookingDTO
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "BookingsCreate";
 }
 
 <h2>Booking</h2>
@@ -25,13 +25,21 @@
             <br />
             <input id="NxtAltBooking1" type="button" value="Nästa" />
             @*<a id="NxtAltBooking1">Nästa</a>*@
+
+            @Html.EditorFor(model => model.Pers)
+            
+            @*@Html.DisplayFor(m => m.AntalPlatser)
+            @Html.EditorFor(model => model.AntalPlatser, new { htmlAttributes = new { @class = "form-control" } })
+
+            @Html.DisplayFor(m => m.AntalPersoner)
+            @Html.EditorFor(model => model.AntalPersoner, new { htmlAttributes = new { @class = "form-control" } })*@
+
         </div>
 
         <div hidden="" id="ShowBookingTime" class="col-sm-4">
             <h3>Välj Tid</h3>
             <br />
             <div class="btn-group" data-toggle="buttons">
-
                 <ul id="horizontalTest">
                     @foreach (var item in Model.BookingTimes)
                     {
@@ -45,7 +53,7 @@
                     }
                 </ul>
                 @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
-                <h2 id="lblTest"></h2>   
+                <h2 id="lblTest"></h2>
             </div>
             <br />
             <input id="NxtAltBooking2" type="button" value="Nästa" />
@@ -67,43 +75,43 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Telephone, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Telephone, new {htmlAttributes = new {@class = "form-control inpBookingPhone"}})
-                    @Html.ValidationMessageFor(model => model.Telephone, "", new {@class = "text-danger"})
+                    @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control inpBookingPhone" } })
+                    @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
                 </div>
+            </div>
+            <div id="testDiv" class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inpBookingEmail" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
-                <div id="testDiv" class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inpBookingEmail"} })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+            </div>
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.BookingTimeId, "BookingTimeId", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.BookingTimeId, new { htmlAttributes = new { @class = "form-control hdnInpBookingId" } })
-                        @Html.ValidationMessageFor(model => model.BookingTimeId, "", new { @class = "text-danger" })
-                        <br />
-                        @*@Html.EditorFor(model => model.DateAndTime, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })*@
-                        @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control hdnInpBookingTime" } })
-                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.BookingTimeId, "BookingTimeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BookingTimeId, new { htmlAttributes = new { @class = "form-control hdnInpBookingId" } })
+                    @Html.ValidationMessageFor(model => model.BookingTimeId, "", new { @class = "text-danger" })
+                    <br />
+                    @*@Html.EditorFor(model => model.DateAndTime, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })*@
+                    @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control hdnInpBookingTime" } })
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input id="btnCreate" type="submit" value="Create" class="btn btn-default" />
-                    </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input id="btnCreate" type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
+    </div>
 
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "BookingsIndex")
 </div>
 
 @section Scripts{
