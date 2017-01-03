@@ -1,0 +1,31 @@
+﻿@model EatOutByBI.Domain.viewModels.SalesOrderViewModel
+@using System.Web.Script.Serialization
+
+
+@{
+    ViewBag.Title = "Sales Order Details";
+}
+
+@{
+    string data = new JavaScriptSerializer().Serialize(Model);
+}
+
+@section scripts
+{
+
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/firstexejs.js"></script>
+    <script src="~/Scripts/salesorderviewmodel.js"></script>
+    <script type="text/javascript">
+        $(document).ajaxStop(function (event, request, settings) {
+
+        var salesOrderViewModel = new SalesOrderViewModel(@Html.Raw(data));
+        ko.applyBindings(salesOrderViewModel);
+
+        });
+    </script>
+}
+
+
+@Html.Partial("_DisplaySalesOrder")

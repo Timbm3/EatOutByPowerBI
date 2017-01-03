@@ -9,18 +9,16 @@ namespace EatOutByBI.Data
     public class EatOutContext : DbContext
     {
 
-        public EatOutContext() : base("EatOutByBI.Domain2")
+        public EatOutContext() : base("EatOutByBI.Domain4")
         {
-            //Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
-
-
+            Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
         }
 
 
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<SalesOrder> SalesOrders { get; set; }
 
-        public DbSet<OrderRow> OrderRows { get; set; }
+        public DbSet<SalesOrderItem> SalesOrderItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Seat> Seats { get; set; }

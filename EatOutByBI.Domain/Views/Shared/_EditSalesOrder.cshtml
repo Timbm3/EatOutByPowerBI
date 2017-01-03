@@ -1,0 +1,106 @@
+﻿
+<h2>@ViewBag.Title</h2>
+
+<p data-bind="text: MessageToClient"></p>
+
+<form id="myform">
+    <div class="form-group">
+        <label class="control-label" for="CustomerName">Customer Name:</label>
+        <input class="form-control" name="CustomerName" id="CustomerName" data-bind="value: CustomerName, event: {change: flagSalesOrderAsEdited}" />
+    </div>
+
+    <div class="form-group">
+        @*<label class="control-label" for="SeatId">Seat:</label>
+            <span class="form-group" data-bind="text: SeatPlace"></span>
+            <select id="SeatId" class="pc form-control" data-bind="value: SeatId, event: {change: flagSalesOrderAsEdited}">
+                <option>Select</option>
+            </select>*@
+        <select class="form-group form-control" data-bind="options: seats, optionsText: 'SeatPlace', value: SeatId, optionsValue: 'SeatId', selectedOption: 'PaymentMethodId', optionsCaption: 'Select All', event: {change: flagSalesOrderAsEdited}"> </select>
+    </div>
+
+    <div class="form-group">
+        @*<label class="control-label" for="EmployeeId">Employee:</label>
+            <span class="form-group" data-bind="text: EmployeeName"></span>
+            <select id="EmployeeId" class="pc form-control" data-bind="value: EmployeeId, event: {change: flagSalesOrderAsEdited}">
+                <option>Select</option>
+            </select>*@
+        <select class="form-group form-control" data-bind="options: employees, optionsText: 'EmployeeName', value: EmployeeId, optionsValue: 'EmployeeId', selectedOption: 'EmployeeId', optionsCaption: 'Select All', event: {change: flagSalesOrderAsEdited}"> </select>
+    </div>
+
+    <div class="form-group">
+        @*<label class="control-label" for="PaymentMethodId">PaymentMethod:</label>
+            @*<span class="form-group" data-bind="text: PaymentMethods"></span>
+            <select id="PaymentMethodId" class="pc form-control" data-bind="value: PaymentMethodId, event: {change: flagSalesOrderAsEdited}">
+                <option>Select</option>
+            </select>*@
+        <select class="form-group form-control" data-bind="options: paymentMethods, optionsText: 'PaymentMethodType', value: PaymentMethodId, optionsValue: 'PaymentMethodId', selectedOption: 'PaymentMethodId', optionsCaption: 'Select All', event: {change: flagSalesOrderAsEdited}"> </select>
+    </div>
+    @*<div class="form-group">
+            <label class="control-label" for="PONumber">P.O. Number:</label>
+            <input class="form-control" name="PONumber" id="PONumber" data-bind="value: PONumber, event: {change: flagSalesOrderAsEdited}" />
+        </div>*@
+    @*data-bind="value: PONumber, event: {change: flagSalesOrderAsEdited}"*@
+
+
+    @*console.log(Products)*@
+    <table class="table standardMenu table-responsive">
+        <tr>
+            <th><h3>Name</h3> </th>
+            <th><h3>Quantity</h3></th>
+            <th>&nbsp;</th>
+            <th><h3>Unit Price</h3></th>
+            <th><button class="btn btn-info btn-xs" data-bind="click: addSalesOrderItem">Add</button></th>
+        </tr>
+        <tbody data-bind="foreach: SalesOrderItems">
+            <tr>
+                <td>
+
+                    @*<select id="productCategory" class="pc form-control" data-bind="value: ProductId">
+                            <option>Select</option>
+                        </select>*@
+                    @*<select data-bind="options: $parent.product1, optionsText: 'ProductName', optionsValue: 'ProductId', value: ProductId"></select>*@
+                    <select class="form-group form-control" data-bind="options: itemss, optionsText: 'ProductName', value: ProductId, optionsValue: 'ProductId', selectedOption: selectedOption, event: {change: flagSalesOrderAsEdited}"> </select>
+                    @**@
+                </td>
+                @*<td class="form-group"><input class="form-control input-sm" data-bind="value: ProductId" /></td>*@
+                <td class="form-group"><input class="form-control text-right" data-bind="value: Quantity, event: {change: flagSalesOrderAsEdited}" /></td>
+                @*<td class="form-group"><span class="form-control input-sm" data-bind="text: Products[0].UnitPrice"></span></td>*@
+                @*<td class="form-group"><span class="form-control input-sm" data-bind="text: ProductId"></span></td>*@
+                <td>&nbsp;</td>
+                <td class="form-group"><span class="form-control input-sm text-right" data-bind="text: findItem()"></span></td>
+                <td class="form-group">
+                    <button class="btn btn-danger btn-xs"
+                            data-bind="click: $parent.deleteSalesOrderItem">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td class="form-group"><span class="form-control text-right">Total</span></td>
+            <td class="form-group"><span class="form-control text-right" data-bind="text: contactsTotal()"></span></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+
+    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+
+
+    <p><button class="btn btn-primary" type="submit" >Save</button></p>
+    @*"data-bind="click: save"*@
+    <p><a class="btn btn-default btn-sm" href="/">&laquo; Back to List</a></p>
+
+    @*  Validation
+        Pris(kr)
+        Merge 
+        Design
+        Adapter(Display Port)
+        Bokning till event
+        "osynliga" events (ex fotboll etc)
+        Cascade delete på t ex Anställda. Om en anställd försvinner så ska inte alla orders försvinna.
+    *@
+
+</form>

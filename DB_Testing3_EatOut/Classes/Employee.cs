@@ -6,11 +6,11 @@ namespace EatOutByBI.Data.Classes
 {
     public class Employee : IModificationHistory
     {
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string EmployeeName { get; set; }
 
 
         public int EmployeeFormID { get; set; }

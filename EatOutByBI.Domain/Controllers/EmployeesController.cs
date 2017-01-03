@@ -19,8 +19,8 @@ namespace EatOutByBI.Domain.Controllers
         {
             var viewModel = new EmployeeDTO()
             {
-                EmployeeID = employee.EmployeeID,
-                Name = employee.Name,
+                EmployeeId = employee.EmployeeId,
+                EmployeeName = employee.EmployeeName,
                 EmployeeFormID = employee.EmployeeFormID,
                 EmployeeTypeID = employee.EmployeeTypeID,
                 FormName = employee.EmployeeForm.EmployeeFormName,
@@ -40,8 +40,8 @@ namespace EatOutByBI.Domain.Controllers
             var employee = from e in db.Employees
                            select new EmployeeDTO()
                            {
-                               EmployeeID = e.EmployeeID,
-                               Name = e.Name,
+                               EmployeeId = e.EmployeeId,
+                               EmployeeName = e.EmployeeName,
                                FormName = e.EmployeeForm.EmployeeFormName,
                                TypeName = e.EmployeeType.EmployeeTypeName
                            };
@@ -89,7 +89,7 @@ namespace EatOutByBI.Domain.Controllers
                 {
                     var employee = new Employee()
                     {
-                        Name = eDto.Name,
+                        EmployeeName = eDto.EmployeeName,
                         EmployeeFormID = eDto.EmployeeFormID,
                         EmployeeTypeID = eDto.EmployeeTypeID,
 
@@ -143,8 +143,8 @@ namespace EatOutByBI.Domain.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    emp.EmployeeID = eDto.EmployeeID;
-                    emp.Name = eDto.Name;
+                    emp.EmployeeId = eDto.EmployeeId;
+                    emp.EmployeeName = eDto.EmployeeName;
                     emp.EmployeeFormID = eDto.EmployeeFormID;
                     emp.EmployeeTypeID = eDto.EmployeeTypeID;
                     db.Entry(emp).State = EntityState.Modified;

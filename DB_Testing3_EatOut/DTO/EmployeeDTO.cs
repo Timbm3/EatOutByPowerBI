@@ -13,11 +13,11 @@ namespace EatOutByBI.Data.DTO
             EmployeeTypes = new HashSet<EmployeeType>();
         }
 
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string EmployeeName { get; set; }
 
         public int EmployeeFormID { get; set; }
         public IEnumerable<EmployeeForm> EmployeeForms { get; set; }

@@ -8,7 +8,7 @@ namespace EatOutByBI.Data.DTO
 
         public OrderDTO()
         {
-            OrderRows = new HashSet<OrderRow>();
+            OrderRows = new HashSet<SalesOrderItem>();
         }
 
         public int OrderID { get; set; }
@@ -19,7 +19,7 @@ namespace EatOutByBI.Data.DTO
 
 
         public IEnumerable<OrderRowDTO> OrderRowDtos { get; set; }
-        public IEnumerable<OrderRow> OrderRows { get; set; }
+        public IEnumerable<SalesOrderItem> OrderRows { get; set; }
 
         public Product Product { get; set; }
         public string ProduktNamn { get; set; }
