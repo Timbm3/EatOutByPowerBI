@@ -2,15 +2,54 @@
 //Loading Datepicker
 $(function () {
     // This will make every element with the class "date-picker" into a DatePicker element
-    $('.date-picker').datepicker();
+    //$('.date-picker').datepicker();
+
+    var nonAvailableDates = [];
+    //fetch categories from database
+    function LoadNonAvailableDates() {
+        if (nonAvailableDates.length == 0) {
+            //ajax function for fetch data
+            $.ajax({
+                type: "GET",
+                url: '/Bookings/GetNonAvailableDates/',
+                success: function (data) {
+
+                    nonAvailableDates = data;
+                    //render catagory
+                    //  renderEmployees(element);
+                    console.log(nonAvailableDates[0])
+
+                }
+            })
+        }
+        else {
+            alert("Load employee problems")
+            //render catagory to the element
+            //renderEmployees(element);
+        }
+    }
+
+
+
+    var array = ["20161212", "12122016", "2013-03-16"]
+
+    $('.date-picker').datepicker({
+        //dateFormat: 'dd-mm-yy',
+
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('ddmmyy', date);
+            return [$.inArray(string, array) == -1];
+        }
+    })
+
 });
 
 
-$(document).ready(function ()
-{
+$(document).ready(function () {
     //Function for Next button, can not be pressed if inputvalue is empty
     //var $input = $('#Date');
     //var $button = $('#NxtAltBooking1');
+
 
     //setInterval(function () {
     //    if ($input.val().length > 0) {
@@ -24,7 +63,6 @@ $(document).ready(function ()
     //    var test = $("#Date").val();
     //    alert(test);
     //});
-
 
     //Functions for Displaing hidden divs when next button is pressed + pass date to hidden date input
     $("#NxtAltBooking1").click(function () {
@@ -61,13 +99,22 @@ $(document).ready(function ()
 
 
 
+    
+
+    $('div').click(function () {
+        $("a.ui-state-default").each(function (index) {
+            $(this).attr('id', index + 1);
+            
+        });
+    });
+
 
     $.each($('.bookingBtns'), function (index, value) {
         $('#btnBooking_' + index).click(function () {
             //var dateForBooking = document.getElementById('Date').value;
             var timeForBooking = document.getElementById('btnBooking_' + index).value;
             var idForBooking = document.getElementById('btnBooking_' + index).name;
- 
+
 
             var $button = $('#li_' + index).clone();
             $('#bookingPplList').html($button);
@@ -77,11 +124,11 @@ $(document).ready(function ()
     });
 
 
-    $('#btnBooking_0').click(function() {
-            var $button = $('#li_0').clone();
-            $('#test').html($button);
-            $('#test > li > input').hide();
-            $('#test > li > label').removeClass('hidden');
+    $('#btnBooking_0').click(function () {
+        var $button = $('#li_0').clone();
+        $('#test').html($button);
+        $('#test > li > input').hide();
+        $('#test > li > label').removeClass('hidden');
     });
 
 
@@ -117,5 +164,6 @@ $(document).ready(function ()
 
         }
     });
+
 
 });

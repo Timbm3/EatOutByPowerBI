@@ -15,6 +15,8 @@ using EatOutByBI.Data.DTO;
 using EatOutByBI.Domain.Models;
 using Microsoft.Ajax.Utilities;
 using WebGrease.Css.Ast.Selectors;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -58,127 +60,66 @@ namespace EatOutByBI.Domain.Controllers
         }
 
 
-        //Get: /Bookings/Test
-        public ActionResult _BookingsPreCreatePartial(int id)
+        public JsonResult GetNonAvailableDates()
         {
-            Booked booked = db.Bookeds.Find(id);
+            //var testIds = db.BookingTimes
+            //    .Where(b => b.IsAvailable == false)
+            //    .GroupBy(b => b.BookedId)
+            //    .Select(bt => new { Value = bt.Key, Count = bt.Count() })
+            //    .OrderByDescending(b => b.Count);
 
+            //List<string> nonAvailableDates = new List<string>() { };
 
-            var testQuery = from bt in db.BookingTimes
-                            where bt.BookedId == id
-                            select bt;
+            //foreach (var item in testIds)
+            //{
+            //    if (item.Count >= 1)
+            //    {
 
+            //        nonAvailableDates.Add(item.Value.ToString());
+            //    };
+            //};
+            //nonAvailableDates.ToArray();
 
+            var testIds = db.BookingTimes
+                .Where(b => b.IsAvailable == false)
+                .GroupBy(b => b.BookedId)
+                .Select(bt => new { Value = bt.Key, Count = bt.Count() })
+                .OrderByDescending(b => b.Count);
 
-            var dtoMod = new BookingDTO()
+            List<string> nonAvaDates = new List<string>() { };
+
+            foreach (var item in testIds)
             {
-                //BookingTimes = booked.BookingTimes.ToList(),
-                BookingTimes = testQuery.ToList(),
-                Booked = new[] { booked },
-                Booking = db.Bookings.ToList(),
-                //BookedId = id,
-                //Date = date,
-                IsAvailable = true
+                Booked notAvailable = db.Bookeds.Find(item.Value);
+                //item.Count >= notAvailable.BookingTimes.Count()
+                if (item.Count >= 3)
+                {
+                    //Booked notAvailable = db.Bookeds.Find(item.Value);
 
+                    notAvailable.IsDateAvailable = false;
+
+                    nonAvaDates.Add(notAvailable.BookedId.ToString());
+                };
             };
 
-            return PartialView(dtoMod);
+
+            var serializer = new JavaScriptSerializer();
+            var serializedResult = serializer.Serialize(nonAvaDates);
+
+            var deserializedResult = serializer.Deserialize<List<string>>(serializedResult);
+
+            return new JsonResult { Data = nonAvaDates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult _BookingsPreCreatePartial(
-    [Bind(
-                Include =
-                    "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AntalPersoner,AntalPlatser,Plats,Pers,BookedId"
-                )] BookingDTO bookingDto, int id, string date)
-        {
-            var stringConvertBookedId = bookingDto.Date;
-
-            string[] splitBookedId = stringConvertBookedId.Split('/');
-
-            int finalBookedId = Convert.ToInt32(splitBookedId[0] + splitBookedId[1] + splitBookedId[2]);
-            //finalBookedId = Convert.ToInt32(splitBookedId[0] + splitBookedId[1] + splitBookedId[2]);
-
-            var idExists = db.Bookeds.Any(d => d.BookedId == finalBookedId);
-
-            id = finalBookedId;
-
-            Booked teestt = db.Bookeds.Find(id);
-
-
-
-            Booked boooked = db.Bookeds.Find(finalBookedId);
-
-            if (!idExists)
-            {
-                var time1 = "17:00:00";
-                var time2 = "19:00:00";
-                var time3 = "21:00:00";
-
-                List<BookingTime> bookingTimes = new List<BookingTime>()
-                    {
-                        new BookingTime()
-                        {
-                            BookedId = finalBookedId,
-                            Time = time1,
-                            Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        },
-                        new BookingTime()
-                        {
-                            BookedId = finalBookedId,
-                            Time = time2,
-                            Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        },
-                        new BookingTime()
-                        {
-                            BookedId = finalBookedId,
-                            Time = time3,
-                            Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        }
-                    };
-
-                foreach (var bookingTime in bookingTimes)
-                {
-                    //bookingTime.Plats -= bookingDto.Pers;
-                    db.BookingTimes.Add(bookingTime);
-                }
-
-                boooked = new Booked()
-                {
-                    BookedId = finalBookedId,
-                    //DateAndTime = converToDatAndTime,
-                    BookingTimes = bookingTimes.ToList(),
-
-                };
-
-                //boooked.Plats -= bookingDto.Pers;
-
-
-                db.Bookeds.Add(boooked);
-                db.SaveChanges();
-
-                return RedirectToAction("BookingsCreate", "Bookings", new { id = finalBookedId, date = bookingDto.Date });
-
-            }
-
-
-            return RedirectToAction("BookingsCreate", "Bookings", new { id = finalBookedId, date = bookingDto.Date });
-
-        }
-
-
-
 
         //Get: Bookings/PreCreate
         public ActionResult BookingsPreCreate()
         {
-            //var testQuery = from bt in db.BookingTimes
-            //                where bt.BookedId == bt.BookedId
-            //                select bt;
+
+            //var testIds = db.BookingTimes.Where(b => b.IsAvailable == false).OrderBy(bt => bt.BookedId);
+
+
+            //var testusString = JsonConvert.SerializeObject(testus);
+            //ViewBag.testusString = testusString;
 
 
             var dtoMod = new BookingDTO()
@@ -201,6 +142,7 @@ namespace EatOutByBI.Domain.Controllers
                     "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId"
                 )] BookingDTO bookingDto, int id, string date)
         {
+
             int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
 
             var idExists = db.Bookeds.Any(d => d.BookedId == finalBookedId);
@@ -218,8 +160,10 @@ namespace EatOutByBI.Domain.Controllers
                 List<BookingTime> bookingTimes =
                     BookingTime.AddDefaultTimes(bookingDto, finalBookedId);
 
+
                 foreach (var bookingTime in bookingTimes)
                 {
+
                     db.BookingTimes.Add(bookingTime);
                 }
 
@@ -228,7 +172,6 @@ namespace EatOutByBI.Domain.Controllers
                     BookedId = finalBookedId,
                     //Adding custom list to Booked
                     BookingTimes = bookingTimes.ToList(),
-
                 };
 
 
@@ -261,6 +204,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
 
+
             var dtoMod = new BookingDTO()
             {
                 //BookingTimes = booked.BookingTimes.ToList(),
@@ -287,19 +231,18 @@ namespace EatOutByBI.Domain.Controllers
         {
 
 
+            int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
+
+
+            //var dateExists = db.Bookeds.Any(d => d.DateAndTime == converToDatAndTime);
+
+            var idExists = db.Bookeds.Any(d => d.BookedId == finalBookedId);
 
             var converToDatAndTime = Convert.ToDateTime(bookingDto.Date + " " + bookingDto.Time);
 
 
             //Mapping Dto values to Booking Values
-            Booking bDTo = BookingDTO.DtoMappToBooking(bookingDto, converToDatAndTime);
-
-
-            int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
-
-            //var dateExists = db.Bookeds.Any(d => d.DateAndTime == converToDatAndTime);
-
-            var idExists = db.Bookeds.Any(d => d.BookedId == finalBookedId);
+            Booking bDTo = BookingDTO.DtoMappToBooking(bookingDto, finalBookedId, converToDatAndTime);
 
 
             Booked boooked = db.Bookeds.Find(finalBookedId);

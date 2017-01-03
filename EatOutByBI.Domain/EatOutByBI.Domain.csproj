@@ -224,6 +224,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612220923289_DateAvailable.cs" />
+    <Compile Include="Migrations\201612220923289_DateAvailable.Designer.cs">
+      <DependentUpon>201612220923289_DateAvailable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030825301_dsfh.cs" />
+    <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
+      <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HtmlHelpers.cs" />
@@ -457,6 +465,9 @@
     <Content Include="Views\Bookings\BookingsPreCreate.cshtml" />
     <Content Include="Views\Bookings\_BookingsPreCreatePartial.cshtml" />
     <Content Include="Views\Bookings\BookingsCreate.cshtml" />
+    <Content Include="Views\Manager\EmpDiagrams.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Manager\Bookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -475,6 +486,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612220923289_DateAvailable.resx">
+      <DependentUpon>201612220923289_DateAvailable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030825301_dsfh.resx">
+      <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

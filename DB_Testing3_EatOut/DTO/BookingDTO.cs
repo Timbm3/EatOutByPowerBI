@@ -92,7 +92,7 @@ namespace EatOutByBI.Data.DTO
             set { _isAvailable = value; }
         }
 
-        public static Booking DtoMappToBooking(BookingDTO bookingDto, DateTime converToDatAndTime)
+        public static Booking DtoMappToBooking(BookingDTO bookingDto, int finalBookedId, DateTime converToDatAndTime)
         {
             var bDTo = new Booking()
             {
@@ -108,7 +108,7 @@ namespace EatOutByBI.Data.DTO
                 BookingTime = bookingDto.BookingTimes.ToList(),
 
                 NrOfPeople = bookingDto.NrOfPeople,
-
+                BookedId = finalBookedId
             };
             return bDTo;
         }

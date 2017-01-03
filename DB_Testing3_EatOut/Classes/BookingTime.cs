@@ -11,6 +11,11 @@ namespace EatOutByBI.Data.Classes
 {
     public class BookingTime
     {
+        //public BookingTime()
+        //{
+        //    DefaultTimes = new List<string>() { "17:00:00", "19:00:00", "21:00:00" };
+        //}
+
         public int BookingTimeId { get; set; }
 
         [Required]
@@ -18,6 +23,8 @@ namespace EatOutByBI.Data.Classes
         public string Date { get; set; }
 
         public DateTime DateAndTime { get; set; }
+
+        //public ICollection<string> DefaultTimes { get; set; }
 
         public int AvailableSeats { get; set; } = 10;
 
@@ -52,30 +59,63 @@ namespace EatOutByBI.Data.Classes
             var time2 = "19:00:00";
             var time3 = "21:00:00";
 
-            List<BookingTime> bookingTimes = new List<BookingTime>()
-                    {
+            List<BookingTime> bookingTimes = new List<BookingTime>() { };
+
+
+            List<string> defaulTimes = new List<string>() { "17:00:00", "19:00:00", "21:00:00" };
+
+            foreach (var time in defaulTimes)
+            {
+                bookingTimes.Add(
                         new BookingTime()
                         {
                             BookedId = finalBookedId,
-                            Time = time1,
+                            Time = time,
                             Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        },
-                        new BookingTime()
-                        {
-                            BookedId = finalBookedId,
-                            Time = time2,
-                            Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        },
-                        new BookingTime()
-                        {
-                            BookedId = finalBookedId,
-                            Time = time3,
-                            Date = bookingDto.Date,
-                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
-                        }
-                    };
+                            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time)
+                        });
+            };
+
+            //for (int i = 0; i <= 2; i++)
+            //{
+            //    bookingTimes.Add(
+            //        new BookingTime()
+            //        {
+            //            BookedId = finalBookedId,
+            //            Time = defaulTimes[i],
+            //            Date = bookingDto.Date,
+            //            DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + defaulTimes[i])
+            //        });
+            //}
+
+
+            //List<BookingTime> bookingTimes = new List<BookingTime>()
+            //        {
+            //            new BookingTime()
+            //            {
+            //                BookedId = finalBookedId,
+            //                Time = time1,
+            //                Date = bookingDto.Date,
+            //                DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time1)
+            //            },
+            //            new BookingTime()
+            //            {
+            //                BookedId = finalBookedId,
+            //                Time = time2,
+            //                Date = bookingDto.Date,
+            //                DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time2)
+            //            },
+            //            new BookingTime()
+            //            {
+            //                BookedId = finalBookedId,
+            //                Time = time3,
+            //                Date = bookingDto.Date,
+            //                DateAndTime = Convert.ToDateTime(bookingDto.Date + " " + time3)
+            //            }
+            //        };
+
+
+
             return bookingTimes;
         }
 
