@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.EmployeeName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FormName)
@@ -40,7 +40,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.EmployeeName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FormName)
@@ -62,9 +62,9 @@
                     @Html.DisplayFor(modelItem => item.)
                 </td>*@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
             </td>
         </tr>
     }

@@ -10,7 +10,7 @@ namespace EatOutByBI.Data.Classes
         {
 
         }
-        public int SeatID { get; set; }
+        public int SeatId { get; set; }
 
 
         [Required]

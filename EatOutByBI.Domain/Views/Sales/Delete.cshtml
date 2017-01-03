@@ -1,0 +1,34 @@
+﻿@model EatOutByBI.Domain.viewModels.SalesOrderViewModel
+@using System.Web.Script.Serialization
+
+
+@{
+    ViewBag.Title = "Delete Sales Order";
+}
+
+@{
+    string data = new JavaScriptSerializer().Serialize(Model);
+}
+
+@section scripts
+{
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    <script src="~/Scripts/salesorderviewmodel.js"></script>
+    <script type="text/javascript">
+
+        $(document).ajaxStop(function (event, request, settings) {
+
+            var salesOrderViewModel = new SalesOrderViewModel(@Html.Raw(data));
+            ko.applyBindings(salesOrderViewModel);
+
+        });
+    </script>
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_DisplaySalesOrder")
+
+<p><button class="btn btn-danger" data-bind="click: save">Delete</button></p>

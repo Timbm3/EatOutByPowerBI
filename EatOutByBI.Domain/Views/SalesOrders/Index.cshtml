@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EatOutByBI.Data.Classes.SalesOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethod.PaymentMethodType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seat.SeatPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factor1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factor2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentMethod.PaymentMethodType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seat.SeatPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Factor1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Factor2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SalesOrderId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SalesOrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SalesOrderId })
+        </td>
+    </tr>
+}
+
+</table>

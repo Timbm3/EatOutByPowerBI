@@ -61,8 +61,9 @@
     <Compile Include="Classes\EmployeeForm.cs" />
     <Compile Include="Classes\EmployeeType.cs" />
     <Compile Include="Classes\Event.cs" />
-    <Compile Include="Classes\Order.cs" />
-    <Compile Include="Classes\OrderRow.cs" />
+    <Compile Include="Classes\IObjectWithState.cs" />
+    <Compile Include="Classes\SalesOrder.cs" />
+    <Compile Include="Classes\SalesOrderItem.cs" />
     <Compile Include="Classes\PaymentMethod.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductGroup.cs" />
@@ -84,10 +85,15 @@
     <Compile Include="EatOutContext.cs" />
     <Compile Include="Enums\ProductGroupEnum.cs" />
     <Compile Include="Enums\ProductTypeEnum.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201612200956361_needCode.cs" />
-    <Compile Include="Migrations\201612200956361_needCode.Designer.cs">
-      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
+    <Compile Include="Migrations\201612211017414_first22.cs" />
+    <Compile Include="Migrations\201612211017414_first22.Designer.cs">
+      <DependentUpon>201612211017414_first22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612211107498_second22.cs" />
+    <Compile Include="Migrations\201612211107498_second22.Designer.cs">
+      <DependentUpon>201612211107498_second22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201612202204457_testBtIds.cs" />
     <Compile Include="Migrations\201612202204457_testBtIds.Designer.cs">
@@ -125,8 +131,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612200956361_needCode.resx">
-      <DependentUpon>201612200956361_needCode.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612211017414_first22.resx">
+      <DependentUpon>201612211017414_first22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612211107498_second22.resx">
+      <DependentUpon>201612211107498_second22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612202204457_testBtIds.resx">
       <DependentUpon>201612202204457_testBtIds.cs</DependentUpon>
