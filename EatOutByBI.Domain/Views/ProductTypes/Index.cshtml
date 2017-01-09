@@ -1,10 +1,17 @@
-﻿@model IEnumerable<EatOutByBI.Data.Classes.ProductType>
+﻿
+
+@model IEnumerable<EatOutByBI.Data.DTO.ProductTypeDTO>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<div>
+    @Html.Partial("_ProductsMenu")
+</div>
+
+<h2>Produkt Typer</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,12 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ProductTypeOrderRow)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateModified)
-        </th>
+
         <th></th>
     </tr>
 
@@ -34,12 +36,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.ProductTypeOrderRow)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModified)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductTypeID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductTypeID }) |

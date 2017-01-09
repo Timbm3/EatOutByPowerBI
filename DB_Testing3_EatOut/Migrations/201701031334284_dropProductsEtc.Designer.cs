@@ -7,13 +7,13 @@ namespace EatOutByBI.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class rollBack : IMigrationMetadata
+    public sealed partial class dropProductsEtc : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(rollBack));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(dropProductsEtc));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612211021526_rollBack"; }
+            get { return "201701031334284_dropProductsEtc"; }
         }
         
         string IMigrationMetadata.Source

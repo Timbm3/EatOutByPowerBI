@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -15,10 +14,36 @@ namespace EatOutByBI.Domain.Controllers
     {
         private EatOutContext db = new EatOutContext();
 
+
+        private ProductGroupDTO ViewModelFromProductGroup(ProductGroup pGroup)
+        {
+            var viewModel = new ProductGroupDTO()
+            {
+                ProductGroupID = pGroup.ProductGroupID,
+                ProductGroupName = pGroup.ProductGroupName,
+                ProductGroupOrderRow = pGroup.ProductGroupOrderRow,
+                ProductTypeID = pGroup.ProductTypeID,
+                ProductTypeName = pGroup.ProductType.ProductTypeName,
+                ProductTypes = db.ProductTypes.ToList()
+            };
+            return viewModel;
+        }
+
         // GET: ProductGroups
         public ActionResult Index()
         {
-            return View(db.ProductGroups.ToList());
+            var productGroup = from pG in db.ProductGroups
+                               orderby pG.ProductGroupOrderRow
+                               select new ProductGroupDTO()
+                               {
+                                   ProductGroupID = pG.ProductGroupID,
+                                   ProductGroupName = pG.ProductGroupName,
+                                   ProductGroupOrderRow = pG.ProductGroupOrderRow,
+                                   ProductTypeID = pG.ProductTypeID,
+                                   ProductTypeName = pG.ProductType.ProductTypeName
+                               };
+            //db.ProductGroups.ToList()
+            return View(productGroup);
         }
 
         // GET: ProductGroups/Details/5
@@ -33,13 +58,18 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productGroup);
+            return View(ViewModelFromProductGroup(productGroup));
         }
 
         // GET: ProductGroups/Create
         public ActionResult Create()
         {
-            return View();
+            var dtoModel = new ProductGroupDTO()
+            {
+                ProductTypes = db.ProductTypes.ToList()
+            };
+
+            return View(dtoModel);
         }
 
         // POST: ProductGroups/Create
@@ -47,16 +77,34 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified")] ProductGroup productGroup)
+        public ActionResult Create([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,ProductTypeID")] ProductGroupDTO pGroupDto)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                db.ProductGroups.Add(productGroup);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var productGroup = new ProductGroup()
+                    {
+                        ProductGroupName = pGroupDto.ProductGroupName,
+                        ProductGroupOrderRow = pGroupDto.ProductGroupOrderRow,
+                        ProductTypeID = pGroupDto.ProductTypeID,
+                    };
+                    db.ProductGroups.Add(productGroup);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "ProductGroups");
+                }
+                else
+                {
+                    pGroupDto.ProductTypes = db.ProductTypes.ToList();
+                    return View("Create", pGroupDto);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ProductGroups", "Create"));
             }
 
-            return View(productGroup);
         }
 
         // GET: ProductGroups/Edit/5
@@ -71,7 +119,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productGroup);
+            return View(ViewModelFromProductGroup(productGroup));
         }
 
         // POST: ProductGroups/Edit/5
@@ -79,15 +127,32 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified")] ProductGroup productGroup)
+        public ActionResult Edit([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified")] ProductGroup productGroup, ProductGroupDTO pGroupDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(productGroup).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    productGroup.ProductGroupID = pGroupDto.ProductGroupID;
+                    productGroup.ProductGroupName = pGroupDto.ProductGroupName;
+                    productGroup.ProductGroupOrderRow = pGroupDto.ProductGroupOrderRow;
+                    productGroup.ProductTypeID = pGroupDto.ProductTypeID;
+
+                    db.Entry(productGroup).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "ProductGroups");
+                }
+                else
+                {
+                    pGroupDto.ProductTypes = db.ProductTypes.ToList();
+                    return View("Edit", productGroup);
+                }
             }
-            return View(productGroup);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ProductGroups", "Edit"));
+            }
+
         }
 
         // GET: ProductGroups/Delete/5
@@ -102,7 +167,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productGroup);
+            return View(ViewModelFromProductGroup(productGroup));
         }
 
         // POST: ProductGroups/Delete/5
@@ -110,10 +175,18 @@ namespace EatOutByBI.Domain.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductGroup productGroup = db.ProductGroups.Find(id);
-            db.ProductGroups.Remove(productGroup);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                ProductGroup productGroup = db.ProductGroups.Find(id);
+                db.ProductGroups.Remove(productGroup);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ProductGroups", "Delete"));
+            }
+
         }
 
         protected override void Dispose(bool disposing)

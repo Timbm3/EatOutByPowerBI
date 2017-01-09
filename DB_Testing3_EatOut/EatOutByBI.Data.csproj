@@ -74,8 +74,6 @@
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\EmployeeFormDTO.cs" />
     <Compile Include="DTO\EmployeeTypeDTO.cs" />
-    <Compile Include="DTO\OrderDTO.cs" />
-    <Compile Include="DTO\OrderRowDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductGroupDTO.cs" />
     <Compile Include="DTO\ProductTypeDTO.cs" />
@@ -87,37 +85,17 @@
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201612211017414_first22.cs" />
-    <Compile Include="Migrations\201612211017414_first22.Designer.cs">
-      <DependentUpon>201612211017414_first22.cs</DependentUpon>
+    <Compile Include="Migrations\201701031326392_TheNewest.cs" />
+    <Compile Include="Migrations\201701031326392_TheNewest.Designer.cs">
+      <DependentUpon>201701031326392_TheNewest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612211107498_second22.cs" />
-    <Compile Include="Migrations\201612211107498_second22.Designer.cs">
-      <DependentUpon>201612211107498_second22.cs</DependentUpon>
+    <Compile Include="Migrations\201701031333275_dropEvent.cs" />
+    <Compile Include="Migrations\201701031333275_dropEvent.Designer.cs">
+      <DependentUpon>201701031333275_dropEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612202204457_testBtIds.cs" />
-    <Compile Include="Migrations\201612202204457_testBtIds.Designer.cs">
-      <DependentUpon>201612202204457_testBtIds.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612202209411_testBtIdss.cs" />
-    <Compile Include="Migrations\201612202209411_testBtIdss.Designer.cs">
-      <DependentUpon>201612202209411_testBtIdss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612210819238_DateAvail.cs" />
-    <Compile Include="Migrations\201612210819238_DateAvail.Designer.cs">
-      <DependentUpon>201612210819238_DateAvail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612211015465_testBtIds1.cs" />
-    <Compile Include="Migrations\201612211015465_testBtIds1.Designer.cs">
-      <DependentUpon>201612211015465_testBtIds1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612211021526_rollBack.cs" />
-    <Compile Include="Migrations\201612211021526_rollBack.Designer.cs">
-      <DependentUpon>201612211021526_rollBack.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612220925452_DateAvailable.cs" />
-    <Compile Include="Migrations\201612220925452_DateAvailable.Designer.cs">
-      <DependentUpon>201612220925452_DateAvailable.cs</DependentUpon>
+    <Compile Include="Migrations\201701031334284_dropProductsEtc.cs" />
+    <Compile Include="Migrations\201701031334284_dropProductsEtc.Designer.cs">
+      <DependentUpon>201701031334284_dropProductsEtc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -131,29 +109,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612211017414_first22.resx">
-      <DependentUpon>201612211017414_first22.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701031326392_TheNewest.resx">
+      <DependentUpon>201701031326392_TheNewest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612211107498_second22.resx">
-      <DependentUpon>201612211107498_second22.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701031333275_dropEvent.resx">
+      <DependentUpon>201701031333275_dropEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612202204457_testBtIds.resx">
-      <DependentUpon>201612202204457_testBtIds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612202209411_testBtIdss.resx">
-      <DependentUpon>201612202209411_testBtIdss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612210819238_DateAvail.resx">
-      <DependentUpon>201612210819238_DateAvail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612211015465_testBtIds1.resx">
-      <DependentUpon>201612211015465_testBtIds1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612211021526_rollBack.resx">
-      <DependentUpon>201612211021526_rollBack.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612220925452_DateAvailable.resx">
-      <DependentUpon>201612220925452_DateAvailable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701031334284_dropProductsEtc.resx">
+      <DependentUpon>201701031334284_dropProductsEtc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

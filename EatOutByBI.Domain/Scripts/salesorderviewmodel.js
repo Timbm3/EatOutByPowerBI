@@ -144,13 +144,13 @@ SalesOrderItemViewModel = function (data) {
     ko.mapping.fromJS(data, salesOrderItemMapping, self);
     //dd: ko.observableArray(Products);
     self.itemss = ko.observableArray(Products);
-    self.selectedItem = ko.observable(self.ProductId);
+    self.selectedItem = ko.observable(self.ProductID);
     //var prod = ko.mapping.fromJS(data, productItemMapping, SalesOrderViewModel);
 
 
     self.itemName = function () {
         var theItem = ko.utils.arrayFirst(self.itemss(), function (item) {
-            return item.ProductId === self.ProductId();
+            return item.ProductID === self.ProductID();
         }).ProductName;
         console.log(theItem);
         return theItem;
@@ -160,7 +160,7 @@ SalesOrderItemViewModel = function (data) {
     self.findItem = function () {
         console.log(self.itemss().length);
         var category = ko.utils.arrayFirst(self.itemss(), function (item) {
-            return item.ProductId === self.ProductId();
+            return item.ProductID === self.ProductID();
 
         }).UnitPrice;
         console.log(category);
@@ -237,7 +237,7 @@ SalesOrderViewModel = function (data) {
 
     self.addSalesOrderItem = function () {
         // alert(" add salesorder item"); // funkade
-        var salesOrderItem = new SalesOrderItemViewModel({ SalesOrderItemId: 0, ProductId: 1, Quantity: 1, ObjectState: ObjectState.Added });
+        var salesOrderItem = new SalesOrderItemViewModel({ SalesOrderItemId: 0, ProductID: 1, Quantity: 1, ObjectState: ObjectState.Added });
         self.SalesOrderItems.push(salesOrderItem);
     };
 
@@ -249,7 +249,27 @@ SalesOrderViewModel = function (data) {
 
         rules: {
             CustomerName: {
+                required: true,
+                maxlength: 30
+            },
+            Quantity: {
+                required: true,
+                digits: true,
+                range: [1, 100000]
+            },
+            Seats: {
                 required: true
+            },
+            Employees: {
+                required: true
+            },
+            PaymentMethods: {
+                required: true
+            },
+        },
+        messages: {
+            CustomerName: {
+                maxlength: "Customer name must be 30 characters or shorter."
             }
         }
 

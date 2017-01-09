@@ -32,6 +32,7 @@ namespace EatOutByBI.Domain.Controllers
         public ActionResult Index()
         {
             var employeeType = from e in db.EmployeeTypes
+                               orderby e.EmployeeTypeOrderRow
                                select new EmployeeTypeDTO()
                                {
                                    EmployeeTypeID = e.EmployeeTypeID,

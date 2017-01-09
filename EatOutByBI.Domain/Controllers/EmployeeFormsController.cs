@@ -31,6 +31,7 @@ namespace EatOutByBI.Domain.Controllers
         public ActionResult Index()
         {
             var employeeForm = from e in db.EmployeeForms
+                               orderby e.EmployeeFormOrderRow
                                select new EmployeeFormDTO()
                                {
                                    EmployeeFormID = e.EmployeeFormID,

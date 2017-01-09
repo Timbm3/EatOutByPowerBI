@@ -3,7 +3,7 @@
 
 
 @{
-    ViewBag.Title = "Delete Sales Order";
+    ViewBag.Title = "Ta bort Beställning";
 }
 
 @{
@@ -14,6 +14,7 @@
 {
     <script src="~/Scripts/knockout-3.4.0.js"></script>
     <script src="~/Scripts/knockout.mapping-latest.js"></script>
+<script src="~/Scripts/bootstrap-tooltip-extension.js"></script>
     <script src="~/Scripts/salesorderviewmodel.js"></script>
     <script type="text/javascript">
 
@@ -31,4 +32,4 @@
 
 @Html.Partial("_DisplaySalesOrder")
 
-<p><button class="btn btn-danger" data-bind="click: save">Delete</button></p>
+<p><button class="btn btn-danger" data-bind="click: save">Ta bort</button></p>

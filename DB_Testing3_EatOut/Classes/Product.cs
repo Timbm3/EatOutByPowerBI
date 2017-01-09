@@ -8,7 +8,7 @@ namespace EatOutByBI.Data.Classes
 {
     public class Product : IModificationHistory, IObjectWithState
     {
-        public int ProductId { get; set; }
+        public int ProductID { get; set; }
 
         [DisplayName("Produktnamn")]
         [StringLength(100)]

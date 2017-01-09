@@ -230,6 +230,18 @@
     <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
       <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701030929576_Test44.cs" />
+    <Compile Include="Migrations\201701030929576_Test44.Designer.cs">
+      <DependentUpon>201701030929576_Test44.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701031159011_NewDataUpdate2.cs" />
+    <Compile Include="Migrations\201701031159011_NewDataUpdate2.Designer.cs">
+      <DependentUpon>201701031159011_NewDataUpdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701031359112_SalesOrderEtc.cs" />
+    <Compile Include="Migrations\201701031359112_SalesOrderEtc.Designer.cs">
+      <DependentUpon>201701031359112_SalesOrderEtc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HtmlHelpers.cs" />
@@ -320,6 +332,7 @@
     <Content Include="Pictures\slide5.jpg" />
     <Content Include="Images\Fahlu-Restaurant-Komandoo-Maldives.jpg" />
     <Content Include="Scripts\AppScripts.js" />
+    <Content Include="Scripts\bootstrap-tooltip-extension.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -467,6 +480,9 @@
     <Content Include="Views\Manager\EmpDiagrams.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Manager\Bookings.cshtml" />
+    <Content Include="Views\AdminPage\AdminAddEmp.cshtml" />
+    <Content Include="Views\Shared\_ProductsMenu.cshtml" />
+    <Content Include="Views\Shared\_EmployeesMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -492,6 +508,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701030825301_dsfh.resx">
       <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030929576_Test44.resx">
+      <DependentUpon>201701030929576_Test44.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701031159011_NewDataUpdate2.resx">
+      <DependentUpon>201701031159011_NewDataUpdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701031359112_SalesOrderEtc.resx">
+      <DependentUpon>201701031359112_SalesOrderEtc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

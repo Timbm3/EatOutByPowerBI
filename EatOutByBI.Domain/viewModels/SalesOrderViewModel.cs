@@ -18,11 +18,11 @@ namespace EatOutByBI.Domain.viewModels
         //public string PONumber { get; set; }
 
 
-        public int SeatId { get; set; }
+        public int SeatID { get; set; }
         public string SeatPlace { get; set; }
 
 
-        public int EmployeeId { get; set; }
+        public int EmployeeID { get; set; }
         public string EmployeeName { get; set; }
 
 

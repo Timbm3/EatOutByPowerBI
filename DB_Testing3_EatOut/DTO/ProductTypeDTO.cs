@@ -8,10 +8,12 @@ namespace EatOutByBI.Data.DTO
         public int ProductTypeID { get; set; }
         //public ProductTypeEnum ProductTypeEnum { get; set; }
 
-        [DisplayName("Produktyp")]
+        [DisplayName("Produkts Typ")]
         [StringLength(100)]
         [Required]
         public string ProductTypeName { get; set; }
+
+        [DisplayName("Sorterings Rad")]
         public int ProductTypeOrderRow { get; set; }
 
     }

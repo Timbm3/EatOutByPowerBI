@@ -1,10 +1,19 @@
-﻿@model IEnumerable<EatOutByBI.Data.Classes.ProductGroup>
+﻿
+@model IEnumerable<EatOutByBI.Data.DTO.ProductGroupDTO>
+
+
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Product Groups";
 }
 
-<h2>Index</h2>
+<div>
+    @Html.Partial("_ProductsMenu")
+</div>
+
+
+
+<h2>Produkt Grupper</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,10 +27,7 @@
             @Html.DisplayNameFor(model => model.ProductGroupOrderRow)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateModified)
+            @Html.DisplayNameFor(model => model.ProductTypeName)
         </th>
         <th></th>
     </tr>
@@ -35,10 +41,7 @@
             @Html.DisplayFor(modelItem => item.ProductGroupOrderRow)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModified)
+            @Html.DisplayFor(modelItem => item.ProductTypeName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductGroupID }) |

@@ -11,8 +11,8 @@ namespace EatOutByBI.Domain.viewModels
             salesOrderViewModel.SalesOrderId = salesOrder.SalesOrderId;
             salesOrderViewModel.CustomerName = salesOrder.CustomerName;
             //salesOrderViewModel.PONumber = salesOrder.PONumber;
-            salesOrderViewModel.SeatId = salesOrder.SeatId;
-            salesOrderViewModel.EmployeeId = salesOrder.EmployeeId;
+            salesOrderViewModel.SeatID = salesOrder.SeatID;
+            salesOrderViewModel.EmployeeID = salesOrder.EmployeeID;
             salesOrderViewModel.PaymentMethodId = salesOrder.PaymentMethodId;
             salesOrderViewModel.DateTime = DateTime.Now;
             //salesOrderViewModel.SeatPlace = salesOrder.Seat.SeatPlace;
@@ -22,7 +22,7 @@ namespace EatOutByBI.Domain.viewModels
             {
                 SalesOrderItemViewModel salesOrderItemViewModel = new SalesOrderItemViewModel();
                 salesOrderItemViewModel.SalesOrderItemId = salesOrderItem.SalesOrderItemId;
-                salesOrderItemViewModel.ProductId = salesOrderItem.ProductId;
+                salesOrderItemViewModel.ProductID = salesOrderItem.ProductID;
                 salesOrderItemViewModel.Quantity = salesOrderItem.Quantity;
                 // salesOrderItemViewModel.UnitPrice = salesOrderItem.Product.UnitPrice;
 
@@ -43,8 +43,8 @@ namespace EatOutByBI.Domain.viewModels
             salesOrder.SalesOrderId = salesOrderViewModel.SalesOrderId;
             salesOrder.CustomerName = salesOrderViewModel.CustomerName;
             //salesOrder.PONumber = salesOrderViewModel.PONumber;
-            salesOrder.SeatId = salesOrderViewModel.SeatId;
-            salesOrder.EmployeeId = salesOrderViewModel.EmployeeId;
+            salesOrder.SeatID = salesOrderViewModel.SeatID;
+            salesOrder.EmployeeID = salesOrderViewModel.EmployeeID;
             salesOrder.PaymentMethodId = salesOrderViewModel.PaymentMethodId;
             salesOrder.DateTime = DateTime.Now;
             salesOrder.ObjectState = salesOrderViewModel.ObjectState;
@@ -54,7 +54,7 @@ namespace EatOutByBI.Domain.viewModels
             foreach (SalesOrderItemViewModel salesOrderItemViewModel in salesOrderViewModel.SalesOrderItems)
             {
                 SalesOrderItem salesOrderItem = new SalesOrderItem();
-                salesOrderItem.ProductId = salesOrderItemViewModel.ProductId;
+                salesOrderItem.ProductID = salesOrderItemViewModel.ProductID;
                 salesOrderItem.Quantity = salesOrderItemViewModel.Quantity;
 
 

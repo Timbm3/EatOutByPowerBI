@@ -5,7 +5,7 @@
 
 <div>
     <div class="form-group">
-        <label class="control-label">Customer Name:</label>
+        <label class="control-label">Kundens Namn:</label>
         <span class="form-group" data-bind="text: CustomerName"></span>
     </div>
     @*<div class="form-group">
@@ -13,15 +13,15 @@
             <span class="form-group" data-bind="text: PONumber"></span>
         </div>*@
     <div class="form-group">
-        <label class="control-label">Seat:</label>
+        <label class="control-label">Bords Plats:</label>
         <span class="form-group" data-bind="text: SeatPlace"></span>
     </div>
     <div class="form-group">
-        <label class="control-label">Employee:</label>
+        <label class="control-label">Anställdas Namn:</label>
         <span class="form-group" data-bind="text: EmployeeName"></span>
     </div>
     <div class="form-group">
-        <label class="control-label">PaymentMethod:</label>
+        <label class="control-label">Betalningsmetod:</label>
         <span class="form-group" data-bind="text: PaymentMethodId"></span>
         @*<span class="form-group" data-bind="text: PaymentMethodType"></span>*@
     </div>
@@ -29,9 +29,9 @@
 
 <table class="table">
     <tr>
-        <th>Product Code</th>
-        <th>Quantity</th>
-        <th>Unit Price</th>
+        <th>Produkt</th>
+        <th>Kvantitet</th>
+        <th></th>
 
     </tr>
     <tbody data-bind="foreach: SalesOrderItems">
@@ -47,11 +47,11 @@
     </tbody>
     <tr>
         <td>&nbsp;</td>
-        <td class="form-group"><span class="form-control text-right">Total</span></td>
+        <td class="form-group"><span class="form-control text-right">Totalt</span></td>
         <td class="form-group"><span class="form-control text-right" data-bind="text: contactsTotal()"></span></td>
     </tr>
 </table>
 
 <p>
-    <a href='/' class="btn btn-default btn-sm">&laquo; Back to List</a>
+    <a href='/' class="btn btn-default btn-sm">&laquo; Tillbaka till Lista</a>
 </p>

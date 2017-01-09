@@ -1,4 +1,5 @@
-﻿@model EatOutByBI.Data.Classes.Product
+﻿
+@model EatOutByBI.Data.DTO.ProductDTO
 
 @{
     ViewBag.Title = "Delete";
@@ -11,21 +12,6 @@
     <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductGroup.ProductGroupName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductGroup.ProductGroupName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductGroup.ProductType.ProductTypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductGroup.ProductType.ProductTypeName)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -35,20 +21,30 @@
             @Html.DisplayFor(model => model.ProductName)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            @Html.DisplayNameFor(model => model.UnitPrice)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateCreated)
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductGroupName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateModified)
+            @Html.DisplayNameFor(model => model.ProductTypeName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateModified)
+            @Html.DisplayFor(model => model.ProductTypeName)
         </dd>
 
     </dl>

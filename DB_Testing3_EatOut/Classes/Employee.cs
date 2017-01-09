@@ -6,7 +6,7 @@ namespace EatOutByBI.Data.Classes
 {
     public class Employee : IModificationHistory
     {
-        public int EmployeeId { get; set; }
+        public int EmployeeID { get; set; }
 
         [Required]
         [StringLength(100)]

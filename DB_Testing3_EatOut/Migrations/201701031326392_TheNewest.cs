@@ -3,7 +3,7 @@ namespace EatOutByBI.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first22 : DbMigration
+    public partial class TheNewest : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,7 @@ namespace EatOutByBI.Data.Migrations
                 c => new
                     {
                         BookedId = c.Int(nullable: false),
+                        IsDateAvailable = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.BookedId);
             
@@ -88,7 +89,7 @@ namespace EatOutByBI.Data.Migrations
                 "dbo.Employees",
                 c => new
                     {
-                        EmployeeId = c.Int(nullable: false, identity: true),
+                        EmployeeID = c.Int(nullable: false, identity: true),
                         EmployeeName = c.String(nullable: false, maxLength: 100),
                         EmployeeFormID = c.Int(nullable: false),
                         EmployeeTypeID = c.Int(nullable: false),
@@ -97,7 +98,7 @@ namespace EatOutByBI.Data.Migrations
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.EmployeeId)
+                .PrimaryKey(t => t.EmployeeID)
                 .ForeignKey("dbo.EmployeeForms", t => t.EmployeeFormID, cascadeDelete: true)
                 .ForeignKey("dbo.EmployeeTypes", t => t.EmployeeTypeID, cascadeDelete: true)
                 .Index(t => t.EmployeeFormID)
@@ -182,7 +183,7 @@ namespace EatOutByBI.Data.Migrations
                 "dbo.Products",
                 c => new
                     {
-                        ProductId = c.Int(nullable: false, identity: true),
+                        ProductID = c.Int(nullable: false, identity: true),
                         ProductName = c.String(nullable: false, maxLength: 100),
                         ProductGroupID = c.Int(nullable: false),
                         Amount = c.Int(nullable: false),
@@ -193,7 +194,7 @@ namespace EatOutByBI.Data.Migrations
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductId)
+                .PrimaryKey(t => t.ProductID)
                 .ForeignKey("dbo.ProductGroups", t => t.ProductGroupID, cascadeDelete: true)
                 .Index(t => t.ProductGroupID);
             
@@ -202,7 +203,7 @@ namespace EatOutByBI.Data.Migrations
                 c => new
                     {
                         SalesOrderItemId = c.Int(nullable: false, identity: true),
-                        ProductId = c.Int(nullable: false),
+                        ProductID = c.Int(nullable: false),
                         Quantity = c.Int(nullable: false),
                         SalesOrderId = c.Int(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
@@ -211,9 +212,9 @@ namespace EatOutByBI.Data.Migrations
                         Factor2 = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SalesOrderItemId)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Products", t => t.ProductID, cascadeDelete: true)
                 .ForeignKey("dbo.SalesOrders", t => t.SalesOrderId, cascadeDelete: true)
-                .Index(t => t.ProductId)
+                .Index(t => t.ProductID)
                 .Index(t => t.SalesOrderId);
             
             CreateTable(
@@ -222,8 +223,8 @@ namespace EatOutByBI.Data.Migrations
                     {
                         SalesOrderId = c.Int(nullable: false, identity: true),
                         CustomerName = c.String(),
-                        SeatId = c.Int(nullable: false),
-                        EmployeeId = c.Int(nullable: false),
+                        SeatID = c.Int(nullable: false),
+                        EmployeeID = c.Int(nullable: false),
                         PaymentMethodId = c.Int(nullable: false),
                         DateTime = c.DateTime(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
@@ -233,25 +234,25 @@ namespace EatOutByBI.Data.Migrations
                         TimeStamp = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.SalesOrderId)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId, cascadeDelete: true)
+                .ForeignKey("dbo.Employees", t => t.EmployeeID, cascadeDelete: true)
                 .ForeignKey("dbo.PaymentMethods", t => t.PaymentMethodId, cascadeDelete: true)
-                .ForeignKey("dbo.Seats", t => t.SeatId, cascadeDelete: true)
-                .Index(t => t.SeatId)
-                .Index(t => t.EmployeeId)
+                .ForeignKey("dbo.Seats", t => t.SeatID, cascadeDelete: true)
+                .Index(t => t.SeatID)
+                .Index(t => t.EmployeeID)
                 .Index(t => t.PaymentMethodId);
             
             CreateTable(
                 "dbo.Seats",
                 c => new
                     {
-                        SeatId = c.Int(nullable: false, identity: true),
+                        SeatID = c.Int(nullable: false, identity: true),
                         SeatPlace = c.String(nullable: false, maxLength: 30),
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
                         Factor1 = c.Int(nullable: false),
                         Factor2 = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.SeatId);
+                .PrimaryKey(t => t.SeatID);
             
             CreateTable(
                 "dbo.TimeTables",
@@ -275,11 +276,11 @@ namespace EatOutByBI.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.SalesOrders", "SeatId", "dbo.Seats");
-            DropForeignKey("dbo.SalesOrders", "PaymentMethodId", "dbo.PaymentMethods");
+            DropForeignKey("dbo.SalesOrders", "SeatID", "dbo.Seats");
             DropForeignKey("dbo.SalesOrderItems", "SalesOrderId", "dbo.SalesOrders");
-            DropForeignKey("dbo.SalesOrders", "EmployeeId", "dbo.Employees");
-            DropForeignKey("dbo.SalesOrderItems", "ProductId", "dbo.Products");
+            DropForeignKey("dbo.SalesOrders", "PaymentMethodId", "dbo.PaymentMethods");
+            DropForeignKey("dbo.SalesOrders", "EmployeeID", "dbo.Employees");
+            DropForeignKey("dbo.SalesOrderItems", "ProductID", "dbo.Products");
             DropForeignKey("dbo.Products", "ProductGroupID", "dbo.ProductGroups");
             DropForeignKey("dbo.ProductGroups", "ProductTypeID", "dbo.ProductTypes");
             DropForeignKey("dbo.Events", "EventTypeId", "dbo.EventTypes");
@@ -288,10 +289,10 @@ namespace EatOutByBI.Data.Migrations
             DropForeignKey("dbo.EmployeeEvents", "EmployeeEventTypeId", "dbo.EmployeeEventTypes");
             DropForeignKey("dbo.BookingTimes", "BookedId", "dbo.Bookeds");
             DropIndex("dbo.SalesOrders", new[] { "PaymentMethodId" });
-            DropIndex("dbo.SalesOrders", new[] { "EmployeeId" });
-            DropIndex("dbo.SalesOrders", new[] { "SeatId" });
+            DropIndex("dbo.SalesOrders", new[] { "EmployeeID" });
+            DropIndex("dbo.SalesOrders", new[] { "SeatID" });
             DropIndex("dbo.SalesOrderItems", new[] { "SalesOrderId" });
-            DropIndex("dbo.SalesOrderItems", new[] { "ProductId" });
+            DropIndex("dbo.SalesOrderItems", new[] { "ProductID" });
             DropIndex("dbo.Products", new[] { "ProductGroupID" });
             DropIndex("dbo.ProductGroups", new[] { "ProductTypeID" });
             DropIndex("dbo.Events", new[] { "EventTypeId" });

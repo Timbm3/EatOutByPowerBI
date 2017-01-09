@@ -7,13 +7,13 @@ namespace EatOutByBI.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DateAvailable : IMigrationMetadata
+    public sealed partial class TheNewest : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DateAvailable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TheNewest));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612220925452_DateAvailable"; }
+            get { return "201701031326392_TheNewest"; }
         }
         
         string IMigrationMetadata.Source

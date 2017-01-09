@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -15,10 +14,30 @@ namespace EatOutByBI.Domain.Controllers
     {
         private EatOutContext db = new EatOutContext();
 
+        private ProductTypeDTO ViewModelFromProductType(ProductType pType)
+        {
+            var viewModel = new ProductTypeDTO()
+            {
+                ProductTypeID = pType.ProductTypeID,
+                ProductTypeName = pType.ProductTypeName,
+                ProductTypeOrderRow = pType.ProductTypeOrderRow,
+            };
+            return viewModel;
+        }
+
         // GET: ProductTypes
         public ActionResult Index()
         {
-            return View(db.ProductTypes.ToList());
+            var productType = from pT in db.ProductTypes
+                              orderby pT.ProductTypeOrderRow
+                              select new ProductTypeDTO()
+                              {
+                                  ProductTypeID = pT.ProductTypeID,
+                                  ProductTypeName = pT.ProductTypeName,
+                                  ProductTypeOrderRow = pT.ProductTypeOrderRow,
+                              };
+            //db.ProductTypes.ToList()
+            return View(productType);
         }
 
         // GET: ProductTypes/Details/5
@@ -33,7 +52,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productType);
+            return View(ViewModelFromProductType(productType));
         }
 
         // GET: ProductTypes/Create
@@ -47,16 +66,31 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductType productType)
+        public ActionResult Create([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductTypeDTO pTypeDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.ProductTypes.Add(productType);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var productType = new ProductType()
+                    {
+                        ProductTypeName = pTypeDto.ProductTypeName,
+                        ProductTypeOrderRow = pTypeDto.ProductTypeOrderRow,
+                        ProductTypeID = pTypeDto.ProductTypeID,
+                    };
+                    db.ProductTypes.Add(productType);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "ProductTypes");
+                }
+                else
+                {
+                    return View("Create", pTypeDto);
+                }
             }
-
-            return View(productType);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ProductTypes", "Create"));
+            }
         }
 
         // GET: ProductTypes/Edit/5
@@ -71,7 +105,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productType);
+            return View(ViewModelFromProductType(productType));
         }
 
         // POST: ProductTypes/Edit/5
@@ -79,15 +113,26 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductType productType)
+        public ActionResult Edit([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductType productType, ProductTypeDTO pTypeDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(productType).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    productType.ProductTypeID = pTypeDto.ProductTypeID;
+                    productType.ProductTypeName = pTypeDto.ProductTypeName;
+                    productType.ProductTypeOrderRow = pTypeDto.ProductTypeOrderRow;
+
+                    db.Entry(productType).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "ProductTypes");
+                }
+                else { return View("Edit", productType); }
             }
-            return View(productType);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "ProductTypes", "Edit"));
+            }
         }
 
         // GET: ProductTypes/Delete/5
@@ -102,7 +147,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productType);
+            return View(ViewModelFromProductType(productType));
         }
 
         // POST: ProductTypes/Delete/5
@@ -110,10 +155,20 @@ namespace EatOutByBI.Domain.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductType productType = db.ProductTypes.Find(id);
-            db.ProductTypes.Remove(productType);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                ProductType productType = db.ProductTypes.Find(id);
+                db.ProductTypes.Remove(productType);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+
+                return View("Error", new HandleErrorInfo(ex, "ProductTypes", "Delete"));
+            }
+
+
         }
 
         protected override void Dispose(bool disposing)

@@ -7,13 +7,13 @@ namespace EatOutByBI.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class second22 : IMigrationMetadata
+    public sealed partial class AzureDatabaseUpdate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(second22));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AzureDatabaseUpdate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612211107498_second22"; }
+            get { return "201701030912062_AzureDatabaseUpdate"; }
         }
         
         string IMigrationMetadata.Source
