@@ -3,7 +3,7 @@
 @model IEnumerable<EatOutByBI.Data.DTO.ProductTypeDTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Produkt Typer";
 }
 
 
@@ -14,7 +14,7 @@
 <h2>Produkt Typer</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa Ny", "Create")
 </p>
 <table class="table standardMenu">
     <tr>
@@ -38,9 +38,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductTypeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductTypeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductTypeID })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.ProductTypeID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.ProductTypeID }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.ProductTypeID })
         </td>
     </tr>
 }

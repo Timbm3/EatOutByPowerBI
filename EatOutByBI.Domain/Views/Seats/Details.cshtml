@@ -1,13 +1,13 @@
 ﻿@model EatOutByBI.Data.DTO.SeatDTO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Bordsplats Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Bordsplats Detaljer</h2>
 
 <div>
-    <h4>Seat</h4>
+    <h4>Bordsplats</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +29,6 @@
          new { @class = "btn btn-default" })*@
 
 
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SeatID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.SeatID }) |
+    @Html.ActionLink("Tillbaka", "Index")
 </p>

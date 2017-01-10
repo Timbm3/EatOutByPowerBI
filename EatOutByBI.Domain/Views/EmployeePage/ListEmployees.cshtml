@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<EatOutByBI.Data.DTO.EmployeeDTO>
 
 @{
-    ViewBag.Title = "ListEmployees";
+    ViewBag.Title = "Anställdas Lista";
 }
 
-<h2>ListEmployees</h2>
+<h2>Lista med Anställda</h2>
 
 <div class="row">
     <div class="col-sm-3">
@@ -32,7 +32,7 @@
                     <td>@Html.DisplayFor(modelItem => item.EmployeeName)</td>
                     <td>@Html.DisplayFor(modelItem => item.FormName)</td>
                     <td>@Html.DisplayFor(modelItem => item.TypeName)</td>
-                    <td>Details?</td>
+                    <td></td>
                 </tr>
             }
 

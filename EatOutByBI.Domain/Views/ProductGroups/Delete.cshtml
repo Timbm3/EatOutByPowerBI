@@ -1,14 +1,14 @@
 ﻿@model EatOutByBI.Data.DTO.ProductGroupDTO
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Ta Bort Produktgrupp";
 }
 
-<h2>Delete</h2>
+<h2>Ta Bort Produktgrupp</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Är du säker på att du vill ta bort det här?</h3>
 <div>
-    <h4>ProductGroup</h4>
+    <h4>Produktgrupp</h4>
     <hr />
     <dl class="dl-horizontal standardMenu">
         <dt>
@@ -41,8 +41,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Ta Bort" class="btn btn-danger" /> |
+            @Html.ActionLink("Tillbaka", "Index")
         </div>
     }
 </div>

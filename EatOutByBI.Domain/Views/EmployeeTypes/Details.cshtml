@@ -1,13 +1,13 @@
 ﻿@model EatOutByBI.Data.DTO.EmployeeTypeDTO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Anställningstyps Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Anställningstyps Detaljer</h2>
 
 <div>
-    <h4>EmployeeType</h4>
+    <h4>Anställningstyp</h4>
     <hr />
     <dl class="dl-horizontal standardMenu">
         <dt>
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeTypeID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.EmployeeTypeID }) |
+    @Html.ActionLink("Tillbaka", "Index")
 </p>
