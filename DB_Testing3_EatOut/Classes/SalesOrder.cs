@@ -18,10 +18,10 @@ namespace EatOutByBI.Data.Classes
 
         public virtual List<SalesOrderItem> SalesOrderItems { get; set; }
 
-        public int SeatId { get; set; }
+        public int SeatID { get; set; }
         public virtual Seat Seat { get; set; }
 
-        public int EmployeeId { get; set; }
+        public int EmployeeID { get; set; }
         public virtual Employee Employee { get; set; }
 
         //public int TimeTableID { get; set; }

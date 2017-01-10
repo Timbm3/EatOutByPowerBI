@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<EatOutByBI.Domain.viewModels.SalesOrderViewModel> 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista med Beställningar";
 }
 
-<h2>Index</h2>
+<h2>Lista med Beställningar</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa ny Beställning", "Create")
 </p>
 <table class="table standardMenu">
     <tr>
@@ -46,9 +46,9 @@
 
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SalesOrderId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SalesOrderId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SalesOrderId })
+                @Html.ActionLink("Ändra", "Edit", new { id = item.SalesOrderId }) |
+                @Html.ActionLink("Detaljer", "Details", new { id = item.SalesOrderId }) |
+                @Html.ActionLink("Ta Bort", "Delete", new { id = item.SalesOrderId })
             </td>
         </tr>
     }

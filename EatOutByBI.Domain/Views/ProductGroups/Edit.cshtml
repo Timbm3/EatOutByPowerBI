@@ -1,4 +1,4 @@
-﻿@model EatOutByBI.Data.Classes.ProductGroup
+﻿@model EatOutByBI.Data.DTO.ProductGroupDTO
 
 @{
     ViewBag.Title = "Edit";
@@ -33,6 +33,17 @@
             </div>
         </div>
 
+
+
+        @* PRODUCT TYPE  *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductTypeID, "ProductTypeName", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.ProductTypeID, new SelectList(Model.ProductTypes, "ProductTypeID", "ProductTypeName"), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductTypeID)
+                @*//FormName, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
 
 
         <div class="form-group">

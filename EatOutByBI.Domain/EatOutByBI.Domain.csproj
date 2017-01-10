@@ -212,31 +212,25 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PaymentMethodsController.cs" />
     <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\SalesOrdersController.cs" />
+    <Compile Include="Controllers\SeatsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612220923289_DateAvailable.cs" />
-    <Compile Include="Migrations\201612220923289_DateAvailable.Designer.cs">
-      <DependentUpon>201612220923289_DateAvailable.cs</DependentUpon>
+    <Compile Include="Migrations\201701100814156_AddEventTime.cs" />
+    <Compile Include="Migrations\201701100814156_AddEventTime.Designer.cs">
+      <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201701030825301_dsfh.cs" />
     <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
       <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701030911589_sync.cs" />
-    <Compile Include="Migrations\201701030911589_sync.Designer.cs">
-      <DependentUpon>201701030911589_sync.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701030926064_addIsDAteAva.cs" />
-    <Compile Include="Migrations\201701030926064_addIsDAteAva.Designer.cs">
-      <DependentUpon>201701030926064_addIsDAteAva.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -328,6 +322,7 @@
     <Content Include="Pictures\slide5.jpg" />
     <Content Include="Images\Fahlu-Restaurant-Komandoo-Maldives.jpg" />
     <Content Include="Scripts\AppScripts.js" />
+    <Content Include="Scripts\bootstrap-tooltip-extension.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -431,8 +426,11 @@
     <Content Include="Views\Bookings\BookingsDetails.cshtml" />
     <Content Include="Views\Bookings\Edit.cshtml" />
     <Content Include="Views\Bookings\BookingsIndex.cshtml" />
-    <Content Include="Views\EmployeeFormDto\Index.cshtml" />
-    <Content Include="Views\EmployeeFormDto\Create.cshtml" />
+    <Content Include="Views\BookingTimes\Create.cshtml" />
+    <Content Include="Views\BookingTimes\Delete.cshtml" />
+    <Content Include="Views\BookingTimes\Details.cshtml" />
+    <Content Include="Views\BookingTimes\Edit.cshtml" />
+    <Content Include="Views\BookingTimes\Index.cshtml" />
     <Content Include="Views\AdminPage\AdminAddProdEmp.cshtml" />
     <Content Include="Views\EmployeePage\Index.cshtml" />
     <Content Include="Views\EmployeePage\ListEmployees.cshtml" />
@@ -455,11 +453,6 @@
     <Content Include="Views\Bookings\BookingsPreCreate.cshtml" />
     <Content Include="Views\Bookings\_BookingsPreCreatePartial.cshtml" />
     <Content Include="Views\Bookings\BookingsCreate.cshtml" />
-    <Content Include="Views\SalesOrders\Create.cshtml" />
-    <Content Include="Views\SalesOrders\Delete.cshtml" />
-    <Content Include="Views\SalesOrders\Details.cshtml" />
-    <Content Include="Views\SalesOrders\Edit.cshtml" />
-    <Content Include="Views\SalesOrders\Index.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
     <Content Include="Views\Sales\Details.cshtml" />
     <Content Include="Views\Sales\Create.cshtml" />
@@ -470,6 +463,21 @@
     <Content Include="Views\Manager\EmpDiagrams.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Manager\Bookings.cshtml" />
+    <Content Include="Views\AdminPage\AdminAddEmp.cshtml" />
+    <Content Include="Views\Shared\_ProductsMenu.cshtml" />
+    <Content Include="Views\Shared\_EmployeesMenu.cshtml" />
+    <Content Include="Views\Shared\_ManagerPagePartial.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Seats\Create.cshtml" />
+    <Content Include="Views\Seats\Delete.cshtml" />
+    <Content Include="Views\Seats\Details.cshtml" />
+    <Content Include="Views\Seats\Edit.cshtml" />
+    <Content Include="Views\Seats\Index.cshtml" />
+    <Content Include="Views\PaymentMethods\Create.cshtml" />
+    <Content Include="Views\PaymentMethods\Delete.cshtml" />
+    <Content Include="Views\PaymentMethods\Details.cshtml" />
+    <Content Include="Views\PaymentMethods\Edit.cshtml" />
+    <Content Include="Views\PaymentMethods\Index.cshtml" />
     <Content Include="Views\Shared\_ManagerPagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -491,11 +499,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612220923289_DateAvailable.resx">
-      <DependentUpon>201612220923289_DateAvailable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701030825301_dsfh.resx">
-      <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701100814156_AddEventTime.resx">
+      <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701030911589_sync.resx">
       <DependentUpon>201701030911589_sync.cs</DependentUpon>

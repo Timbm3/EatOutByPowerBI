@@ -1,6 +1,7 @@
 ﻿using EatOutByBI.Data.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
@@ -9,28 +10,44 @@ namespace EatOutByBI.Data.ViewModels
     public class EventViewModel
     {
         [Required]
+        [DisplayName("Namn på Event")]
         public string NameOfEvent { get; set; }
 
         [Required]
         [FutureDate]
+        [DisplayName("Datum")]
         public string Date { get; set; }
 
+        [DisplayName("Beskrivning")]
         public string Description { get; set; }
 
+        [DisplayName("Bild")]
         public byte[] Image { get; set; }
 
         [Required]
         [ValidTime]
+        [DisplayName("Starttid")]
         public string Time { get; set; }
 
+        [ValidTime]
+        [DisplayName("Sluttid")]
+        public string EndTime { get; set; }
+
+
         [Required]
+        [DisplayName("Event Typ")]
         public byte EventType { get; set; }
 
         public IEnumerable<EventType> EventTypes { get; set; }
 
         public DateTime GetDateTime()
         {
-            return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+            return DateTime.Parse(string.Format("{0} {1}:00", Date, Time));
+        }
+
+        public DateTime GetEndTime()
+        {
+            return DateTime.Parse(string.Format("{0} {1}:00", Date, EndTime));
         }
     }
 
@@ -55,7 +72,7 @@ namespace EatOutByBI.Data.ViewModels
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                "HH:mm",
+                "HH",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);

@@ -19,7 +19,7 @@ namespace EatOutByBI.Domain.Controllers
         {
             var viewModel = new EmployeeDTO()
             {
-                EmployeeId = employee.EmployeeId,
+                EmployeeId = employee.EmployeeID,
                 EmployeeName = employee.EmployeeName,
                 EmployeeFormID = employee.EmployeeFormID,
                 EmployeeTypeID = employee.EmployeeTypeID,
@@ -40,7 +40,7 @@ namespace EatOutByBI.Domain.Controllers
             var employee = from e in db.Employees
                            select new EmployeeDTO()
                            {
-                               EmployeeId = e.EmployeeId,
+                               EmployeeId = e.EmployeeID,
                                EmployeeName = e.EmployeeName,
                                FormName = e.EmployeeForm.EmployeeFormName,
                                TypeName = e.EmployeeType.EmployeeTypeName
@@ -81,7 +81,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] EmployeeDTO eDto)
+        public ActionResult Create([Bind(Include = "EmployeeID,EmployeeName,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] EmployeeDTO eDto)
         {
             try
             {
@@ -136,14 +136,14 @@ namespace EatOutByBI.Domain.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
-            [Bind(Include = "EmployeeID,Name,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee emp,
+            [Bind(Include = "EmployeeID,EmployeeName,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee emp,
             EmployeeDTO eDto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    emp.EmployeeId = eDto.EmployeeId;
+                    emp.EmployeeID = eDto.EmployeeId;
                     emp.EmployeeName = eDto.EmployeeName;
                     emp.EmployeeFormID = eDto.EmployeeFormID;
                     emp.EmployeeTypeID = eDto.EmployeeTypeID;

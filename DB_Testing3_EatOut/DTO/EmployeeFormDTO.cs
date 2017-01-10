@@ -12,6 +12,8 @@ namespace EatOutByBI.Data.DTO
         [Required]
         [StringLength(30)]
         public string EmployeeFormName { get; set; }
+
+        [DisplayName("Sorterings Rad")]
         public int EmployeeFormOrderRow { get; set; }
 
 

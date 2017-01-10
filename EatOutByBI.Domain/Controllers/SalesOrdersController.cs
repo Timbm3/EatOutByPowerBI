@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -60,9 +56,9 @@ namespace EatOutByBI.Domain.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeId);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeID);
             ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "PaymentMethodId", "PaymentMethodType", salesOrder.PaymentMethodId);
-            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatId);
+            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatID);
             return View(salesOrder);
         }
 
@@ -78,9 +74,9 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeId);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeID);
             ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "PaymentMethodId", "PaymentMethodType", salesOrder.PaymentMethodId);
-            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatId);
+            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatID);
             return View(salesOrder);
         }
 
@@ -97,9 +93,9 @@ namespace EatOutByBI.Domain.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeId);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "EmployeeName", salesOrder.EmployeeID);
             ViewBag.PaymentMethodId = new SelectList(db.PaymentMethods, "PaymentMethodId", "PaymentMethodType", salesOrder.PaymentMethodId);
-            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatId);
+            ViewBag.SeatId = new SelectList(db.Seats, "SeatId", "SeatPlace", salesOrder.SeatID);
             return View(salesOrder);
         }
 

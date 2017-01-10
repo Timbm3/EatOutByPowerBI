@@ -24,7 +24,7 @@ namespace EatOutByBI.Domain.Controllers
             var employee = from e in db.Employees
                            select new EmployeeDTO()
                            {
-                               EmployeeId = e.EmployeeId,
+                               EmployeeId = e.EmployeeID,
                                EmployeeName = e.EmployeeName,
                                FormName = e.EmployeeForm.EmployeeFormName,
                                TypeName = e.EmployeeType.EmployeeTypeName

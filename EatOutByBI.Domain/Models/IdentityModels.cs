@@ -1,8 +1,7 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace EatOutByBI.Domain.Models
 {
@@ -29,6 +28,37 @@ namespace EatOutByBI.Domain.Models
         {
             return new ApplicationDbContext();
         }
+
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Product>()
+        //        .HasRequired(a => a.ProductGroupID)
+        //        .WithMany(g => g.Attendences)
+        //        .WillCascadeOnDelete(false);
+
+
+
+        //    modelBuilder.Entity<ApplicationUser>()
+        //        .HasMany(u => u.Followers)
+        //        .WithRequired(u => u.Followee)
+        //        .WillCascadeOnDelete(false);
+
+        //    modelBuilder.Entity<ApplicationUser>()
+        //        .HasMany(u => u.Followees)
+        //        .WithRequired(u => u.Follower)
+        //        .WillCascadeOnDelete(false);
+
+        //    modelBuilder.Entity<UserNotification>()
+        //        .HasRequired(n => n.User)
+        //        .WithMany(u => u.UserNotifications)
+        //        .WillCascadeOnDelete(false);
+
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
+
 
         //public System.Data.Entity.DbSet<EatOutByBI.Domain.Models.ApplicationUser> ApplicationUsers { get; set; }
 

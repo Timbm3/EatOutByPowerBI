@@ -6,9 +6,11 @@ namespace EatOutByBI.Data.Classes
 {
     public class SalesOrderItem : IModificationHistory, IObjectWithState
     {
+
         public int SalesOrderItemId { get; set; }
 
-        public int ProductId { get; set; }
+
+        public int ProductID { get; set; }
         public virtual Product Product { get; set; }
 
         public int Quantity { get; set; }

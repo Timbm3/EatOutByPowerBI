@@ -18,6 +18,8 @@ namespace EatOutByBI.Data.Classes
 
         public DateTime DateTime { get; set; }
 
+        public DateTime FinnishTime { get; set; }
+
         [Required]
         [StringLength(255)]
         [Display(Name = "Name of Event")]

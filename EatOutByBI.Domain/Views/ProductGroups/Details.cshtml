@@ -1,4 +1,4 @@
-﻿@model EatOutByBI.Data.Classes.ProductGroup
+﻿@model EatOutByBI.Data.DTO.ProductGroupDTO
 
 @{
     ViewBag.Title = "Details";
@@ -27,19 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            @Html.DisplayNameFor(model => model.ProductTypeName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateCreated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateModified)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateModified)
+            @Html.DisplayFor(model => model.ProductTypeName)
         </dd>
 
     </dl>

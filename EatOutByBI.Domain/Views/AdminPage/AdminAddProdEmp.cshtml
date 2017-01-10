@@ -1,17 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "AdminAddProdEmp";
+    ViewBag.Title = "Product View";
 }
 
-<h2>AdminAddProdEmp</h2>
+<h2>Produkters Vy</h2>
 <div class="row">
     <div class="col-sm-3 menuNav">
         @Html.Partial("_AdminPagePartial")
-
-        @*<p>@Html.ActionLink("Admin", "Index", "AdminPage")</p>
-            <p class="onMenuChoice">@Html.ActionLink("Lägg till Prod/Anställd", "AdminAddProdEmp", "AdminPage")</p>
-            <p>@Html.ActionLink("Lägg till Användar Roll", "Index", "Role")</p>
-            <p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>*@
     </div>
     <div class="col-sm-9 standardMenu">
 
@@ -20,19 +15,6 @@
                 Välj bland alternativen nedanför för att lägga till t.ex product
             </p>
         </div><br />
-
-
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Employees")'">Anställda</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "EmployeeForms")'">Anställnings Former</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "EmployeeTypes")'">Anställnings Typer</button>
-            </div>
-        </div>
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default" onclick="location.href = '@Url.Action("Index", "Products")'">Produkter</button>
