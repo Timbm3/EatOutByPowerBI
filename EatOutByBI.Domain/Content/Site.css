@@ -326,15 +326,26 @@ h6,
 
 
 .events > li .date {
-    font-size: 20px;
+    font-size: 200%;
     text-transform: capitalize;
+    display: inline-block;
 }
+
+.events > li .time {
+    font-size: 200%;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+
 /* Event styles*/
 .events > li .eventHeader {
     text-align: center;
+    
 }
 
 .nameOfEvent {
+    font-size: 250%;
 }
 
 .events > li .date .weekDay {
@@ -369,6 +380,8 @@ h6,
 .picDiv {
     position: relative;
     left: 10px;
+
+
 }
 
 

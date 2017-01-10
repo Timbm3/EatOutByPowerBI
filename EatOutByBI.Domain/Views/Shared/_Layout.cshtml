@@ -41,6 +41,7 @@
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Meny", "MenuIndex", "Menu")</li>
                     <li>@Html.ActionLink("Boka bord", "BookingsPreCreate", "Bookings")</li>
+                    <li>@Html.ActionLink("Evengemang", "EventIndex", "Event")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -58,8 +59,10 @@
                 <div id="footerDiv2" class="col-md-6 theFooter">
                     <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 
-                    <p>@Html.ActionLink("Hela Meny", "Test", "Home")</p>
-
+                    <p>@Html.ActionLink("Hela Meny", "Test", "Home", new { @class = "btn btn-primary" })</p>
+                    @*@Html.ActionLink("Link Text", "Edit",
+        new {  id = Model.SeatID },
+        new { @class = "btn btn-default" })*@
 
 
                     <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
