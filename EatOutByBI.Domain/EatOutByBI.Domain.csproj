@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201701100814156_AddEventTime.Designer.cs">
       <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701030825301_dsfh.cs" />
+    <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
+      <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HtmlHelpers.cs" />
@@ -474,6 +478,7 @@
     <Content Include="Views\PaymentMethods\Details.cshtml" />
     <Content Include="Views\PaymentMethods\Edit.cshtml" />
     <Content Include="Views\PaymentMethods\Index.cshtml" />
+    <Content Include="Views\Shared\_ManagerPagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -496,6 +501,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701100814156_AddEventTime.resx">
       <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030911589_sync.resx">
+      <DependentUpon>201701030911589_sync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030926064_addIsDAteAva.resx">
+      <DependentUpon>201701030926064_addIsDAteAva.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

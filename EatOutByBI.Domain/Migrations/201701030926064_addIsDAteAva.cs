@@ -3,16 +3,16 @@ namespace EatOutByBI.Domain.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class second22 : DbMigration
+    public partial class addIsDAteAva : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Events", "FinnishTime", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Bookeds", "IsDateAvailable", c => c.Boolean(nullable: false));
         }
-        
+
         public override void Down()
         {
-            DropColumn("dbo.Events", "FinnishTime");
+            DropColumn("dbo.Bookeds", "IsDateAvailable");
         }
     }
 }

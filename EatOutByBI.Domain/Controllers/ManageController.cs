@@ -270,7 +270,7 @@ namespace EatOutByBI.Domain.Controllers
             return viewModel;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult SetPassword(string id)
         {
             var db = new ApplicationDbContext();
@@ -296,7 +296,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/SetPassword
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model, ApplicationUser applicationUser)

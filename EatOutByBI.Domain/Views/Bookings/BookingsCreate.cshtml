@@ -150,14 +150,12 @@
 
 
             <div class="form-group">
-                @Html.LabelFor(model => model.BookingTimeId, "BookingTimeId", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BookingTimeId, new { htmlAttributes = new { @class = "form-control hdnInpBookingId" } })
+                    @Html.EditorFor(model => model.BookingTimeId, new { htmlAttributes = new { @class = "form-control hdnInpBookingId hidden" } })
                     @Html.ValidationMessageFor(model => model.BookingTimeId, "", new { @class = "text-danger" })
                     <br />
-                    @*@Html.EditorFor(model => model.DateAndTime, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })*@
-                    @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control hdnInpBookingTime" } })
-                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate" } })
+                    @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control hdnInpBookingTime hidden" } })
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control hdnInpBookingDate hidden" } })
                 </div>
             </div>
 

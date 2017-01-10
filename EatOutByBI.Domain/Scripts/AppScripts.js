@@ -34,7 +34,8 @@ $(function () {
     var array = ["20161212", "12122016", "2013-03-16"]
 
     $('.date-picker').datepicker({
-        //dateFormat: 'dd-mm-yy',
+        dateFormat: 'yy-mm-dd',
+        altField: "#Date",
 
         beforeShowDay: function (date) {
             var string = jQuery.datepicker.formatDate('ddmmyy', date);

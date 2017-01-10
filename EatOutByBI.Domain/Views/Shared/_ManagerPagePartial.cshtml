@@ -1,22 +1,10 @@
 ﻿@using EatOutByBI.Domain.Models
 <div class="menuNav" data-navigation="true">
     <ul id="menu" class="nav">
-        <li>@Html.MenuLink("Manager", "Index", "Manager")</li>
-        <li>@Html.MenuLink("Antällda", "ListEmployees", "EmployeePage")</li>
-        <li>@Html.MenuLink("Lägg till en order", "Create", "Sales")</li>
-        <li>@Html.MenuLink("Se orders", "Index", "Sales")</li>
-
-
-        <li>@Html.MenuLink("Hantera Produkter", "Index", "Products")</li>
-        <li>@Html.MenuLink("Hantera Antällda", "Index", "Employees")</li>
-
-
-        <li>@Html.MenuLink("Se Events", "EventIndex", "Event")</li>
-        <li>@Html.MenuLink("Skapa Event", "CreateEvent", "Event")</li>
-        <li>@Html.MenuLink("Se Anställda Events", "EmployeeEventIndex", "Event")</li>
-        <li>@Html.MenuLink("Skapa Anställda Events", "CreateEmployeeEvent", "Event")</li>
-
-
+        <li>@Html.MenuLink("Chef", "Index", "Manager")</li>
+        <li>@Html.MenuLink("Produkter", "AdminAddProdEmp", "AdminPage")</li>
+        <li>@Html.MenuLink("Användare", "Employees", "AdminPage")</li>
+        <li>@Html.MenuLink("Bokningar", "BookingsIndex", "Bookings")</li>
 
     </ul>
 </div>
