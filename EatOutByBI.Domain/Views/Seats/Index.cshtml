@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EatOutByBI.Data.DTO.SeatDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Skapa Ny", "Create")
+</p>
+<table class="table standardMenu">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatPlace)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatPlace)
+        </td>
+
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id=item.SeatID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.SeatID }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.SeatID })
+        </td>
+    </tr>
+}
+
+</table>

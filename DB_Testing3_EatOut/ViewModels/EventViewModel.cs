@@ -23,6 +23,9 @@ namespace EatOutByBI.Data.ViewModels
         [ValidTime]
         public string Time { get; set; }
 
+        public string EndTime { get; set; }
+
+
         [Required]
         public byte EventType { get; set; }
 
@@ -31,6 +34,11 @@ namespace EatOutByBI.Data.ViewModels
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+        }
+
+        public DateTime GetEndTime()
+        {
+            return DateTime.Parse(string.Format("{0} {1}", Date, EndTime));
         }
     }
 

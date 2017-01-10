@@ -63,7 +63,8 @@ namespace EatOutByBI.Domain.Controllers
                 DateTime = viewModel.GetDateTime(),
                 EventTypeId = viewModel.EventType,
                 NameOfEvent = viewModel.NameOfEvent,
-                Image = viewModel.Image
+                Image = viewModel.Image,
+                FinnishTime = viewModel.GetEndTime()
             };
 
 

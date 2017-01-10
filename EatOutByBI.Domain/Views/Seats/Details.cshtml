@@ -1,0 +1,32 @@
+﻿@model EatOutByBI.Data.DTO.SeatDTO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Seat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatPlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatPlace)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Create A New Invoice", "Edit", null, new { id = Model.SeatID, @class = "btn btn-primary" })
+
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SeatID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

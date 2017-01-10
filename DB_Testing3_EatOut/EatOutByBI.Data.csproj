@@ -74,6 +74,7 @@
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\EmployeeFormDTO.cs" />
     <Compile Include="DTO\EmployeeTypeDTO.cs" />
+    <Compile Include="DTO\PaymentMethodDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductGroupDTO.cs" />
     <Compile Include="DTO\ProductTypeDTO.cs" />
@@ -97,6 +98,10 @@
     <Compile Include="Migrations\201701031334284_dropProductsEtc.Designer.cs">
       <DependentUpon>201701031334284_dropProductsEtc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701091945007_EventEndTime.cs" />
+    <Compile Include="Migrations\201701091945007_EventEndTime.Designer.cs">
+      <DependentUpon>201701091945007_EventEndTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701031334284_dropProductsEtc.resx">
       <DependentUpon>201701031334284_dropProductsEtc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701091945007_EventEndTime.resx">
+      <DependentUpon>201701091945007_EventEndTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

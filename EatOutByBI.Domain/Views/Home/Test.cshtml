@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+
+<div class="row">
+    <div class="col-sm-3 menuNav">
+        <p>@Html.ActionLink("Manager", "Index", "Manager")</p>
+        <p>@Html.ActionLink("Anställdas Diagram", "EmpDiagrams", "Manager")</p>
+        <p>@Html.ActionLink("Schema", "Index", "Home")</p>
+
+        <p>@Html.ActionLink("Employee", "Index", "Employees")</p>
+        <p>@Html.ActionLink("Employee Forms", "Index", "EmployeeForms")</p>
+        <p>@Html.ActionLink("Employee Types", "Index", "EmployeeTypes")</p>
+
+        <p>@Html.ActionLink("Products", "Index", "Products")</p>
+        <p>@Html.ActionLink("Product Groups", "Index", "ProductGroups")</p>
+        <p>@Html.ActionLink("Product Types", "Index", "Product Types")</p>
+
+    </div>
+    <div class="col-sm-3 menuNav">
+
+        <p>@Html.ActionLink("Sales", "Index", "Sales")</p>
+
+
+        <p>@Html.ActionLink("Seats", "Index", "Seats")</p>
+        <p>@Html.ActionLink("Payment Methods", "Index", "PaymentMethods")</p>
+
+        <p>@Html.ActionLink("Roles", "Index", "Role")</p>
+
+        <p>@Html.ActionLink("Events", "EventIndex", "Event")</p>
+        <p>@Html.ActionLink("Employee Event", "EmployeeEventIndex", "Event")</p>
+
+    </div>
+    </div>
