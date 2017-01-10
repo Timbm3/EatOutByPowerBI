@@ -7,7 +7,7 @@ namespace EatOutByBI.Data.Classes
     {
         public int Id { get; set; }
 
-        //public ApplicationUser Artist { get; set; }
+        //public ApplicationUser Artist { get; set; }d
 
         public string Description { get; set; }
 
