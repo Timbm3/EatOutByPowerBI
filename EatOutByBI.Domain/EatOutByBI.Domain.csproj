@@ -200,7 +200,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
     <Compile Include="Controllers\BookedsController.cs" />
-    <Compile Include="Controllers\EmployeeFormDtoController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\BookingTimesController.cs" />
     <Compile Include="Controllers\EmployeeFormsController.cs" />
@@ -218,7 +217,6 @@
     <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
-    <Compile Include="Controllers\SalesOrdersController.cs" />
     <Compile Include="Controllers\SeatsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">

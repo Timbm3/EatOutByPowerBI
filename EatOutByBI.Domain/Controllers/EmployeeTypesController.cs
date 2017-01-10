@@ -60,6 +60,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: EmployeeTypes/Create
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             return View();
@@ -70,6 +71,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeTypeDTO empTypeDto)
         {
             try
@@ -97,6 +99,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: EmployeeTypes/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,7 +111,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeType);
+            return View(ViewModelFromEmpType(employeeType));
         }
 
         // POST: EmployeeTypes/Edit/5
@@ -116,6 +119,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit([Bind(Include = "EmployeeTypeID,EmployeeTypeName,EmployeeTypeOrderRow,DateCreated,DateModified")] EmployeeTypeDTO employeeTypeDto, EmployeeType employeeType)
         {
             try
@@ -139,6 +143,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: EmployeeTypes/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -155,6 +160,7 @@ namespace EatOutByBI.Domain.Controllers
 
         // POST: EmployeeTypes/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

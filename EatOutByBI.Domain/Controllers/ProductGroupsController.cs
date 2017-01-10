@@ -62,6 +62,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductGroups/Create
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             var dtoModel = new ProductGroupDTO()
@@ -76,6 +77,7 @@ namespace EatOutByBI.Domain.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,ProductTypeID")] ProductGroupDTO pGroupDto)
         {
@@ -108,6 +110,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductGroups/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -126,6 +129,7 @@ namespace EatOutByBI.Domain.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified")] ProductGroup productGroup, ProductGroupDTO pGroupDto)
         {
@@ -156,6 +160,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductGroups/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -172,6 +177,7 @@ namespace EatOutByBI.Domain.Controllers
 
         // POST: ProductGroups/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -31,6 +31,7 @@ namespace EatOutByBI.Domain.Controllers
 
         // GET: Event
         [Authorize]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult CreateEvent()
         {
             var viewModel = new EventViewModel
@@ -43,6 +44,7 @@ namespace EatOutByBI.Domain.Controllers
 
         [Authorize]
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult CreateEvent(EventViewModel viewModel, HttpPostedFileBase image1)
         {
@@ -74,7 +76,7 @@ namespace EatOutByBI.Domain.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult CreateEmployeeEvent()
         {
             var viewModel = new EmployeeEventViewModel()
@@ -84,7 +86,7 @@ namespace EatOutByBI.Domain.Controllers
 
             return View(viewModel);
         }
-        [Authorize]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateEmployeeEvent(EmployeeEventViewModel viewModel)

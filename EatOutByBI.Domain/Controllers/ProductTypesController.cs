@@ -56,6 +56,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductTypes/Create
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             return View();
@@ -66,6 +67,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductTypeDTO pTypeDto)
         {
             try
@@ -94,6 +96,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductTypes/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,6 +115,7 @@ namespace EatOutByBI.Domain.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ProductTypeID,ProductTypeName,ProductTypeOrderRow,DateCreated,DateModified")] ProductType productType, ProductTypeDTO pTypeDto)
         {
@@ -136,6 +140,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductTypes/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -152,6 +157,7 @@ namespace EatOutByBI.Domain.Controllers
 
         // POST: ProductTypes/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

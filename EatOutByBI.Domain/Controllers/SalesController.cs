@@ -65,6 +65,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales/Create
+        [Authorize]
         public ActionResult Create()
         {
             SalesOrderViewModel salesOrderViewModel = new SalesOrderViewModel();
@@ -74,6 +75,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
         // GET: Sales/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,7 +99,7 @@ namespace EatOutByBI.Domain.Controllers
 
             return View(salesOrderViewModel);
         }
-
+        [Authorize]
         public JsonResult GetProducts()
         {
             List<Product> products = new List<Product>();
@@ -143,6 +145,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -174,6 +177,7 @@ namespace EatOutByBI.Domain.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize]
         public JsonResult Save(SalesOrderViewModel salesOrderViewModel)
         {
             SalesOrder salesOrder = viewModels.Helpers.CreateSalesOrderFromSalesOrderViewModel(salesOrderViewModel);
