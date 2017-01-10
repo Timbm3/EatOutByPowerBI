@@ -13,7 +13,7 @@ namespace EatOutByBI.Domain
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            //createRolesAndUsers();
+            createRolesAndUsers();
         }
 
         private void createRolesAndUsers()

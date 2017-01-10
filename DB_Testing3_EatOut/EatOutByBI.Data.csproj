@@ -87,14 +87,6 @@
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201612211017414_first22.cs" />
-    <Compile Include="Migrations\201612211017414_first22.Designer.cs">
-      <DependentUpon>201612211017414_first22.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612211107498_second22.cs" />
-    <Compile Include="Migrations\201612211107498_second22.Designer.cs">
-      <DependentUpon>201612211107498_second22.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201612202204457_testBtIds.cs" />
     <Compile Include="Migrations\201612202204457_testBtIds.Designer.cs">
       <DependentUpon>201612202204457_testBtIds.cs</DependentUpon>
@@ -119,6 +111,10 @@
     <Compile Include="Migrations\201612220925452_DateAvailable.Designer.cs">
       <DependentUpon>201612220925452_DateAvailable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701030847202_sync.cs" />
+    <Compile Include="Migrations\201701030847202_sync.Designer.cs">
+      <DependentUpon>201701030847202_sync.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,12 +127,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612211017414_first22.resx">
-      <DependentUpon>201612211017414_first22.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612211107498_second22.resx">
-      <DependentUpon>201612211107498_second22.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612202204457_testBtIds.resx">
       <DependentUpon>201612202204457_testBtIds.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612220925452_DateAvailable.resx">
       <DependentUpon>201612220925452_DateAvailable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030847202_sync.resx">
+      <DependentUpon>201701030847202_sync.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

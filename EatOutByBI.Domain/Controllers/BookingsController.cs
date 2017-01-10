@@ -111,6 +111,7 @@ namespace EatOutByBI.Domain.Controllers
             return new JsonResult { Data = nonAvaDates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
+
         //Get: Bookings/PreCreate
         public ActionResult BookingsPreCreate()
         {
@@ -133,6 +134,7 @@ namespace EatOutByBI.Domain.Controllers
 
             return View(dtoMod);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -287,7 +289,7 @@ namespace EatOutByBI.Domain.Controllers
                 return HttpNotFound();
             }
             ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
-            return View(booking);
+            return View(ViewModelFromBookingEdit(booking));
         }
 
         // POST: Bookings/Edit/5
@@ -295,16 +297,36 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingId,Name,Telephone,Email,TimeStamp,DateCreated,DateModified,BookingTimeId")] Booking booking)
+        public ActionResult Edit([Bind(Include = "BookingId,Name,Telephone,Email,DateCreated,DateModified,BookingTimeId")] Booking booking, BookingDTO bDto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(booking).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("BookingsIndex");
+
+                if (!ModelState.IsValid)
+                {
+                    booking.Name = bDto.Name;
+                    booking.Telephone = bDto.Telephone;
+
+                    var errors = ModelState.SelectMany(x => x.Value.Errors.Select(z => z.Exception));
+
+
+
+                    db.Entry(booking).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("BookingsIndex");
+                }
+                else
+                {
+                    ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
+                    return View(ViewModelFromBookingEdit(booking));
+                }
             }
-            ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
-            return View(booking);
+            catch (Exception ex)
+            {
+                return View("Error", new HandleErrorInfo(ex, "Bookings", "Edit"));
+            }
+
+
         }
 
         // GET: Bookings/Delete/5
@@ -358,6 +380,19 @@ namespace EatOutByBI.Domain.Controllers
                 //Booked = booking.Booked,
                 BookingTimes = booking.BookingTime.ToList(),
                 Booked = booking.Bookeds.ToList()
+            };
+
+            return viewModel;
+        }
+
+        private BookingDTO ViewModelFromBookingEdit(Booking booking)
+        {
+            var viewModel = new BookingDTO()
+            {
+                BookingId = booking.BookingId,
+                Name = booking.Name,
+                Telephone = booking.Telephone,
+                Email = booking.Email,
             };
 
             return viewModel;

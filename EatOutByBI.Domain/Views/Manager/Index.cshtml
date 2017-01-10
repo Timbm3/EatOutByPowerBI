@@ -7,9 +7,10 @@
 
 <div class="row">
     <div class="col-sm-3 menuNav">
-        <p class="onMenuChoice">@Html.ActionLink("Manager", "Index", "Manager")</p>
+        @Html.Partial("_ManagerPagePartial")
+        @*<p class="onMenuChoice">@Html.ActionLink("Manager", "Index", "Manager")</p>
         <p>@Html.ActionLink("Anställdas Diagram", "EmpDiagrams", "Manager")</p>
-        <p>@Html.ActionLink("Schema", "Index", "Home")</p>
+        <p>@Html.ActionLink("Schema", "Index", "Home")</p>*@
         @*<p>@Html.ActionLink("Registrera Användare", "Register", "Account")</p>*@
         @*<p>@Html.ActionLink("Efterrätter", "Desserts", "Menu")</p>*@
     </div>

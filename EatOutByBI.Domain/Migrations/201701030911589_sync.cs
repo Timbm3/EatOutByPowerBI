@@ -1,9 +1,9 @@
-namespace EatOutByBI.Data.Migrations
+namespace EatOutByBI.Domain.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class second22 : DbMigration
+    public partial class sync : DbMigration
     {
         public override void Up()
         {

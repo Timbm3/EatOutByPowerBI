@@ -230,6 +230,14 @@
     <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
       <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701030911589_sync.cs" />
+    <Compile Include="Migrations\201701030911589_sync.Designer.cs">
+      <DependentUpon>201701030911589_sync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030926064_addIsDAteAva.cs" />
+    <Compile Include="Migrations\201701030926064_addIsDAteAva.Designer.cs">
+      <DependentUpon>201701030926064_addIsDAteAva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HtmlHelpers.cs" />
@@ -423,11 +431,6 @@
     <Content Include="Views\Bookings\BookingsDetails.cshtml" />
     <Content Include="Views\Bookings\Edit.cshtml" />
     <Content Include="Views\Bookings\BookingsIndex.cshtml" />
-    <Content Include="Views\BookingTimes\Create.cshtml" />
-    <Content Include="Views\BookingTimes\Delete.cshtml" />
-    <Content Include="Views\BookingTimes\Details.cshtml" />
-    <Content Include="Views\BookingTimes\Edit.cshtml" />
-    <Content Include="Views\BookingTimes\Index.cshtml" />
     <Content Include="Views\EmployeeFormDto\Index.cshtml" />
     <Content Include="Views\EmployeeFormDto\Create.cshtml" />
     <Content Include="Views\AdminPage\AdminAddProdEmp.cshtml" />
@@ -467,6 +470,7 @@
     <Content Include="Views\Manager\EmpDiagrams.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
     <Content Include="Views\Manager\Bookings.cshtml" />
+    <Content Include="Views\Shared\_ManagerPagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -492,6 +496,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701030825301_dsfh.resx">
       <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030911589_sync.resx">
+      <DependentUpon>201701030911589_sync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030926064_addIsDAteAva.resx">
+      <DependentUpon>201701030926064_addIsDAteAva.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

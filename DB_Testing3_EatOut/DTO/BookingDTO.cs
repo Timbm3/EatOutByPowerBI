@@ -117,7 +117,7 @@ namespace EatOutByBI.Data.DTO
         {
             var stringConvertBookedId = bookingDto.Date;
 
-            string[] splitBookedId = stringConvertBookedId.Split('/');
+            string[] splitBookedId = stringConvertBookedId.Split('-');
 
             int finalBookedId = Convert.ToInt32(splitBookedId[0] + splitBookedId[1] + splitBookedId[2]);
             return finalBookedId;

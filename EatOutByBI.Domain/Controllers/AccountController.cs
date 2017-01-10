@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EatOutByBI.Domain.Models;
+using System.Web.Security;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -137,7 +138,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
@@ -148,7 +149,7 @@ namespace EatOutByBI.Domain.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
