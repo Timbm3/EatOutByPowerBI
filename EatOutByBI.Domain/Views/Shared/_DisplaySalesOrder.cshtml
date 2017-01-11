@@ -1,9 +1,9 @@
 ﻿
 <h2>@ViewBag.Title</h2>
 
-<p data-bind="text: MessageToClient"></p>
+@*<p data-bind="text: MessageToClient"></p>*@
 
-<div>
+<div class="standardMenu displaySales">
     <div class="form-group">
         <label class="control-label">Kundens Namn:</label>
         <span class="form-group" data-bind="text: CustomerName"></span>
@@ -27,11 +27,11 @@
     </div>
 </div>
 
-<table class="table">
+<table class="table standardMenu">
     <tr>
         <th>Produkt</th>
-        <th>Kvantitet</th>
-        <th></th>
+        <th class="text-right">Kvantitet</th>
+        <th>Pris</th>
 
     </tr>
     <tbody data-bind="foreach: SalesOrderItems">

@@ -26,6 +26,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductTypes
+        [Authorize]
         public ActionResult Index()
         {
             var productType = from pT in db.ProductTypes
@@ -41,6 +42,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductTypes/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

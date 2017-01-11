@@ -35,6 +35,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
         // GET: Employees
+        [Authorize]
         public ActionResult Index()
         {
             var employee = from e in db.Employees
@@ -50,7 +51,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Employees/Details/5
-
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

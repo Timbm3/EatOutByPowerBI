@@ -30,6 +30,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductGroups
+        [Authorize]
         public ActionResult Index()
         {
             var productGroup = from pG in db.ProductGroups
@@ -47,6 +48,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: ProductGroups/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

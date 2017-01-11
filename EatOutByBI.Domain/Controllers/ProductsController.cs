@@ -32,6 +32,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
         // GET: Products
+        [Authorize]
         public ActionResult Index()
         {
             //var products = db.Products.Include(p => p.ProductGroup).Include(p => p.ProductGroup.ProductType);
@@ -55,6 +56,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Products/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

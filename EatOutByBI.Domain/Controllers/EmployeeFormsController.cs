@@ -28,6 +28,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: EmployeeForms
+        [Authorize]
         public ActionResult Index()
         {
             var employeeForm = from e in db.EmployeeForms
@@ -44,6 +45,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: EmployeeForms/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

@@ -411,6 +411,14 @@ ul#menu li a {
     border-radius: 5px;
 }
 
+.displaySales{
+    font-size: 150%;
+}
+
+.displaySales > div >label {
+    color: rgba(0, 0, 0, 0.55);
+}
+
 /*.tblAddRole > table {
     background-color: whitesmoke;
     width: 500px;

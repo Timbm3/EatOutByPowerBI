@@ -30,7 +30,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
         // GET: Event
-        [Authorize]
+
         [Authorize(Roles = "Admin,Manager")]
         public ActionResult CreateEvent()
         {
@@ -42,7 +42,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(viewModel);
         }
 
-        [Authorize]
+
         [HttpPost]
         [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]

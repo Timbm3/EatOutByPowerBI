@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using EatOutByBI.Domain.Models;
+﻿using EatOutByBI.Domain.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -13,6 +11,7 @@ namespace EatOutByBI.Domain.Controllers
     {
         // GET: Role
         ApplicationDbContext context = new ApplicationDbContext();
+        [Authorize]
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -33,6 +32,8 @@ namespace EatOutByBI.Domain.Controllers
             return View(Roles);
         }
 
+
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             if (User.Identity.IsAuthenticated)
@@ -57,6 +58,8 @@ namespace EatOutByBI.Domain.Controllers
         /// Create a New Role
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
+
         public ActionResult Create(IdentityRole Role)
         {
             if (User.Identity.IsAuthenticated)

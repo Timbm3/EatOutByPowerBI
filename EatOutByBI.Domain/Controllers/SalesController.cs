@@ -18,6 +18,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales
+        [Authorize]
         public ActionResult Index()
         {
             //return View(_salesContext.SalesOrders.ToList());
@@ -38,6 +39,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -116,6 +118,8 @@ namespace EatOutByBI.Domain.Controllers
         //    products = _salesContext.Products.ToList();
         //    return new JsonResult { Data = products, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         //}
+
+        [Authorize]
         public JsonResult GetSeats()
         {
             List<Seat> seats = new List<Seat>();
@@ -125,6 +129,8 @@ namespace EatOutByBI.Domain.Controllers
             //}
             return new JsonResult { Data = seats, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        [Authorize]
         public JsonResult GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -134,6 +140,8 @@ namespace EatOutByBI.Domain.Controllers
             //}
             return new JsonResult { Data = employees, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        [Authorize]
         public JsonResult GetPaymentMethods()
         {
             List<PaymentMethod> paymentMethods = new List<PaymentMethod>();

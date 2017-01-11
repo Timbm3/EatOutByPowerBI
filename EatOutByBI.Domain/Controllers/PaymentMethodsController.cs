@@ -24,7 +24,7 @@ namespace EatOutByBI.Domain.Controllers
 
             return viewModel;
         }
-
+        [Authorize]
         public ActionResult Index()
         {
 
@@ -37,7 +37,7 @@ namespace EatOutByBI.Domain.Controllers
 
             return View(paymentMethods);
         }
-
+        [Authorize]
         // GET: PaymentMethods/Details/5
         public ActionResult Details(int? id)
         {
