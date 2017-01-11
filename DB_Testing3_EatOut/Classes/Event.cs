@@ -22,7 +22,7 @@ namespace EatOutByBI.Data.Classes
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Name of Event")]
+        //[Display(Name = "Name of Event")]
         public string NameOfEvent { get; set; }
 
         public EventType EventType { get; set; }
@@ -54,7 +54,7 @@ namespace EatOutByBI.Data.Classes
 
         [Required]
         [StringLength(255)]
-        [Display(Name = "Name of Event")]
+        //[Display(Name = "Name of Event")]
         public string NameOfEvent { get; set; }
 
         public EmployeeEventType EmployeeEventType { get; set; }

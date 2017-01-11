@@ -23,6 +23,7 @@ namespace EatOutByBI.Domain.Controllers
             };
             return viewModel;
         }
+        [Authorize]
 
         public ActionResult Index()
         {
