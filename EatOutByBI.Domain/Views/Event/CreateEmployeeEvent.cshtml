@@ -1,14 +1,14 @@
 ﻿@model EatOutByBI.Data.ViewModels.EmployeeEventViewModel
 
 @{
-    ViewBag.Title = "CreateEmployeeEvent";
+    ViewBag.Title = "Skapa Anställdas Event";
 }
 
-<h2>Create Employee Event</h2>
+<h2>Skapa Anställdas Event</h2>
 
 @using (Html.BeginForm("CreateEmployeeEvent", "Event"))
 {
-    <p class="alert alert-info">All fields are <strong>required</strong>.</p>
+    <p class="alert alert-info">Alla fält är <strong>Nödvändiga</strong>.</p>
     @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.NameOfEvent)
@@ -38,7 +38,7 @@
         @Html.ValidationMessageFor(m => m.EmployeeEventType)
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Spara</button>
 }
 @section scripts
 {

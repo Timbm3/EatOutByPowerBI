@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<EatOutByBI.Domain.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "Employees";
+    ViewBag.Title = "Anställda";
 }
 
-<h2>Employees</h2>
+<h2>Anställda</h2>
 
 <div class="row">
     <div class="col-sm-3 menuNav">
@@ -43,9 +43,9 @@
                         @Html.HiddenFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "AdminEmpEdit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "AdminEmpDetails", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "AdminEmpDelete", new { id = item.Id })
+                        @Html.ActionLink("Ändra", "AdminEmpEdit", new { id = item.Id }) |
+                        @Html.ActionLink("Detaljer", "AdminEmpDetails", new { id = item.Id }) |
+                        @Html.ActionLink("Ta Bort", "AdminEmpDelete", new { id = item.Id })
                     </td>
                 </tr>
             }

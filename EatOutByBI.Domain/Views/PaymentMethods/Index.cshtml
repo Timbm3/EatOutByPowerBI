@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EatOutByBI.Data.DTO.PaymentMethodDTO>
+
+@{
+    ViewBag.Title = "Betalningsmetoder";
+}
+
+<h2>Betalningsmetoder</h2>
+
+<p>
+    @Html.ActionLink("Skapa Ny", "Create")
+</p>
+<table class="table standardMenu">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentMethodType)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentMethodType)
+        </td>
+
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id=item.PaymentMethodId }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.PaymentMethodId }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.PaymentMethodId })
+        </td>
+    </tr>
+}
+
+</table>

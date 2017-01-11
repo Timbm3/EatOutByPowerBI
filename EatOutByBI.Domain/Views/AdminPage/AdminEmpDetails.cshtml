@@ -1,13 +1,13 @@
 ﻿@model EatOutByBI.Data.DTO.UsersDTO
 @{
-    ViewBag.Title = "AdminUserDetails";
+    ViewBag.Title = "Admin User Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Detaljer</h2>
 
 
 <div class="standardMenu">
-    <h4>Employee</h4>
+    <h4>Användare</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -36,7 +36,7 @@
     </dl>
 
     <p>
-        @Html.ActionLink("Edit", "AdminEmpEdit", new { id = Model.UserId }) |
-        @Html.ActionLink("Back to List", "Employees")
+        @Html.ActionLink("Ändra", "AdminEmpEdit", new { id = Model.UserId }) |
+        @Html.ActionLink("Tillbaka", "Employees")
     </p>
 </div>

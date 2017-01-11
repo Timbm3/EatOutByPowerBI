@@ -1,13 +1,13 @@
 ﻿@model EatOutByBI.Data.DTO.ProductGroupDTO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Produktgrupps Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Produktgrupps Detaljer</h2>
 
 <div>
-    <h4>ProductGroup</h4>
+    <h4>Produktgrupp</h4>
     <hr />
     <dl class="dl-horizontal standardMenu">
         <dt>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductGroupID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.ProductGroupID }) |
+    @Html.ActionLink("Tillbaka", "Index")
 </p>

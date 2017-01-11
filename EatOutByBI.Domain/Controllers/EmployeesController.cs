@@ -50,6 +50,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Employees/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -65,6 +66,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Employees/Create
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             var dtoModel = new EmployeeDTO()
@@ -81,6 +83,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create([Bind(Include = "EmployeeID,EmployeeName,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] EmployeeDTO eDto)
         {
             try
@@ -115,6 +118,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Employees/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -134,6 +138,7 @@ namespace EatOutByBI.Domain.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
             [Bind(Include = "EmployeeID,EmployeeName,EmployeeFormID,EmployeeTypeID,DateCreated,DateModified")] Employee emp,
@@ -168,6 +173,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Employees/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -183,6 +189,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // POST: Employees/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

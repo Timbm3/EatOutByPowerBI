@@ -4,7 +4,7 @@
 
 
 @{
-    ViewBag.Title = "Product Groups";
+    ViewBag.Title = "Produktgrupper";
 }
 
 <div>
@@ -13,10 +13,10 @@
 
 
 
-<h2>Produkt Grupper</h2>
+<h2>Produktgrupper</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa Ny", "Create")
 </p>
 <table class="table standardMenu">
     <tr>
@@ -44,9 +44,9 @@
             @Html.DisplayFor(modelItem => item.ProductTypeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductGroupID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductGroupID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductGroupID })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.ProductGroupID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.ProductGroupID }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.ProductGroupID })
         </td>
     </tr>
 }

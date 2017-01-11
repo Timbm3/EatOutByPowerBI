@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<EatOutByBI.Data.DTO.EmployeeTypeDTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista med Anställningstyper";
 }
 
 
 <div>
     @Html.Partial("_EmployeesMenu")
 </div>
-<h2>Index</h2>
+<h2>Lista med Anställningstyper</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa Ny", "Create")
 </p>
 <table class="table standardMenu">
     <tr>
@@ -33,9 +33,9 @@
             @Html.DisplayFor(modelItem => item.EmployeeTypeOrderRow)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeTypeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeTypeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeTypeID })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.EmployeeTypeID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.EmployeeTypeID }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.EmployeeTypeID })
         </td>
     </tr>
 }
