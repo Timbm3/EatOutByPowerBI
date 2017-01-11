@@ -1,4 +1,5 @@
-﻿@model EatOutByBI.Domain.Models.ApplicationUser
+﻿@*@model EatOutByBI.Domain.Models.ApplicationUser*@
+@model EatOutByBI.Data.DTO.UsersDTO
 
 @{
     ViewBag.Title = "AdminEmpDelete";
@@ -12,11 +13,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayNameFor(model => model.UserId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Id)
+            @Html.DisplayFor(model => model.UserId)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.UserName)

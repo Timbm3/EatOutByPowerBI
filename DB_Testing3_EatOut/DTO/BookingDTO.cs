@@ -106,7 +106,7 @@ namespace EatOutByBI.Data.DTO
                 DateAndTime = converToDatAndTime,
                 BookingTimeId = bookingDto.BookingTimeId,
                 BookingTime = bookingDto.BookingTimes.ToList(),
-
+                Time = bookingDto.Time,
                 NrOfPeople = bookingDto.NrOfPeople,
                 BookedId = finalBookedId
             };

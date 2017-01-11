@@ -22,6 +22,8 @@ namespace EatOutByBI.Data.Classes
         [EmailAddress]
         public string Email { get; set; }
 
+        public string Time { get; set; }
+
         [Required]
         public string Date { get; set; }
 

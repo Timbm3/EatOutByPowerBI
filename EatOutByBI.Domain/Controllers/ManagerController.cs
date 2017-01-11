@@ -16,12 +16,15 @@ namespace EatOutByBI.Domain.Controllers
 
         private EatOutContext bd = new EatOutContext();
 
+
         // GET: Manager
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult EmpDiagrams()
         {
 
@@ -29,7 +32,8 @@ namespace EatOutByBI.Domain.Controllers
             return View(users);
         }
 
-        public ActionResult Bookings()
+        [Authorize]
+        public ActionResult TodaysBookings()
         {
             var today = DateTime.UtcNow;
 
@@ -38,7 +42,7 @@ namespace EatOutByBI.Domain.Controllers
 
             string[] test = convertToBookedId[0].Split('-');
 
-            int finalBookedId = Convert.ToInt32(test[1] + test[2] + test[0]);
+            int finalBookedId = Convert.ToInt32(test[0] + test[1] + test[2]);
 
             Booked todaysBooked = bd.Bookeds.Find(finalBookedId);
 

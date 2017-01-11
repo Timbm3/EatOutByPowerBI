@@ -228,9 +228,13 @@
     <Compile Include="Migrations\201701100814156_AddEventTime.Designer.cs">
       <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701030825301_dsfh.cs" />
-    <Compile Include="Migrations\201701030825301_dsfh.Designer.cs">
-      <DependentUpon>201701030825301_dsfh.cs</DependentUpon>
+    <Compile Include="Migrations\201701101406302_TimeToBookings.cs" />
+    <Compile Include="Migrations\201701101406302_TimeToBookings.Designer.cs">
+      <DependentUpon>201701101406302_TimeToBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701101408103_TimeToBookingss.cs" />
+    <Compile Include="Migrations\201701101408103_TimeToBookingss.Designer.cs">
+      <DependentUpon>201701101408103_TimeToBookingss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -462,7 +466,7 @@
     <Content Include="Views\Shared\_DisplaySalesOrder.cshtml" />
     <Content Include="Views\Manager\EmpDiagrams.cshtml" />
     <Content Include="Views\Manager\Index.cshtml" />
-    <Content Include="Views\Manager\Bookings.cshtml" />
+    <Content Include="Views\Manager\TodaysBookings.cshtml" />
     <Content Include="Views\AdminPage\AdminAddEmp.cshtml" />
     <Content Include="Views\Shared\_ProductsMenu.cshtml" />
     <Content Include="Views\Shared\_EmployeesMenu.cshtml" />
@@ -502,11 +506,14 @@
     <EmbeddedResource Include="Migrations\201701100814156_AddEventTime.resx">
       <DependentUpon>201701100814156_AddEventTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701030911589_sync.resx">
-      <DependentUpon>201701030911589_sync.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701030926064_addIsDAteAva.resx">
       <DependentUpon>201701030926064_addIsDAteAva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701101406302_TimeToBookings.resx">
+      <DependentUpon>201701101406302_TimeToBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701101408103_TimeToBookingss.resx">
+      <DependentUpon>201701101408103_TimeToBookingss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

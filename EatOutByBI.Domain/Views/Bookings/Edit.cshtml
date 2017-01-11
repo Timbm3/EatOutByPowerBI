@@ -1,4 +1,5 @@
-﻿@model EatOutByBI.Data.DTO.BookingDTO
+﻿@*@model EatOutByBI.Data.DTO.BookingDTO*@
+@model EatOutByBI.Data.Classes.Booking
 
 @{
     ViewBag.Title = "Edit";
@@ -10,7 +11,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal standardMenu">
         <h4>Booking</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -40,14 +41,39 @@
             </div>
         </div>
 
-
         <div class="form-group">
-            @Html.LabelFor(model => model.BookingTimeId, "BookingTimeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NrOfPeople, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("BookingTimeId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BookingTimeId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NrOfPeople, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NrOfPeople, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateAndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateAndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateAndTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

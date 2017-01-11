@@ -38,19 +38,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
 
-        private UsersDTO ViewModelFroEmployee(ApplicationUser applicationUser)
-        {
-            var viewModel = new UsersDTO()
-            {
-                UserId = applicationUser.Id,
-                UserName = applicationUser.UserName,
-                Email = applicationUser.Email,
-                PhoneNumber = applicationUser.PhoneNumber
 
-            };
-
-            return viewModel;
-        }
 
         [Authorize(Roles = "Admin")]
         public ActionResult AdminEmpDetails(string id)
@@ -118,19 +106,42 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(applicationUser);
+            return View(ViewModelFroEmployee(applicationUser));
         }
 
         // POST: Bookings/Delete/5
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id, UsersDTO dDto, ApplicationUser applicationUser)
+        public ActionResult DeleteConfirmed(string id, UsersDTO dDto, ApplicationUser applicationUser)
         {
             applicationUser = db.Users.Find(id);
             db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("AdminIndex");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private UsersDTO ViewModelFroEmployee(ApplicationUser applicationUser)
+        {
+            var viewModel = new UsersDTO()
+            {
+                UserId = applicationUser.Id,
+                UserName = applicationUser.UserName,
+                Email = applicationUser.Email,
+                PhoneNumber = applicationUser.PhoneNumber
+
+            };
+
+            return viewModel;
         }
     }
 }

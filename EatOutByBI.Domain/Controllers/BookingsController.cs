@@ -60,58 +60,6 @@ namespace EatOutByBI.Domain.Controllers
         }
 
 
-        public JsonResult GetNonAvailableDates()
-        {
-            //var testIds = db.BookingTimes
-            //    .Where(b => b.IsAvailable == false)
-            //    .GroupBy(b => b.BookedId)
-            //    .Select(bt => new { Value = bt.Key, Count = bt.Count() })
-            //    .OrderByDescending(b => b.Count);
-
-            //List<string> nonAvailableDates = new List<string>() { };
-
-            //foreach (var item in testIds)
-            //{
-            //    if (item.Count >= 1)
-            //    {
-
-            //        nonAvailableDates.Add(item.Value.ToString());
-            //    };
-            //};
-            //nonAvailableDates.ToArray();
-
-            var testIds = db.BookingTimes
-                .Where(b => b.IsAvailable == false)
-                .GroupBy(b => b.BookedId)
-                .Select(bt => new { Value = bt.Key, Count = bt.Count() })
-                .OrderByDescending(b => b.Count);
-
-            List<string> nonAvaDates = new List<string>() { };
-
-            foreach (var item in testIds)
-            {
-                Booked notAvailable = db.Bookeds.Find(item.Value);
-                //item.Count >= notAvailable.BookingTimes.Count()
-                if (item.Count >= 3)
-                {
-                    //Booked notAvailable = db.Bookeds.Find(item.Value);
-
-                    notAvailable.IsDateAvailable = false;
-
-                    nonAvaDates.Add(notAvailable.BookedId.ToString());
-                };
-            };
-
-
-            var serializer = new JavaScriptSerializer();
-            var serializedResult = serializer.Serialize(nonAvaDates);
-
-            var deserializedResult = serializer.Deserialize<List<string>>(serializedResult);
-
-            return new JsonResult { Data = nonAvaDates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-
         //Get: Bookings/PreCreate
         public ActionResult BookingsPreCreate()
         {
@@ -289,7 +237,7 @@ namespace EatOutByBI.Domain.Controllers
                 return HttpNotFound();
             }
             ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
-            return View(ViewModelFromBookingEdit(booking));
+            return View(booking);
         }
 
         // POST: Bookings/Edit/5
@@ -297,28 +245,35 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingId,Name,Telephone,Email,DateCreated,DateModified,BookingTimeId")] Booking booking, BookingDTO bDto)
+        public ActionResult Edit([Bind(Include = "BookingId,Name,Telephone,Email,BookingTimeId,BokedId,Date,DateAndTime,DateCreated,NrOfPeople,Time")] Booking booking, BookingDTO bDto)
         {
+
+            Booking boooking = db.Bookings.Find(booking.BookingId);
+
             try
             {
 
-                if (!ModelState.IsValid)
+                if (booking.BookingId == boooking.BookingId)
                 {
-                    booking.Name = bDto.Name;
-                    booking.Telephone = bDto.Telephone;
+                    boooking.Name = bDto.Name;
+                    boooking.NrOfPeople = bDto.NrOfPeople;
+                    boooking.Telephone = bDto.Telephone;
+                    boooking.Date = bDto.Date;
+                    boooking.Time = bDto.Time;
+                    boooking.DateAndTime = bDto.DateAndTime;
 
                     var errors = ModelState.SelectMany(x => x.Value.Errors.Select(z => z.Exception));
 
 
 
-                    db.Entry(booking).State = EntityState.Modified;
+                    db.Entry(boooking).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("BookingsIndex");
                 }
                 else
                 {
                     ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", booking.BookingTimeId);
-                    return View(ViewModelFromBookingEdit(booking));
+                    return View(booking);
                 }
             }
             catch (Exception ex)
@@ -341,7 +296,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ViewModelFromBooking(booking));
+            return View(ViewModelFromBookingEdit(booking));
         }
 
         // POST: Bookings/Delete/5
@@ -379,7 +334,8 @@ namespace EatOutByBI.Domain.Controllers
                 //Booked = booking.Bookeds.ToList(),
                 //Booked = booking.Booked,
                 BookingTimes = booking.BookingTime.ToList(),
-                Booked = booking.Bookeds.ToList()
+                Booked = booking.Bookeds.ToList(),
+
             };
 
             return viewModel;
@@ -393,6 +349,7 @@ namespace EatOutByBI.Domain.Controllers
                 Name = booking.Name,
                 Telephone = booking.Telephone,
                 Email = booking.Email,
+                Date = booking.Date,                             
             };
 
             return viewModel;
@@ -410,5 +367,59 @@ namespace EatOutByBI.Domain.Controllers
 
             return viewModel;
         }
+
+
+        public JsonResult GetNonAvailableDates()
+        {
+            //var testIds = db.BookingTimes
+            //    .Where(b => b.IsAvailable == false)
+            //    .GroupBy(b => b.BookedId)
+            //    .Select(bt => new { Value = bt.Key, Count = bt.Count() })
+            //    .OrderByDescending(b => b.Count);
+
+            //List<string> nonAvailableDates = new List<string>() { };
+
+            //foreach (var item in testIds)
+            //{
+            //    if (item.Count >= 1)
+            //    {
+
+            //        nonAvailableDates.Add(item.Value.ToString());
+            //    };
+            //};
+            //nonAvailableDates.ToArray();
+
+            var testIds = db.BookingTimes
+                .Where(b => b.IsAvailable == false)
+                .GroupBy(b => b.BookedId)
+                .Select(bt => new { Value = bt.Key, Count = bt.Count() })
+                .OrderByDescending(b => b.Count);
+
+            List<string> nonAvaDates = new List<string>() { };
+
+            foreach (var item in testIds)
+            {
+                Booked notAvailable = db.Bookeds.Find(item.Value);
+                //item.Count >= notAvailable.BookingTimes.Count()
+                if (item.Count >= 3)
+                {
+                    //Booked notAvailable = db.Bookeds.Find(item.Value);
+
+                    notAvailable.IsDateAvailable = false;
+
+                    nonAvaDates.Add(notAvailable.BookedId.ToString());
+                };
+            };
+
+
+            var serializer = new JavaScriptSerializer();
+            var serializedResult = serializer.Serialize(nonAvaDates);
+
+            var deserializedResult = serializer.Deserialize<List<string>>(serializedResult);
+
+            return new JsonResult { Data = nonAvaDates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+
     }
 }
