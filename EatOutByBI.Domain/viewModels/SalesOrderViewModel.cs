@@ -32,7 +32,7 @@ namespace EatOutByBI.Domain.viewModels
 
 
         public int PaymentMethodId { get; set; }
-        // public string PaymentMethodType { get; set; }
+        //public string PaymentMethodType { get; set; }
 
         [DisplayName("Tidpunkt")]
         public DateTime DateTime { get; set; }

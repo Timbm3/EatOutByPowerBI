@@ -25,7 +25,8 @@ namespace EatOutByBI.Domain.Controllers
                 Unit = product.Unit,
                 ProductGroups = db.ProductGroups.ToList(),
                 ProductGroupName = product.ProductGroup.ProductGroupName,
-                ProductTypeName = product.ProductGroup.ProductType.ProductTypeName
+                ProductTypeName = product.ProductGroup.ProductType.ProductTypeName,
+                ProductGroupID = product.ProductGroupID
             };
             return viewModel;
         }
@@ -94,7 +95,7 @@ namespace EatOutByBI.Domain.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Manager")]
-        public ActionResult Create([Bind(Include = "ProductID,ProductName,OrderRowID,ProductTypeID,ProductGroupID,DateCreated,DateModified")] ProductDTO pDto)
+        public ActionResult Create([Bind(Include = "ProductID,ProductName,OrderRowID,UnitPrice,ProductTypeID,ProductGroupID,DateCreated,DateModified")] ProductDTO pDto)
         {
             try
             {
@@ -158,7 +159,7 @@ namespace EatOutByBI.Domain.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,OrderRowID,ProductTypeID,ProductGroupID,DateCreated,DateModified")] Product prd, ProductDTO pDto)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductName,OrderRowID,UnitPrice,ProductTypeID,ProductGroupID,DateCreated,DateModified")] Product prd, ProductDTO pDto)
         {
             if (ModelState.IsValid)
             {

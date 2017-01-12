@@ -3,46 +3,53 @@
 @model IEnumerable<EatOutByBI.Data.DTO.ProductTypeDTO>
 
 @{
-    ViewBag.Title = "Produkt Typer";
+    ViewBag.Title = "Produkttyper";
 }
 
 
-<div>
+<div class="col-xs-3 menuNav">
+    @Html.Partial("_ManagerPagePartial")
+</div>
+<div class="col-xs-9">
     @Html.Partial("_ProductsMenu")
 </div>
 
-<h2>Produkt Typer</h2>
+<h2>Produkttyper</h2>
 
 <p>
     @Html.ActionLink("Skapa Ny", "Create")
 </p>
-<table class="table standardMenu">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductTypeOrderRow)
-        </th>
 
-        <th></th>
-    </tr>
+<div class="col-xs-9">
+    <table class="table standardMenu">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTypeOrderRow)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductTypeOrderRow)
-        </td>
+            <th></th>
+        </tr>
 
-        <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.ProductTypeID }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.ProductTypeID }) |
-            @Html.ActionLink("Ta Bort", "Delete", new { id=item.ProductTypeID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductTypeOrderRow)
+                </td>
 
-</table>
+                <td>
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.ProductTypeID }) |
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ProductTypeID }) |
+                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.ProductTypeID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

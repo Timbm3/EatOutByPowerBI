@@ -328,15 +328,23 @@ h6,
 .events > li .date {
     font-size: 200%;
     text-transform: capitalize;
-    display: inline-block;
+    display: block;
+    /*left: 400%;*/
 }
 
 .events > li .time {
     font-size: 200%;
     text-transform: capitalize;
     display: inline-block;
+    text-align:center;
+    /*left: 400%;*/
 }
 
+.events > li .time > .startTime {
+    position: relative;
+    display: inline-block;
+    /*left: 110%;*/
+}
 
 /* Event styles*/
 .events > li .eventHeader {
@@ -349,8 +357,8 @@ h6,
 }
 
 .events > li .date .weekDay {
-    position: absolute;
-    left: 90px;
+    position: relative;
+    /*left: 40%;*/
 }
 
 .events > li .date .day {
@@ -380,6 +388,13 @@ h6,
 .picDiv {
     position: relative;
     left: 10px;
+    padding-right: 20px;
+
+}
+
+.picDiv > img {
+         padding-right: 0px; 
+     padding-left: 0px; 
 
 
 }
@@ -417,6 +432,11 @@ ul#menu li a {
 
 .displaySales > div >label {
     color: rgba(0, 0, 0, 0.55);
+}
+
+#myform > div > label{
+    font-size: 150%;
+    color: #dddddd;
 }
 
 /*.tblAddRole > table {

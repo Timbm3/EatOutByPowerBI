@@ -60,6 +60,7 @@ namespace EatOutByBI.Domain.Controllers
             salesOrderViewModel.SeatPlace = salesOrder.Seat.SeatPlace;
             salesOrderViewModel.EmployeeName = salesOrder.Employee.EmployeeName;
 
+
             //salesOrderViewModel.PaymentMethodType = salesOrder.PaymentMethod.PaymentMethodType;
 
 
