@@ -5,7 +5,10 @@
 }
 
 
-<div>
+<div class="col-xs-3 menuNav">
+    @Html.Partial("_ManagerPagePartial")
+</div>
+<div class="col-xs-9">
     @Html.Partial("_EmployeesMenu")
 </div>
 <h2>Lista med Anställningstyper</h2>
@@ -13,31 +16,35 @@
 <p>
     @Html.ActionLink("Skapa Ny", "Create")
 </p>
-<table class="table standardMenu">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeTypeOrderRow)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeTypeOrderRow)
-        </td>
-        <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.EmployeeTypeID }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.EmployeeTypeID }) |
-            @Html.ActionLink("Ta Bort", "Delete", new { id=item.EmployeeTypeID })
-        </td>
-    </tr>
-}
+<div class="col-xs-9">
+    <table class="table standardMenu">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeTypeOrderRow)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeTypeOrderRow)
+                </td>
+                <td>
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.EmployeeTypeID }) |
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.EmployeeTypeID }) |
+                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.EmployeeTypeID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

@@ -133,7 +133,7 @@ namespace EatOutByBI.Domain.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin,Manager")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified")] ProductGroup productGroup, ProductGroupDTO pGroupDto)
+        public ActionResult Edit([Bind(Include = "ProductGroupID,ProductGroupName,ProductGroupOrderRow,DateCreated,DateModified,ProductTypeID")] ProductGroup productGroup, ProductGroupDTO pGroupDto)
         {
             try
             {

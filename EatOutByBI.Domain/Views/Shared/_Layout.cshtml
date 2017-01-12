@@ -54,24 +54,25 @@
         <footer>
 
             <div class="row">
-                <div id="footerDiv1" class="col-md-6">
-                    <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
+                <div class="col-sm-12">
+                    <div id="footerDiv1" class="col-md-6">
+                        <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
+                    </div>
+                    <div id="footerDiv2" class="col-md-6 theFooter">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+
+                        <p>@Html.ActionLink("Hela Meny", "Test", "Home", new { @class = "btn btn-primary" })</p>
+                        @*@Html.ActionLink("Link Text", "Edit",
+                new {  id = Model.SeatID },
+                new { @class = "btn btn-default" })*@
+
+
+                        <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
+
+
+
+                    </div>
                 </div>
-                <div id="footerDiv2" class="col-md-6 theFooter">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-
-                    <p>@Html.ActionLink("Hela Meny", "Test", "Home", new { @class = "btn btn-primary" })</p>
-                    @*@Html.ActionLink("Link Text", "Edit",
-        new {  id = Model.SeatID },
-        new { @class = "btn btn-default" })*@
-
-
-                    <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
-
-
-
-                </div>
-
             </div>
 
 

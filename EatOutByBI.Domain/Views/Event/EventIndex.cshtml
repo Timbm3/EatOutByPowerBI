@@ -6,63 +6,64 @@
 
 <div class="row">
 
+    <div class="col-xs-6">
+        @*<div class="col-sm-3">
+                @Html.Partial("_EmployeePagePartial")
+            </div>*@
+        <ul class="events">
+            @foreach (var events in Model)
+            {
+                <li class="">
 
-    @*<div class="col-sm-3">
-        @Html.Partial("_EmployeePagePartial")
-    </div>*@
-    <ul class="events  col-sm-6">
-        @foreach (var events in Model)
-        {
-            <li class="">
-
-                <div class="eventHeader">
-                    <h4 class="nameOfEvent">
-                        @events.NameOfEvent
-                    </h4>
-                </div>
-
-
-                <div class="picDiv">
-                    @{
-                        var base64 = Convert.ToBase64String(events.Image);
-                        var imgsrc = $"data:image/gif;base64,{base64}";
-                    }
-                    <img class="img-rounded col-xs-12" style="max-width: 530px; max-height: 300px" src="@imgsrc"  />
-                    @*style="max-width: 530px; max-height: 300px"*@
-                </div>
-
-
-                <div class="date">
-                    <div class="weekDay">
-                        @events.DateTime.ToString("dddd")
-                    </div>
-                    <div class="month">
-                        @events.DateTime.ToString("MMM")
-                    </div>
-                    <div class="day">
-                        @events.DateTime.ToString("d ")
+                    <div class="eventHeader">
+                        <h4 class="nameOfEvent">
+                            @events.NameOfEvent
+                        </h4>
                     </div>
 
 
-                    @*"dddd"
-                        The full name of the day of the week.*@
-                </div>
-                
-                <div class="time">
-                    <div class="startTime">@events.DateTime.ToString("HH:mm")</div>
-                    <div class="endTime">@events.FinnishTime.ToString("HH:mm")</div>
-                </div>
-
-                <div class="details">
-                    <span class="eventType">
-                        @events.EventType.Name
-                    </span>
-                    <p class="eventDescription">@events.Description</p>
-
-                </div>
-
-
-            </li>
+                    <div class="picDiv">
+                        @{
+                            var base64 = Convert.ToBase64String(events.Image);
+                            var imgsrc = $"data:image/gif;base64,{base64}";
                         }
-    </ul>
+                        <img class="col-xs-12 eventPic" style="max-width: 530px; max-height: 300px" src="@imgsrc" />
+                        @*style="max-width: 530px; max-height: 300px"*@
+                    </div>
+
+
+                    <div class="date text-center">
+                        <div class="weekDay">
+                            @events.DateTime.ToString("dddd") @events.DateTime.ToString("MMM") @events.DateTime.ToString("d ")
+                        </div>
+                        @*<div class="month">
+                                @events.DateTime.ToString("MMM")
+                            </div>
+                            <div class="day">
+                                @events.DateTime.ToString("d ")
+                            </div>*@
+
+
+                        @*"dddd"
+                            The full name of the day of the week.*@
+                    </div>
+
+                    <div class="time text-center">
+                        <div class="startTime text-center">@events.DateTime.ToString("HH:mm") - @events.FinnishTime.ToString("HH:mm")</div>
+                        @*<div class="endTime">@events.FinnishTime.ToString("HH:mm")</div>*@
+                    </div>
+
+                    <div class="details">
+                        <span class="eventType">
+                            @events.EventType.Name
+                        </span>
+                        <p class="eventDescription">@events.Description</p>
+
+                    </div>
+
+
+                </li>
+                            }
+        </ul>
+    </div>
 </div>

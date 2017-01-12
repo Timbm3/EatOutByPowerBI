@@ -7,10 +7,12 @@
     ViewBag.Title = "Produktgrupper";
 }
 
-<div>
+<div class="col-xs-3 menuNav">
+    @Html.Partial("_ManagerPagePartial")
+</div>
+<div class="col-xs-9">
     @Html.Partial("_ProductsMenu")
 </div>
-
 
 
 <h2>Produktgrupper</h2>
@@ -18,37 +20,41 @@
 <p>
     @Html.ActionLink("Skapa Ny", "Create")
 </p>
-<table class="table standardMenu">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductGroupName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductGroupOrderRow)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductTypeName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductGroupName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductGroupOrderRow)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductTypeName)
-        </td>
-        <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.ProductGroupID }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.ProductGroupID }) |
-            @Html.ActionLink("Ta Bort", "Delete", new { id=item.ProductGroupID })
-        </td>
-    </tr>
-}
+<div class="col-xs-9">
+    <table class="table standardMenu">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductGroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductGroupOrderRow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductTypeName)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductGroupName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductGroupOrderRow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductTypeName)
+                </td>
+                <td>
+                    @Html.ActionLink("Ändra", "Edit", new { id = item.ProductGroupID }) |
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.ProductGroupID }) |
+                    @Html.ActionLink("Ta Bort", "Delete", new { id = item.ProductGroupID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

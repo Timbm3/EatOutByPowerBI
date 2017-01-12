@@ -22,16 +22,16 @@
     </div>
     <div class="form-group">
         <label class="control-label">Betalningsmetod:</label>
-        <span class="form-group" data-bind="text: PaymentMethodId"></span>
+        <span class="form-group" data-bind="text: PaymentMethodType"></span>
         @*<span class="form-group" data-bind="text: PaymentMethodType"></span>*@
     </div>
 </div>
 
 <table class="table standardMenu">
     <tr>
-        <th>Produkt</th>
-        <th class="text-right">Kvantitet</th>
-        <th class="text-right">Pris</th>
+        <th><h3>Produkt</h3></th>
+        <th class="text-right"><h3>Kvantitet</h3></th>
+        <th class="text-right"><h3>Pris</h3></th>
 
     </tr>
     <tbody data-bind="foreach: SalesOrderItems">

@@ -470,6 +470,7 @@
     <Content Include="Views\PaymentMethods\Create.cshtml" />
     <Content Include="Views\PaymentMethods\Index.cshtml" />
     <Content Include="Views\Shared\_ManagerPagePartial.cshtml" />
+    <Content Include="Views\Shared\_SeatPayPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

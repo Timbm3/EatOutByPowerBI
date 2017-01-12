@@ -86,10 +86,6 @@
     <Compile Include="Enums\ProductTypeEnum.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Interfaces\IModificationHistory.cs" />
-    <Compile Include="Migrations\201701120933004_DefaultBookingTimes.cs" />
-    <Compile Include="Migrations\201701120933004_DefaultBookingTimes.Designer.cs">
-      <DependentUpon>201701120933004_DefaultBookingTimes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,11 +96,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701120933004_DefaultBookingTimes.resx">
-      <DependentUpon>201701120933004_DefaultBookingTimes.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
