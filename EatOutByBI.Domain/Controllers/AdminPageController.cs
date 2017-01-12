@@ -17,15 +17,10 @@ namespace EatOutByBI.Domain.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
+
         // GET: AdminPage
         [Authorize(Roles = "Admin")]
         public ActionResult AdminIndex()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult AdminAddProdEmp()
         {
             return View();
         }
@@ -36,8 +31,6 @@ namespace EatOutByBI.Domain.Controllers
             var users = db.Users.ToList();
             return View(users);
         }
-
-
 
 
         [Authorize(Roles = "Admin")]
@@ -98,7 +91,7 @@ namespace EatOutByBI.Domain.Controllers
         public ActionResult AdminEmpDelete(string id)
         {
             if (id == null)
-            {   
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ApplicationUser applicationUser = db.Users.Find(id);
@@ -106,19 +99,35 @@ namespace EatOutByBI.Domain.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ViewModelFroEmployee(applicationUser));
+            return View(applicationUser);
         }
 
         // POST: Bookings/Delete/5
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id, UsersDTO dDto, ApplicationUser applicationUser)
+        public ActionResult DeleteConfirmed(string id, UsersDTO dDto, ApplicationUser applicationUser, Uri PreviousUrl)
         {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
+
+            
             applicationUser = db.Users.Find(id);
+
+            string test = applicationUser.Roles.ToString();
+
+            var logins = applicationUser.Logins;
+
+            foreach (var login in logins.ToList())
+            {
+                UserManager.RemoveLogin(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+            }
+
+            UserManager.RemoveFromRole(id, test);
+
             db.Users.Remove(applicationUser);
             db.SaveChanges();
-            return RedirectToAction("AdminIndex");
+            return RedirectToAction(PreviousUrl.ToString());
         }
 
         protected override void Dispose(bool disposing)

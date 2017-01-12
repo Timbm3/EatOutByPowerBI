@@ -32,6 +32,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(users);
         }
 
+
         [Authorize]
         public ActionResult TodaysBookings()
         {

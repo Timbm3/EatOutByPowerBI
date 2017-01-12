@@ -13,7 +13,6 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.GetUserName() <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li>@Html.ActionLink("Admin Sida", "AdminIndex", "AdminPage")</li>
-                    @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
                     <li>@Html.ActionLink("Chef Sida", "Index", "Manager")</li>
                     <li role="separator" class="divider"></li>
                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
