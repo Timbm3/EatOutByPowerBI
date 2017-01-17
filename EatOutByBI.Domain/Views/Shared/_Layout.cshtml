@@ -38,8 +38,7 @@
             </div>
             <div id="NavBarLinks" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Om oss", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+
                     <li>@Html.ActionLink("Meny", "MenuIndex", "Menu")</li>
                     <li>@Html.ActionLink("Boka bord", "BookingsPreCreate", "Bookings")</li>
                     <li>@Html.ActionLink("Evengemang", "EventIndex", "Event")</li>
@@ -59,17 +58,23 @@
                         <p>Måndag-Onsdag 11:00-21:00 Torsdag 11:00-22:00 Fredag-Lördag 11:00-00:00</p>
                     </div>
                     <div id="footerDiv2" class="col-md-6 theFooter">
-                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        
 
-                        <p>@Html.ActionLink("Hela Meny", "Test", "Home", new { @class = "btn btn-primary" })</p>
+                        @*<p>@Html.ActionLink("Hela Meny", "Test", "Home", new { @class = "btn btn-primary" })</p>*@
                         @*@Html.ActionLink("Link Text", "Edit",
                 new {  id = Model.SeatID },
                 new { @class = "btn btn-default" })*@
 
-
-                        <a href="@Url.Action("About", "Home")">Hitta Hit!</a>
-
-
+                        <ul id="footerNav">
+                            <li><a href="@Url.Action("About", "Home")">Hitta Hit!<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></li>
+                            <li>@Html.ActionLink("Om oss", "About", "Home")</li>
+                            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                        </ul>
+                        
+                        @*<li>@Html.ActionLink("Om oss", "About", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>*@
+                        
+                        
 
                     </div>
                 </div>

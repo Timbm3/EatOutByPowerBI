@@ -157,6 +157,17 @@ SalesOrderItemViewModel = function (data) {
     }
     //selecteditem = 2;
 
+    //self.findItem = function () {
+    //    console.log(self.itemss().length);
+    //    var category = ko.utils.arrayFirst(self.itemss(), function (item) {
+    //        return item.ProductID === self.ProductID();
+
+    //    }).UnitPrice;
+    //    console.log(category);
+    //    return category * self.Quantity();
+    //}
+
+
     self.findItem = function () {
         console.log(self.itemss().length);
         var category = ko.utils.arrayFirst(self.itemss(), function (item) {
@@ -164,8 +175,12 @@ SalesOrderItemViewModel = function (data) {
 
         }).UnitPrice;
         console.log(category);
-        return category * self.Quantity();
+        return category * self.Quantity(); // If UnitPrice is null. change ProductID on addsalesorderitem
     }
+
+
+
+
 
 
     self.flagSalesOrderAsEdited = function () {
@@ -184,7 +199,7 @@ SalesOrderViewModel = function (data) {
     self.seats = ko.observableArray(Seats);
     self.employees = ko.observableArray(Employees);
     self.paymentMethods = ko.observableArray(PaymentMethods);
-
+    self.products = ko.observableArray(Products);
 
 
 
@@ -233,11 +248,11 @@ SalesOrderViewModel = function (data) {
 
     //self.priceSalesOrderItems = function(salesOrderItem) {
     //    sa
-    //}
-
+    //}    
+    var pId = Products[0].ProductID;
     self.addSalesOrderItem = function () {
         // alert(" add salesorder item"); // funkade
-        var salesOrderItem = new SalesOrderItemViewModel({ SalesOrderItemId: 0, ProductID: 1, Quantity: 1, ObjectState: ObjectState.Added });
+        var salesOrderItem = new SalesOrderItemViewModel({ SalesOrderItemId: 0, Quantity: 1, ProductID: pId, ObjectState: ObjectState.Added });
         self.SalesOrderItems.push(salesOrderItem);
     };
 
