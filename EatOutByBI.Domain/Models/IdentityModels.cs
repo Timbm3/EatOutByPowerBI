@@ -19,6 +19,8 @@ namespace EatOutByBI.Domain.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        internal readonly object UserManager;
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

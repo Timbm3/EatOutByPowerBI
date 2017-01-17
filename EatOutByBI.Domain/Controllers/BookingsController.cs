@@ -90,7 +90,7 @@ namespace EatOutByBI.Domain.Controllers
             [Bind(
                 Include =
                     "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId"
-                )] BookingDTO bookingDto, int id, string date)
+                )] BookingDTO bookingDto, BookingTime bT, int id, string date)
         {
 
             int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
@@ -108,7 +108,7 @@ namespace EatOutByBI.Domain.Controllers
             {
                 //Creates list with default values
                 List<BookingTime> bookingTimes =
-                    BookingTime.AddDefaultTimes(bookingDto, finalBookedId);
+                    BookingTime.AddDefaultTimes(bookingDto, finalBookedId, bT);
 
 
                 foreach (var bookingTime in bookingTimes)
@@ -199,10 +199,22 @@ namespace EatOutByBI.Domain.Controllers
 
             Booked test = db.Bookeds.Find(id);
 
+            var getTimeForBookingDate = db.BookingTimes.Where(b => b.BookedId == finalBookedId && b.Time == bDTo.Time);
 
+            bool doubleCheckAvailableSeats = true;
+
+            foreach (var item in getTimeForBookingDate)
+            {
+                if (item.AvailableSeats < 0)
+                {
+                    doubleCheckAvailableSeats = false;
+                }
+                
+            }
 
             if (ModelState.IsValid)
             {
+
                 db.Bookings.Add(bDTo);
 
                 var idForBt = db.BookingTimes.Find(bookingDto.BookingTimeId);
@@ -349,7 +361,7 @@ namespace EatOutByBI.Domain.Controllers
                 Name = booking.Name,
                 Telephone = booking.Telephone,
                 Email = booking.Email,
-                Date = booking.Date,                             
+                Date = booking.Date,
             };
 
             return viewModel;

@@ -11,10 +11,10 @@ namespace EatOutByBI.Data.Classes
 {
     public class BookingTime
     {
-        //public BookingTime()
-        //{
-        //    DefaultTimes = new List<string>() { "17:00:00", "19:00:00", "21:00:00" };
-        //}
+        public BookingTime()
+        {
+            DefaultTimes = new List<string>() { "17:00:00", "19:00:00", "21:00:00" };
+        }
 
         public int BookingTimeId { get; set; }
 
@@ -24,7 +24,7 @@ namespace EatOutByBI.Data.Classes
 
         public DateTime DateAndTime { get; set; }
 
-        //public ICollection<string> DefaultTimes { get; set; }
+        public ICollection<string> DefaultTimes { get; set; }
 
         public int AvailableSeats { get; set; } = 10;
 
@@ -53,18 +53,15 @@ namespace EatOutByBI.Data.Classes
         //public DateTime DateCreated { get; set; }
         //public DateTime DateModified { get; set; }
 
-        public static List<BookingTime> AddDefaultTimes(BookingDTO bookingDto, int finalBookedId)
+        public static List<BookingTime> AddDefaultTimes(BookingDTO bookingDto, int finalBookedId, BookingTime bT)
         {
-            var time1 = "17:00:00";
-            var time2 = "19:00:00";
-            var time3 = "21:00:00";
 
             List<BookingTime> bookingTimes = new List<BookingTime>() { };
 
 
             List<string> defaulTimes = new List<string>() { "17:00:00", "19:00:00", "21:00:00" };
 
-            foreach (var time in defaulTimes)
+            foreach (var time in bT.DefaultTimes)
             {
                 bookingTimes.Add(
                         new BookingTime()
