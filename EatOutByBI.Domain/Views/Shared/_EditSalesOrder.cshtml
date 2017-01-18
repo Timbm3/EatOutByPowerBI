@@ -46,55 +46,61 @@
 
 
     @*console.log(Products)*@
-    <table class="table standardMenu table-responsive">
-        <tr>
-            <th><h3>Produkt</h3> </th>
-            <th><h3>Kvantitet</h3></th>
-            <th>&nbsp;</th>
-            <th class="text-right"><h3>Pris</h3></th>
-            <th><button class="btn btn-info btn-xs" data-bind="click: addSalesOrderItem">Lägg till</button></th>
-        </tr>
-        <tbody data-bind="foreach: SalesOrderItems">
+
+   
+        <table id="tblsearchresults" class="table standardMenu table-responsive">
             <tr>
-                <td>
-
-                    @*<select id="productCategory" class="pc form-control" data-bind="value: ProductId">
-                            <option>Select</option>
-                        </select>*@
-                    @*<select data-bind="options: $parent.product1, optionsText: 'ProductName', optionsValue: 'ProductId', value: ProductId"></select>*@
-                    <select class="form-group form-control" name="Products" data-bind="options: itemss, optionsText: 'ProductName', value: ProductID, optionsValue: 'ProductID', selectedOption: selectedOption, event: {change: flagSalesOrderAsEdited}"> </select>
-                    @**@
-                </td>
-                @*<td class="form-group"><input class="form-control input-sm" data-bind="value: ProductId" /></td>*@
-                <td class="form-group"><input class="form-control text-right" name="Quantity" data-bind="value: Quantity, event: {change: flagSalesOrderAsEdited}" /></td>
-                @*<td class="form-group"><span class="form-control input-sm" data-bind="text: Products[0].UnitPrice"></span></td>*@
-                @*<td class="form-group"><span class="form-control input-sm" data-bind="text: ProductId"></span></td>*@
-                <td>&nbsp;</td>
-                <td class="form-group"><span class="form-control input-sm text-right" data-bind="text: findItem()"></span></td>
-                <td class="form-group">
-                    <button class="btn btn-danger btn-xs"
-                            data-bind="click: $parent.deleteSalesOrderItem">
-                        Delete
-                    </button>
-                </td>
+                <th><h3>Produkt</h3> </th>
+                <th><h3>Kvantitet</h3></th>
+                <th>&nbsp;</th>
+                <th class="text-right"><h3>Pris</h3></th>
+                <th><button class="btn btn-info btn-xs" data-bind="click: addSalesOrderItem">Lägg till</button></th>
             </tr>
-        </tbody>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td class="form-group"><span class="form-control text-right">Totalt</span></td>
-            <td class="form-group"><span class="form-control text-right" data-bind="text: contactsTotal()"></span></td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
 
 
-    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+
+            <tbody data-bind="foreach: SalesOrderItems">
+                <tr>
+                    <td>
+
+                        @*<select id="productCategory" class="pc form-control" data-bind="value: ProductId">
+                                <option>Select</option>
+                            </select>*@
+                        @*<select data-bind="options: $parent.product1, optionsText: 'ProductName', optionsValue: 'ProductId', value: ProductId"></select>*@
+                        <select class="form-group form-control" name="Products" data-bind="options: itemss, optionsText: 'ProductName', value: ProductID, optionsValue: 'ProductID', selectedOption: ProductID, event: {change: flagSalesOrderAsEdited}"> </select>
+                        @**@
+                    </td>
+                    @*<td class="form-group"><input class="form-control input-sm" data-bind="value: ProductId" /></td>*@
+                    <td class="form-group"><input class="form-control text-right" name="Quantity" data-bind="value: Quantity, event: {change: flagSalesOrderAsEdited}" /></td>
+                    @*<td class="form-group"><span class="form-control input-sm" data-bind="text: Products[0].UnitPrice"></span></td>*@
+                    @*<td class="form-group"><span class="form-control input-sm" data-bind="text: ProductId"></span></td>*@
+                    <td>&nbsp;</td> @**@
+                    <td class="form-group"><span class="form-control input-sm text-right" data-bind="text: findItem()"></span></td>
+                    <td class="form-group">
+                        <button class="btn btn-danger btn-xs"
+                                data-bind="click: $parent.deleteSalesOrderItem">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="form-group"><span class="form-control text-right">Totalt</span></td>
+                <td class="form-group"><span class="form-control text-right" data-bind="text: contactsTotal()"></span></td>
+                <td>&nbsp;</td>@**@
+            </tr>
+        </table>
+    
+     @*Debugging*@
+    @*<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>*@
 
 
     <p><button class="btn btn-primary" type="submit" >Spara</button></p>
-    @*"data-bind="click: save"*@
-    <p><a class="btn btn-default btn-sm" href="/">&laquo; Tillbaka</a></p>
+    @*data-bind="click: save"*@
+    <p><a class="btn btn-default btn-sm" href="/Sales/Index">&laquo; Tillbaka</a></p>
 
     @*  Validation
         Pris(kr)

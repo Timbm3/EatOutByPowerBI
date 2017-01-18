@@ -62,17 +62,21 @@ font-size: 260%;
     margin-right: auto;
 }
 
-.theFooter > a {
+.theFooter > ul {
     float: right;
-    color: white;
+
     margin-right: 1%;
-     font-size: 120%
+     font-size: 150%
+}
+
+#footerNav > li{
+    list-style-type: none;
+        color: white;
 }
 
 
 
-
-.theFooter > span {
+.theFooter > ul {
     float: right;
     margin-left: 1%;
 }
