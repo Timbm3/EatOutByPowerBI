@@ -148,6 +148,7 @@ SalesOrderItemViewModel = function (data) {
     //var prod = ko.mapping.fromJS(data, productItemMapping, SalesOrderViewModel);
 
 
+    //TESTAR TA BORT
     self.itemName = function () {
         var theItem = ko.utils.arrayFirst(self.itemss(), function (item) {
             return item.ProductID === self.ProductID();
@@ -155,6 +156,10 @@ SalesOrderItemViewModel = function (data) {
         console.log(theItem);
         return theItem;
     }
+
+
+
+
     //selecteditem = 2;
 
     //self.findItem = function () {
@@ -168,6 +173,9 @@ SalesOrderItemViewModel = function (data) {
     //}
 
 
+
+
+    //TESTAR TA BORT
     self.findItem = function () {
         console.log(self.itemss().length);
         var category = ko.utils.arrayFirst(self.itemss(), function (item) {
@@ -175,10 +183,9 @@ SalesOrderItemViewModel = function (data) {
 
         }).UnitPrice;
         console.log(category);
-        return category * self.Quantity(); // If UnitPrice is null. change ProductID on addsalesorderitem
+        return category * self.Quantity(); 
     }
-
-
+// If UnitPrice is null. change ProductID on addsalesorderitem
 
 
 
@@ -202,7 +209,7 @@ SalesOrderViewModel = function (data) {
     self.products = ko.observableArray(Products);
 
 
-
+    //TESTAR TA BORT
     self.contactsTotal = ko.computed(function () {
         var total = 0;
         ko.utils.arrayForEach(self.SalesOrderItems(), function (SalesOrderItemViewModel) {
@@ -213,10 +220,12 @@ SalesOrderViewModel = function (data) {
 
 
     self.save = function () {
+        var tmpdata = ko.toJSON(self);
+        
         $.ajax({
             url: "/Sales/Save/",
             type: "POST",
-            data: ko.toJSON(self),
+            data: tmpdata,
             contentType: "application/json",
             success: function (data) {
                 if (data.salesOrderViewModel !== null)
@@ -224,6 +233,9 @@ SalesOrderViewModel = function (data) {
 
                 if (data.newLocation !== null)
                     window.location = data.newLocation;
+            },
+            error: function () {
+                alert("failure post");
             }
         });
     },

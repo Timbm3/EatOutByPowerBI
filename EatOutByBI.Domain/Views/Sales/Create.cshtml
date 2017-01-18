@@ -13,24 +13,32 @@
 
 @section scripts
 {
-    <script src="~/Scripts/knockout-3.4.0.js"></script>
-    <script src="~/Scripts/knockout.mapping-latest.js"></script>
+    @*<script src="~/Scripts/knockout-3.4.0.js"></script>*@
+<script src="~/Scripts/knockout-3.4.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js" type="text/javascript"></script>
 
 
 
-<script src="~/Scripts/jquery.validate.js"></script>
-<script src="~/Scripts/bootstrap-tooltip-extension.js"></script>
+<script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
 
 
-    <script src="~/Scripts/salesorderviewmodel.js"></script>
+    <script src="~/Scripts/salesorderviewmodel.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ajaxStop(function (event, request, settings) {
 
             var salesOrderViewModel = new SalesOrderViewModel(@Html.Raw(data));
+
+
+
+            //, document.getElementById("container"), document.getElementById("tblsearchresults")
+
+            //ko.cleanNode(document.getElementById("tblsearchresults"));
             ko.applyBindings(salesOrderViewModel);
+            
         });
     </script>
 }
 
-
-@Html.Partial("_EditSalesOrder");
+@*<div class="container" data-bind="stopBinding: true">*@
+    @Html.Partial("_EditSalesOrder")
+@*</div>*@

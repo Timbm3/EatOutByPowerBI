@@ -66,7 +66,12 @@
                 new { @class = "btn btn-default" })*@
 
                         <ul id="footerNav">
-                            <li><a href="@Url.Action("About", "Home")">Hitta Hit!<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></a></li>
+                            <li>
+                                <a href="@Url.Action("About", "Home")">
+                                    Hitta Hit!
+                                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                </a>
+                            </li>
                             <li>@Html.ActionLink("Om oss", "About", "Home")</li>
                             <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                         </ul>
