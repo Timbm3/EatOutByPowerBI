@@ -25,6 +25,7 @@ namespace EatOutByBI.Domain.Controllers
         private EatOutContext db = new EatOutContext();
 
         // GET: Bookings
+        [Authorize]
         public ActionResult BookingsIndex()
         {
             var dtoBooking = from b in db.Bookings.OrderByDescending(a => a.BookingId)
@@ -44,7 +45,9 @@ namespace EatOutByBI.Domain.Controllers
             return View(dtoBooking);
         }
 
+
         // GET: Bookings/Details/5
+        [Authorize]
         public ActionResult BookingsDetails(int? id)
         {
             if (id == null)
@@ -237,6 +240,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
         // GET: Bookings/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -255,6 +259,7 @@ namespace EatOutByBI.Domain.Controllers
         // POST: Bookings/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "BookingId,Name,Telephone,Email,BookingTimeId,BokedId,Date,DateAndTime,DateCreated,NrOfPeople,Time")] Booking booking, BookingDTO bDto)
@@ -297,6 +302,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Bookings/Delete/5
+        [Authorize]
         public ActionResult BookingsDelete(int? id)
         {
             if (id == null)
@@ -312,6 +318,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // POST: Bookings/Delete/5
+        [Authorize]
         [HttpPost, ActionName("BookingsDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id, BookingDTO dDto, Booking booking)
@@ -431,7 +438,5 @@ namespace EatOutByBI.Domain.Controllers
 
             return new JsonResult { Data = nonAvaDates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
-
-
     }
 }

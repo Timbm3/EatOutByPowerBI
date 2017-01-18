@@ -104,17 +104,16 @@ namespace EatOutByBI.Domain.Controllers
 
         // POST: Bookings/Delete/5
         [Authorize(Roles = "Admin")]
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("AdminEmpDelete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id, UsersDTO dDto, ApplicationUser applicationUser, Uri PreviousUrl)
+        public ActionResult DeleteConfirmed(string id)
         {
+
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
 
+            ApplicationUser applicationUser = db.Users.Find(id);
 
-            
-            applicationUser = db.Users.Find(id);
-
-            string test = applicationUser.Roles.ToString();
+            string userRole = applicationUser.Roles.ToString();
 
             var logins = applicationUser.Logins;
 
@@ -123,11 +122,11 @@ namespace EatOutByBI.Domain.Controllers
                 UserManager.RemoveLogin(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
             }
 
-            UserManager.RemoveFromRole(id, test);
+            UserManager.RemoveFromRole(id, userRole);
 
             db.Users.Remove(applicationUser);
             db.SaveChanges();
-            return RedirectToAction(PreviousUrl.ToString());
+            return RedirectToAction("Employees");
         }
 
         protected override void Dispose(bool disposing)
