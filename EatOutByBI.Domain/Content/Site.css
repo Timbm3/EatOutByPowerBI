@@ -437,6 +437,15 @@ ul#menu li a {
     font-size: 150%;
     color: #dddddd;
 }
+#salesP{
+    font-size: 25px;
+}
+
+#content{
+    color: white;
+    font-size: 25px;
+}
+
 
 /*.tblAddRole > table {
     background-color: whitesmoke;

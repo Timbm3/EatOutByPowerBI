@@ -1,13 +1,62 @@
-﻿@model IEnumerable<EatOutByBI.Domain.viewModels.SalesOrderViewModel> 
+﻿@model IEnumerable<EatOutByBI.Domain.viewModels.SalesOrderViewModel>
 @{
     ViewBag.Title = "Lista med Beställningar";
 }
 
 <h2>Lista med Beställningar</h2>
 
-<p>
-    @Html.ActionLink("Skapa ny Beställning", "Create")
-</p>
+
+
+
+
+<div class="salesIndexForm">
+    <div>
+        <p id="salesP" class="standardMenu col-xs-2">
+            @Html.ActionLink("Skapa ny Beställning", "Create")
+        </p>
+    </div>
+
+    @*<form asp-controller="Sales" asp-action="Index" method="get">*@
+
+    <br />
+    <br />
+    
+
+    <div class="col-xs-3">
+
+        @using (Html.BeginForm("Index", "Sales", FormMethod.Get))
+        {
+            <p>
+                @*<select asp-for="EmployeeName" asp-items="Model.employees">
+                        <option value="">All</option>
+                    </select>*@
+
+
+                Kundens Namn: <input type="text" class="form-control" name="SearchString">
+                <div id="content" style="display: none">
+                    Datum: <input type="text" id="Date" class="form-control" name="Date">
+
+                    <div id="toDateContent" style="display: none">
+                        Till Datum: <input type="text" id="Date" class="form-control" name="Between">
+                    </div>
+                    <button class="btn btn-default" type="button" id="hideShowDate" style="margin-top: 1%">Till Datum</button>
+                    <br />
+                    Servitör: @Html.DropDownList("EmployeeId", null, string.Empty, new { @class = "form-control" })
+                    Bord: @Html.DropDownList("SeatID", null, string.Empty, new { @class = "form-control" })
+                </div>
+                <button class="btn btn-default" type="button" id="hideshow">Advanced</button>
+                <input class="btn btn-primary" type="submit" value="Filter" />
+                <button class="btn btn-default" >Reset</button>
+            </p>
+        }
+    </div>
+</div>
+@*Employee: @Html.DropDownList("EmployeeID", (IEnumerable<SelectListItem>)ViewBag.EmployeeId, new { @class = "form-control" })*@
+@*@Html.DropDownListFor(m => m.EmployeeID, new SelectList(Model.EmployeeForms, "EmployeeFormID", "EmployeeFormName"), "", new { @class = "form-control" })*@
+@*</form>*@
+
+
+
 <table class="table standardMenu">
     <tr>
         <th>
@@ -22,6 +71,7 @@
         <th>
             @Html.DisplayNameFor(model => model.SeatPlace)
         </th>
+
         <th></th>
     </tr>
 
@@ -44,7 +94,6 @@
 
 
 
-
             <td>
                 @Html.ActionLink("Ändra", "Edit", new { id = item.SalesOrderId }) |
                 @Html.ActionLink("Detaljer", "Details", new { id = item.SalesOrderId }) |
@@ -54,3 +103,33 @@
     }
 
 </table>
+
+@section scripts{
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('#hideshow').on('click', function (event) {
+            $('#content').toggle('show');
+        });
+    });
+    $(document).ready(function () {
+        $('#hideShowDate').on('click', function (event) {
+            $('#toDateContent').toggle('show');
+        });
+    });
+
+
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('#Date').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        
+    });
+    </script>    
+
+}

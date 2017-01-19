@@ -30,6 +30,8 @@ namespace EatOutByBI.Domain.viewModels
         [DisplayName("Kyparens Namn")]
         public string EmployeeName { get; set; }
 
+        //public SelectList employees { get; set; }
+
 
         public int PaymentMethodId { get; set; }
         //public string PaymentMethodType { get; set; }

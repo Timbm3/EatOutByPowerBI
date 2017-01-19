@@ -1,5 +1,4 @@
-﻿using System;
-using EatOutByBI.Domain.Models;
+﻿using EatOutByBI.Domain.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;

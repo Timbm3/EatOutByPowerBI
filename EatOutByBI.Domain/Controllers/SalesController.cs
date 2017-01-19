@@ -1,6 +1,7 @@
 ﻿using EatOutByBI.Data;
 using EatOutByBI.Data.Classes;
 using EatOutByBI.Domain.viewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,10 +19,30 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales
+
+
         [Authorize]
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    //return View(_salesContext.SalesOrders.ToList());
+        //    var salesOrders = from so in _salesContext.SalesOrders
+        //                      orderby so.DateTime descending
+        //                      select new SalesOrderViewModel()
+        //                      {
+        //                          SalesOrderId = so.SalesOrderId,
+        //                          CustomerName = so.CustomerName,
+        //                          DateTime = so.DateTime,
+        //                          EmployeeName = so.Employee.EmployeeName,
+        //                          SeatPlace = so.Seat.SeatPlace,
+        //                      };
+
+        //    return View(salesOrders);
+        //}
+        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between)
         {
-            //return View(_salesContext.SalesOrders.ToList());
+            ViewBag.EmployeeId = new SelectList(_salesContext.Employees, "EmployeeID", "EmployeeName");
+            ViewBag.SeatID = new SelectList(_salesContext.Seats, "SeatID", "SeatPlace");
+
             var salesOrders = from so in _salesContext.SalesOrders
                               orderby so.DateTime descending
                               select new SalesOrderViewModel()
@@ -31,12 +52,72 @@ namespace EatOutByBI.Domain.Controllers
                                   DateTime = so.DateTime,
                                   EmployeeName = so.Employee.EmployeeName,
                                   SeatPlace = so.Seat.SeatPlace,
+                                  EmployeeID = so.EmployeeID,
+                                  SeatID = so.SeatID
+
                               };
 
-            return View(salesOrders);
 
 
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                salesOrders = salesOrders.Where(s => s.CustomerName.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(date))
+            {
+                DateTime searchDate;
+                if (DateTime.TryParse(date, out searchDate))
+                {
+
+                    if (String.IsNullOrEmpty(between))
+                    {
+                        var myDatePlus = searchDate.AddDays(1);
+                        salesOrders = salesOrders
+                            .Where(h => h.DateTime >= searchDate && h.DateTime < myDatePlus);
+                    }
+                    if (!String.IsNullOrEmpty(between))
+                    {
+                        DateTime searchDate2;
+                        if (DateTime.TryParse(between, out searchDate2))
+                        {
+                            salesOrders = salesOrders
+                        .Where(h => h.DateTime >= searchDate && h.DateTime < searchDate2);
+
+                        }
+
+                    }
+
+                    //.Where(DbFunctions.TruncateTime(s.) == searchDate);
+                    // do not use .Equals() which can not be converted to SQL
+                }
+
+            }
+
+
+
+            if (!String.IsNullOrEmpty(employeeId))
+            {
+                int ei = Convert.ToInt32(employeeId);
+                salesOrders = salesOrders.Where(s => s.EmployeeID == ei);
+                return View(salesOrders.ToList());
+            }
+            if (!String.IsNullOrEmpty(seat))
+            {
+                int si = Convert.ToInt32(seat);
+                salesOrders = salesOrders.Where(s => s.SeatID == si);
+                return View(salesOrders.ToList());
+            }
+
+
+            else
+                //.ToList()
+                return View(salesOrders);
         }
+
+
+
 
         // GET: Sales/Details/5
         [Authorize]
