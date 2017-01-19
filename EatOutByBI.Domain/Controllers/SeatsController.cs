@@ -38,6 +38,7 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Seats/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

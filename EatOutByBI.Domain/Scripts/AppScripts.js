@@ -1,52 +1,37 @@
-﻿/*Booking site scripts*/
-//Loading Datepicker
-$(function () {
-    // This will make every element with the class "date-picker" into a DatePicker element
-    //$('.date-picker').datepicker();
+﻿$(document).ready(function () {
 
     var nonAvailableDates = [];
-    //fetch categories from database
-    function LoadNonAvailableDates() {
-        if (nonAvailableDates.length == 0) {
-            //ajax function for fetch data
-            $.ajax({
-                type: "GET",
-                url: '/Bookings/GetNonAvailableDates/',
-                success: function (data) {
 
-                    nonAvailableDates = data;
-                    //render catagory
-                    //  renderEmployees(element);
-                    console.log(nonAvailableDates[0])
-
+    //Get array with nonAvailableDates from Bookings controller to use it in Date Picker
+    $(function () {
+        //ajax function for fetch data
+        $.ajax({
+            type: "GET",
+            url: '/Bookings/GetNonAvailableDates',
+            success: function (data) {
+                //Add dates to the array
+                for (var i = 0; i < data.length; i++) {
+                    nonAvailableDates.push(data[i]);
                 }
-            })
-        }
-        else {
-            alert("Load employee problems")
-            //render catagory to the element
-            //renderEmployees(element);
-        }
-    }
 
 
+                //Date Picker called
+                $('.date-picker').datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    altField: "#Date",
 
-    var array = ["20161212", "12122016", "2013-03-16"]
+                    beforeShowDay: function (date) {
+                        var string = jQuery.datepicker.formatDate('yymmdd', date);
+                        return [$.inArray(string, nonAvailableDates) == -1];
+                    }
+                });
 
-    $('.date-picker').datepicker({
-        dateFormat: 'yy-mm-dd',
-        altField: "#Date",
+            }
+        });
 
-        beforeShowDay: function (date) {
-            var string = jQuery.datepicker.formatDate('ddmmyy', date);
-            return [$.inArray(string, array) == -1];
-        }
-    })
-
-});
+    });
 
 
-$(document).ready(function () {
     //Function for Next button, can not be pressed if inputvalue is empty
     //var $input = $('#Date');
     //var $button = $('#NxtAltBooking1');
@@ -64,6 +49,7 @@ $(document).ready(function () {
     //    var test = $("#Date").val();
     //    alert(test);
     //});
+
 
     //Functions for Displaing hidden divs when next button is pressed + pass date to hidden date input
     $("#NxtAltBooking1").click(function () {

@@ -196,6 +196,7 @@ h6,
 
 /*Booking Site And Bootstrap overrides*/
 .lblRadioBtn {
+    color: black;
     background-color: #dddddd;
     border: 1px solid #dddddd;    
 }

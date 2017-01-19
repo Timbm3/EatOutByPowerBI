@@ -16,11 +16,13 @@ namespace EatOutByBI.Domain.Controllers
         private EatOutContext db = new EatOutContext();
 
         // GET: Bookeds
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Bookeds.ToList());
         }
 
+        [Authorize]
         // GET: Bookeds/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,12 +38,14 @@ namespace EatOutByBI.Domain.Controllers
             return View(booked);
         }
 
+        [Authorize]
         // GET: Bookeds/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         // POST: Bookeds/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -59,6 +63,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(booked);
         }
 
+        [Authorize]
         // GET: Bookeds/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -74,6 +79,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(booked);
         }
 
+        [Authorize]
         // POST: Bookeds/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -90,6 +96,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(booked);
         }
 
+        [Authorize]
         // GET: Bookeds/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -105,6 +112,7 @@ namespace EatOutByBI.Domain.Controllers
             return View(booked);
         }
 
+        [Authorize]
         // POST: Bookeds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

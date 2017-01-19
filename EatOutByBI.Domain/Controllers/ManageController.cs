@@ -54,6 +54,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // GET: /Manage/Index
+        [Authorize]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -79,6 +80,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/RemoveLogin
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
@@ -110,6 +112,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/AddPhoneNumber
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
@@ -134,6 +137,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/EnableTwoFactorAuthentication
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EnableTwoFactorAuthentication()
@@ -149,6 +153,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/DisableTwoFactorAuthentication
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DisableTwoFactorAuthentication()
@@ -173,6 +178,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/VerifyPhoneNumber
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
@@ -198,6 +204,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/RemovePhoneNumber
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemovePhoneNumber()
@@ -217,6 +224,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // GET: /Manage/ChangePassword
+        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -224,6 +232,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/ChangePassword
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model, UsersDTO userDto, ApplicationUser appUser)
@@ -259,6 +268,7 @@ namespace EatOutByBI.Domain.Controllers
 
 
 
+        [Authorize]
         private SetPasswordViewModel ViewModelFroTest(ApplicationUser applicationUser)
         {
             var viewModel = new SetPasswordViewModel()
@@ -326,6 +336,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // GET: /Manage/ManageLogins
+        [Authorize]
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -349,6 +360,7 @@ namespace EatOutByBI.Domain.Controllers
 
         //
         // POST: /Manage/LinkLogin
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
