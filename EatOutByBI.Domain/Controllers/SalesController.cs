@@ -1,6 +1,7 @@
 ﻿using EatOutByBI.Data;
 using EatOutByBI.Data.Classes;
 using EatOutByBI.Domain.viewModels;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,13 +39,41 @@ namespace EatOutByBI.Domain.Controllers
 
         //    return View(salesOrders);
         //}
-        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between)
+        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between, string currentFilter, int? page, string sortOrder)
         {
+
+
+            #region Paged
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+
+            ViewBag.EmployeeSortParam = sortOrder == "Employee" ? "employee_desc" : "Employee";
+            ViewBag.SeatSortParam = sortOrder == "Seat" ? "seat_desc" : "Seat";
+
+
+            //String.IsNullOrEmpty(sortOrder)
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+
+            #endregion
+
             ViewBag.EmployeeId = new SelectList(_salesContext.Employees, "EmployeeID", "EmployeeName");
             ViewBag.SeatID = new SelectList(_salesContext.Seats, "SeatID", "SeatPlace");
 
             var salesOrders = from so in _salesContext.SalesOrders
-                              orderby so.DateTime descending
+                                  //orderby so.DateTime descending
                               select new SalesOrderViewModel()
                               {
                                   SalesOrderId = so.SalesOrderId,
@@ -57,8 +86,7 @@ namespace EatOutByBI.Domain.Controllers
 
                               };
 
-
-
+            #region SearchFilterIfs
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -101,19 +129,66 @@ namespace EatOutByBI.Domain.Controllers
             {
                 int ei = Convert.ToInt32(employeeId);
                 salesOrders = salesOrders.Where(s => s.EmployeeID == ei);
-                return View(salesOrders.ToList());
+                //return View(salesOrders.ToList());
             }
             if (!String.IsNullOrEmpty(seat))
             {
                 int si = Convert.ToInt32(seat);
                 salesOrders = salesOrders.Where(s => s.SeatID == si);
-                return View(salesOrders.ToList());
+                //return View(salesOrders.ToList());
             }
 
+            #endregion
 
             else
-                //.ToList()
-                return View(salesOrders);
+
+
+                #region Switch
+                switch (sortOrder)
+                {
+                    case "Name":
+                        salesOrders = salesOrders.OrderBy(s => s.CustomerName);
+                        break;
+                    case "name_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.CustomerName);
+                        break;
+
+                    case "Employee":
+                        salesOrders = salesOrders.OrderBy(s => s.EmployeeName);
+                        break;
+                    case "employee_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.EmployeeName);
+                        break;
+
+                    case "Seat":
+                        salesOrders = salesOrders.OrderBy(s => s.SeatPlace);
+                        break;
+                    case "seat_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.SeatPlace);
+                        break;
+
+
+
+
+                    case "Date":
+                        salesOrders = salesOrders.OrderBy(s => s.DateTime);
+                        break;
+                    default:
+                        salesOrders = salesOrders.OrderByDescending(s => s.DateTime);
+                        break;
+                }
+
+            #endregion
+
+
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(salesOrders.ToPagedList(pageNumber, pageSize));
+
+            //return View(salesOrders);
+
+            //.ToList()
         }
 
 

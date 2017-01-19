@@ -1,4 +1,12 @@
-﻿@model IEnumerable<EatOutByBI.Domain.viewModels.SalesOrderViewModel>
+﻿
+
+@*@model IEnumerable<EatOutByBI.Domain.viewModels.SalesOrderViewModel>*@
+
+@model PagedList.IPagedList<EatOutByBI.Domain.viewModels.SalesOrderViewModel>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
 @{
     ViewBag.Title = "Lista med Beställningar";
 }
@@ -59,7 +67,7 @@
 
 <table class="table standardMenu">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.DateTime)
         </th>
         <th>
@@ -70,7 +78,24 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SeatPlace)
+        </th>*@
+        <th>
+            @Html.ActionLink("Tidpunkt", "Index", new { sortOrder = ViewBag.DateSortParam, currentFilter =  ViewBag.CurrentFilter})
         </th>
+        <th>
+            @Html.ActionLink("Kundens Namn", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            
+            @Html.ActionLink("Servitör", "Index", new { sortOrder = ViewBag.EmployeeSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            
+            @Html.ActionLink("Bordsplats", "Index", new { sortOrder = ViewBag.SeatSortParam, currentFilter = ViewBag.CurrentFilter })
+        </th>
+
+
+
 
         <th></th>
     </tr>
@@ -103,6 +128,19 @@
     }
 
 </table>
+
+
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }
+    ))
+
+
+
+
 
 @section scripts{
 
