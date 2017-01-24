@@ -186,12 +186,12 @@ namespace EatOutByBI.Domain.Controllers
             #endregion
 
             #region pagesize
-            int pageSize = pagesize ?? 5;
+            int pageSize = pagesize ?? 30;
 
 
-
-
-
+            ViewBag.PageParam = 30;
+            ViewBag.Page2Param = 60;
+            ViewBag.Page3Param = 90;
 
             //        List<SelectListItem> items = new List<SelectListItem>{
             //  new SelectListItem{ Text="5", Value="5" },

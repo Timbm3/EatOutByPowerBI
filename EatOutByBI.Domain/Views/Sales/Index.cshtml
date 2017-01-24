@@ -94,6 +94,7 @@
         </th>*@
         <th>
             @Html.ActionLink("Tidpunkt", "Index", new { sortOrder = ViewBag.DateSortParam, currentFilter =  ViewBag.CurrentFilter})
+            <span class="glyphicon glyphicon-chevron-down"></span>
         </th>
         <th>
             @Html.ActionLink("Kundens Namn", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
@@ -113,9 +114,12 @@
         <th>
             @Html.ActionLink("30", "Index",
            new {pagesize = ViewBag.PageParam, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })
-
+            /
             @Html.ActionLink("60", "Index",
            new { pagesize = ViewBag.Page2Param, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })
+            /
+@Html.ActionLink("90", "Index",
+            new { pagesize = ViewBag.Page3Param, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })
             @*@Html.DropDownList("pagesize", (SelectList)ViewBag.PageSizeList)*@
         </th>
 
