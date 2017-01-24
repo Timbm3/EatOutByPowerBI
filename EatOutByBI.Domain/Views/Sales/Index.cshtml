@@ -42,17 +42,28 @@
 
                 Kundens Namn: <input type="text" class="form-control" name="SearchString">
                 <div id="content" style="display: none">
-                    Datum: <input type="text" id="Date" class="form-control" name="Date">
+                    Datum: <input type="text" id="Date" class="form-control datePicker" name="Date">
 
                     <div id="toDateContent" style="display: none">
-                        Till Datum: <input type="text" id="Date" class="form-control" name="Between">
+                        Till Datum: <input type="text" id="Date3" class="form-control datePicker" name="Between">
                     </div>
-                    <button class="btn btn-default" type="button" id="hideShowDate" style="margin-top: 1%">Till Datum</button>
+                    <button class="btn btn-default col-xs-12"
+                            type="button"
+                            id="hideShowDate"
+                            style="margin-top: 1%">
+                        Till Datum<span id="test44" class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    </button>
                     <br />
                     Servitör: @Html.DropDownList("EmployeeId", null, string.Empty, new { @class = "form-control" })
                     Bord: @Html.DropDownList("SeatID", null, string.Empty, new { @class = "form-control" })
                 </div>
-                <button class="btn btn-default" type="button" id="hideshow">Advanced</button>
+                <button class="btn btn-default col-xs-12"
+                        type="button" id="hideshow">
+                    Advanced<span 
+                                  class="glyphicon glyphicon-chevron-down pull-right" 
+                                  id="test33"></span>
+
+                </button>
                 <input class="btn btn-primary" type="submit" value="Filter" />
                 <button class="btn btn-default" >Reset</button>
             </p>
@@ -63,6 +74,8 @@
 @*@Html.DropDownListFor(m => m.EmployeeID, new SelectList(Model.EmployeeForms, "EmployeeFormID", "EmployeeFormName"), "", new { @class = "form-control" })*@
 @*</form>*@
 
+
+@*@Html.ActionLink("60", "Index", new { pageSize = ViewBag.DateSortParam, currentFilter = ViewBag.CurrentFilter })*@
 
 
 <table class="table standardMenu">
@@ -96,8 +109,16 @@
 
 
 
-
         <th></th>
+        <th>
+            @Html.ActionLink("30", "Index",
+           new {pagesize = ViewBag.PageParam, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })
+
+            @Html.ActionLink("60", "Index",
+           new { pagesize = ViewBag.Page2Param, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort })
+            @*@Html.DropDownList("pagesize", (SelectList)ViewBag.PageSizeList)*@
+        </th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -118,12 +139,13 @@
 
 
 
-
+            
             <td>
                 @Html.ActionLink("Ändra", "Edit", new { id = item.SalesOrderId }) |
                 @Html.ActionLink("Detaljer", "Details", new { id = item.SalesOrderId }) |
                 @Html.ActionLink("Ta Bort", "Delete", new { id = item.SalesOrderId })
             </td>
+            <td></td>
         </tr>
     }
 
@@ -135,7 +157,10 @@
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter
+    ,
+        pagesize = @ViewBag.CurrentPageSize
+    }
     ))
 
 
@@ -152,22 +177,34 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
     $(document).ready(function () {
         $('#hideshow').on('click', function (event) {
             $('#content').toggle('show');
+            // Remove Class / Change Span Glyph
+            $('#test33').toggleClass("glyphicon glyphicon-chevron-down glyphicon glyphicon-chevron-up");
         });
     });
     $(document).ready(function () {
         $('#hideShowDate').on('click', function (event) {
             $('#toDateContent').toggle('show');
+            $('#test44').toggleClass("glyphicon glyphicon-chevron-down glyphicon glyphicon-chevron-up");
         });
     });
 
 
     $(function () {
         // This will make every element with the class "date-picker" into a DatePicker element
-        $('#Date').datepicker({
+        $('.datePicker').datepicker({
             dateFormat: 'yy-mm-dd'
         });
         
     });
+
+
+    //$(function () {
+    //    // When onchange event occurs on <select id="pagesize">, 
+    //    // simply submit the form, which will submit the new pagesize value as querystring.
+    //    $('#pagesize').on('change', function () {
+    //        $('#salesIndexForm').submit();
+    //    });
+    //});
     </script>    
 
 }

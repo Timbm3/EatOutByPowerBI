@@ -39,11 +39,16 @@ namespace EatOutByBI.Domain.Controllers
 
         //    return View(salesOrders);
         //}
-        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between, string currentFilter, int? page, string sortOrder)
+        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between, string currentFilter, int? page, string sortOrder, int? pagesize)
         {
-
-
+            //, int pageSize = 30
+            //int pageSize;
             #region Paged
+
+            //ViewBag.PageParam = pageSize == 30 ? 60 : 30;
+            //ViewBag.Page2Param = pageSize == 60 ? 30 : 60;
+
+
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
@@ -180,9 +185,28 @@ namespace EatOutByBI.Domain.Controllers
 
             #endregion
 
+            #region pagesize
+            int pageSize = pagesize ?? 5;
 
 
-            int pageSize = 3;
+
+
+
+
+            //        List<SelectListItem> items = new List<SelectListItem>{
+            //  new SelectListItem{ Text="5", Value="5" },
+            //  new SelectListItem{ Text="10", Value="10" }
+            //};
+
+
+            //ViewBag.CurrentPageSize = pageSize;
+            //ViewBag.PageSizeList = new SelectList(items, "Value", "Text", pagesize);
+
+
+            #endregion
+
+            //int pageSize = 3;
+
             int pageNumber = (page ?? 1);
             return View(salesOrders.ToPagedList(pageNumber, pageSize));
 
