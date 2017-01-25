@@ -4,8 +4,6 @@
     ViewBag.Title = "BookingsIndex";
 }
 
-<h2>Index</h2>
-
 <div class="row">
     <div class="col-sm-3 menuNav">
         @Html.Partial("_AdminPagePartial")
@@ -72,9 +70,9 @@
                         @Html.DisplayFor(modelItem => item.DateCreated)
                     </td>*@
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id=item.BookingId }) |
-                        @Html.ActionLink("Details", "BookingsDetails", new { id = item.BookingId }) |
-                        @Html.ActionLink("Delete", "BookingsDelete", new { id = item.BookingId })
+                        @Html.ActionLink("Ändra", "Edit", new { id=item.BookingId }) |
+                        @Html.ActionLink("Detaljer", "BookingsDetails", new { id = item.BookingId }) |
+                        @Html.ActionLink("Ta Bort", "BookingsDelete", new { id = item.BookingId })
                     </td>
                 </tr>
             }

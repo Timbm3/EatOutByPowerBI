@@ -35,7 +35,10 @@ textarea {
     max-width: 280px;
 }
 
-
+button#navbarCollapse {
+    float: left;
+    margin-left: 5px;
+}
 
 /* Default värden till siten*/
 
