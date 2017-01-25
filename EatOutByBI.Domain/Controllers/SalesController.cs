@@ -115,8 +115,9 @@ namespace EatOutByBI.Domain.Controllers
                         DateTime searchDate2;
                         if (DateTime.TryParse(between, out searchDate2))
                         {
+                            var myDatePlus = searchDate2.AddDays(1);
                             salesOrders = salesOrders
-                        .Where(h => h.DateTime >= searchDate && h.DateTime < searchDate2);
+                        .Where(h => h.DateTime >= searchDate && h.DateTime < myDatePlus);
 
                         }
 

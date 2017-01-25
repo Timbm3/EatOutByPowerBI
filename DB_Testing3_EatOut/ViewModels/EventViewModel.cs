@@ -57,7 +57,8 @@ namespace EatOutByBI.Data.ViewModels
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                "d MMM yyyy",
+                //"d MMM yyyy",
+                "yyyy-MM-dd",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);

@@ -178,7 +178,7 @@ namespace EatOutByBI.Domain.Controllers
         public async System.Threading.Tasks.Task<ActionResult> BookingsCreate([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId")] BookingDTO bookingDto, int id)
         {
 
-            
+
             int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
 
 
@@ -278,7 +278,7 @@ namespace EatOutByBI.Domain.Controllers
 
                         //return RedirectToAction("Sent");
                     }
-                    
+
                     #endregion
                 }
                 catch (Exception)
@@ -292,7 +292,7 @@ namespace EatOutByBI.Domain.Controllers
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
             return View(bookingDto);
         }
 
@@ -471,7 +471,7 @@ namespace EatOutByBI.Domain.Controllers
                 .GroupBy(b => b.BookedId)
                 .Select(bt => new { Value = bt.Key, Count = bt.Count() })
                 .OrderByDescending(b => b.Count);
-
+            //.ToList()
             List<string> nonAvaDates = new List<string>() { };
 
             foreach (var item in testIds)

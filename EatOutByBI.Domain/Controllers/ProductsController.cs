@@ -137,7 +137,7 @@ namespace EatOutByBI.Domain.Controllers
             #endregion
 
 
-            int pageSize = 3;
+            int pageSize = 30;
             int pageNumber = (page ?? 1);
             return View(product.ToPagedList(pageNumber, pageSize));
 
