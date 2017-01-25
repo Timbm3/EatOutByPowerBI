@@ -9,7 +9,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Threading;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.UI.WebControls;
@@ -245,37 +244,45 @@ namespace EatOutByBI.Domain.Controllers
 
                 //Thread.Sleep(5000);
 
-                #region Email
 
-                var body = "<p>Hej {0}!</p><p>Detta är en bekräftelse av din bokning hos Restaurang EatOut för {1} personer den {2} .</p><p>Välkommen!</p>";
-                var message = new MailMessage();
-                message.To.Add(new MailAddress(bookingDto.Email));  // replace with valid value 
-                message.From = new MailAddress("EatOut040@outlook.com");  // replace with valid value
-                message.Subject = "EatOut: Bokat Bord";
-                message.Body = string.Format(body, bookingDto.Name, bookingDto.NrOfPeople, converToDatAndTime);
-                message.IsBodyHtml = true;
 
-                using (var smtp = new SmtpClient())
+                try
                 {
-                    var credential = new NetworkCredential
+                    #region Email
+
+
+                    var body = "<p>Hej {0}!</p><p>Detta är en bekräftelse av din bokning hos Restaurang EatOut för {1} personer den {2} .</p><p>Välkommen!</p>";
+                    var message = new MailMessage();
+                    message.To.Add(new MailAddress(bookingDto.Email));  // replace with valid value 
+                    message.From = new MailAddress("EatOut040@outlook.com");  // replace with valid value
+                    message.Subject = "EatOut: Bokat Bord";
+                    message.Body = string.Format(body, bookingDto.Name, bookingDto.NrOfPeople, converToDatAndTime);
+                    message.IsBodyHtml = true;
+
+                    using (var smtp = new SmtpClient())
                     {
-                        UserName = "EatOut040@outlook.com",  // replace with valid value
-                        Password = "Eatout17"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    smtp.Host = "smtp-mail.outlook.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-                    await smtp.SendMailAsync(message);
+                        var credential = new NetworkCredential
+                        {
+                            UserName = "EatOut040@outlook.com",  // replace with valid value
+                            Password = "Eatout17"  // replace with valid value
+                        };
+                        smtp.Credentials = credential;
+                        smtp.Host = "smtp-mail.outlook.com";
+                        smtp.Port = 587;
+                        smtp.EnableSsl = true;
+                        await smtp.SendMailAsync(message);
 
-                    return RedirectToAction("BookingsIndex");
+                        return RedirectToAction("BookingsIndex");
 
-                    //return RedirectToAction("Sent");
+                        //return RedirectToAction("Sent");
+                    }
+                    
+                    #endregion
                 }
-
-                #endregion
-
-
+                catch (Exception)
+                {
+                    return View(bookingDto);
+                }
 
 
                 //return RedirectToAction("BookingsIndex");
@@ -283,7 +290,8 @@ namespace EatOutByBI.Domain.Controllers
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);
-            Thread.Sleep(5000);
+
+            //Thread.Sleep(5000);
             return View(bookingDto);
         }
 
