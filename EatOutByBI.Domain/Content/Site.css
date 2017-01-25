@@ -201,28 +201,28 @@ h6,
 .lblRadioBtn {
     color: black;
     background-color: #dddddd;
-    border: 1px solid #dddddd;    
+    border: 1px solid #dddddd;
 }
 
-        .lblRadioBtn:hover {
-            background-color: #720000;
-            border: 1px solid #720000;        
-        }
+    .lblRadioBtn:hover {
+        background-color: #720000;
+        border: 1px solid #720000;
+    }
 
 .btn.btn-primary.lblRadioBtn.active {
     background-color: #720000;
     border: 1px solid #720000;
 }
 
-        .btn.btn-primary.lblRadioBtn:active {
-                        background-color: #720000;
-                border: 1px solid #720000;
-        }
+.btn.btn-primary.lblRadioBtn:active {
+    background-color: #720000;
+    border: 1px solid #720000;
+}
 
 
 #lblBookingTime {
-        padding: 5px 5px;
-        text-align: center;
+    padding: 5px 5px;
+    text-align: center;
 }
 
 #bookingPplList {
@@ -235,7 +235,7 @@ h6,
 }
 
 #bookingTimes {
-    list-style:none;
+    list-style: none;
 }
 
 #lblRadio_1 {
@@ -339,20 +339,19 @@ h6,
     font-size: 200%;
     text-transform: capitalize;
     display: inline-block;
-    text-align:center;
+    text-align: center;
     /*left: 400%;*/
 }
 
-.events > li .time > .startTime {
-    position: relative;
-    display: inline-block;
-    /*left: 110%;*/
-}
+    .events > li .time > .startTime {
+        position: relative;
+        display: inline-block;
+        /*left: 110%;*/
+    }
 
 /* Event styles*/
 .events > li .eventHeader {
     text-align: center;
-    
 }
 
 .nameOfEvent {
@@ -392,15 +391,12 @@ h6,
     position: relative;
     left: 10px;
     padding-right: 20px;
-
 }
 
-.picDiv > img {
-         padding-right: 0px; 
-     padding-left: 0px; 
-
-
-}
+    .picDiv > img {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
 
 
 
@@ -429,18 +425,37 @@ ul#menu li a {
     border-radius: 5px;
 }
 
-.displaySales{
+.displaySales {
     font-size: 150%;
 }
 
-.displaySales > div >label {
-    color: rgba(0, 0, 0, 0.55);
-}
+    .displaySales > div > label {
+        color: rgba(0, 0, 0, 0.55);
+    }
 
-#myform > div > label{
+#myform > div > label {
     font-size: 150%;
     color: #dddddd;
 }
+
+#salesP {
+    font-size: 25px;
+}
+
+#content {
+    color: white;
+    font-size: 25px;
+}
+
+#hideshow {
+    /*width: 255px;*/
+    text-align: left;
+}
+#hideShowDate{
+    text-align: left;
+}
+
+
 
 /*.tblAddRole > table {
     background-color: whitesmoke;
@@ -455,5 +470,5 @@ ul#menu li a {
 align-content: center
 label.lblRadioBtn {
     color: black;
-}
+}*/
 

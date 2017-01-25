@@ -1,15 +1,20 @@
-﻿
-@*@model IEnumerable<EatOutByBI.Data.Classes.Product>*@
-@model IEnumerable<EatOutByBI.Data.DTO.ProductDTO>
+﻿@*@model IEnumerable<EatOutByBI.Data.Classes.Product>*@
+@*@model IEnumerable<EatOutByBI.Data.DTO.ProductDTO>*@
+
+@model PagedList.IPagedList<EatOutByBI.Data.DTO.ProductDTO>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet">
+
 
 @{
     ViewBag.Title = "Produkter";
 }
 
-<div class="col-sm-3 menuNav">
-        @Html.Partial("_ManagerPagePartial")
-    </div>
-<div class="col-sm-9">
+<div class="col-xs-3 menuNav">
+    @Html.Partial("_ManagerPagePartial")
+</div>
+<div class="col-xs-9">
     @Html.Partial("_ProductsMenu")
 </div>
 
@@ -21,21 +26,53 @@
     @Html.ActionLink("Skapa Ny", "Create")
 </p>
 
-<div class="col-sm-9">
+<div class="col-xs-9">
     <table class="table standardMenu">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+
+                @Html.ActionLink("Namn", "Index", new
+           {
+               sortOrder = ViewBag.ProductNameSortParam
+           })
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                @*<a 
+                   href="@Url.Action("YourAction", new { controller = "YourController"})">
+                    <span>content comes here</span>
+                </a>*@
+
+                @*@Html.DisplayNameFor(model => model.ProductName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UnitPrice)
+                @Html.ActionLink("Pris", "Index", new
+           {
+               sortOrder = ViewBag.UnitPriceSortParam
+           })
+
+                @*@Html.DisplayNameFor(model => model.UnitPrice)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductGroupName)
+                @Html.ActionLink("Grupp", "Index", new
+           {
+               sortOrder = ViewBag.ProductGroupSortParam
+           })
+
+                @*@Html.DisplayNameFor(model => model.ProductGroupName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductTypeName)
+                @Html.ActionLink("Produktstyp", "Index", new
+           {
+               sortOrder = ViewBag.ProductTypeSortParam
+           })
+
+                @*@Html.DisplayNameFor(model => model.ProductTypeName)*@
             </th>
+
+
+
+
+
+
 
             @*<th>
                     @Html.DisplayNameFor(model => model.DateCreated)
@@ -78,4 +115,12 @@
         }
 
     </table>
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+page, sortOrder = ViewBag.CurrentSort
+}))
+
 </div>

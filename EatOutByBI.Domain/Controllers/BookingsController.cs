@@ -1,22 +1,18 @@
-﻿using System;
+﻿using EatOutByBI.Data;
+using EatOutByBI.Data.Classes;
+using EatOutByBI.Data.DTO;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Threading;
-using System.Web;
-using System.Web.DynamicData;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using EatOutByBI.Data;
-using EatOutByBI.Data.Classes;
-using EatOutByBI.Data.DTO;
-using EatOutByBI.Domain.Models;
-using Microsoft.Ajax.Utilities;
-using WebGrease.Css.Ast.Selectors;
-using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
 
 namespace EatOutByBI.Domain.Controllers
 {
@@ -180,7 +176,7 @@ namespace EatOutByBI.Domain.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BookingsCreate([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId")] BookingDTO bookingDto, int id)
+        public async System.Threading.Tasks.Task<ActionResult> BookingsCreate([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId")] BookingDTO bookingDto, int id)
         {
 
             
@@ -214,10 +210,29 @@ namespace EatOutByBI.Domain.Controllers
                 {
                     doubleCheckAvailableSeats = false;
                 }
-                
+
             }
 
-            if (ModelState.IsValid)
+
+
+            #region reCaptcha
+
+            // Validate Google recaptcha here
+            var response = Request["g-recaptcha-response"];
+            string secretKey = "6LfPcxIUAAAAABUG7Ra6l9Wpps-rMrKqrrTLqwlX";
+            // ANDRA NYCKEL HÄR / SECRET KEY
+            var client = new WebClient();
+            var result = client.DownloadString(
+                string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+
+
+
+            #endregion
+
+            // status = reCaptcha
+            if (ModelState.IsValid && status)
             {
 
                 db.Bookings.Add(bDTo);
@@ -228,11 +243,45 @@ namespace EatOutByBI.Domain.Controllers
                 //db.Entry(boooked).State = EntityState.Modified;
                 db.Entry(idForBt).State = EntityState.Modified;
 
-
-
                 db.SaveChanges();
-                Thread.Sleep(3000);
-                return RedirectToAction("BookingsIndex");
+
+                //Thread.Sleep(5000);
+
+                #region Email
+
+                var body = "<p>Hej {0}!</p><p>Detta är en bekräftelse av din bokning hos Restaurang EatOut för {1} personer den {2} .</p><p>Välkommen!</p>";
+                var message = new MailMessage();
+                message.To.Add(new MailAddress(bookingDto.Email));  // replace with valid value 
+                message.From = new MailAddress("EatOut040@outlook.com");  // replace with valid value
+                message.Subject = "EatOut: Bokat Bord";
+                message.Body = string.Format(body, bookingDto.Name, bookingDto.NrOfPeople, converToDatAndTime);
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "EatOut040@outlook.com",  // replace with valid value
+                        Password = "Eatout17"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = "smtp-mail.outlook.com";
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    await smtp.SendMailAsync(message);
+
+                    return RedirectToAction("BookingsIndex");
+
+                    //return RedirectToAction("Sent");
+                }
+
+                #endregion
+
+
+
+
+                //return RedirectToAction("BookingsIndex");
+
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);

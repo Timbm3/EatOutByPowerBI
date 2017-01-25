@@ -1,6 +1,7 @@
 ﻿using EatOutByBI.Data;
 using EatOutByBI.Data.Classes;
 using EatOutByBI.Data.DTO;
+using PagedList;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -34,10 +35,50 @@ namespace EatOutByBI.Domain.Controllers
 
         // GET: Products
         [Authorize]
-        public ActionResult Index()
+        #region OriginalIndex
+
+        //public ActionResult Index()
+        //{
+        //    //var products = db.Products.Include(p => p.ProductGroup).Include(p => p.ProductGroup.ProductType);
+        //    //return View(products.ToList());
+        //    var product = from e in db.Products
+        //                  select new ProductDTO()
+        //                  {
+        //                      ProductID = e.ProductID,
+        //                      ProductName = e.ProductName,
+        //                      UnitPrice = e.UnitPrice,
+
+
+        //                      ProductGroupName = e.ProductGroup.ProductGroupName,
+        //                      ProductTypeName = e.ProductGroup.ProductType.ProductTypeName,
+
+        //                      //Amount = e.Amount,
+        //                      //Unit = e.Unit
+        //                  };
+
+        //    return View(product);
+        //}
+        #endregion
+        public ActionResult Index(string sortOrder, int? page)
         {
             //var products = db.Products.Include(p => p.ProductGroup).Include(p => p.ProductGroup.ProductType);
             //return View(products.ToList());
+
+            ViewBag.CurrentSort = sortOrder;
+
+            ViewBag.ProductNameSortParam = String.IsNullOrEmpty(sortOrder) ? "ProductName" : "";
+
+            ViewBag.UnitPriceSortParam =
+                sortOrder == "UnitPrice" ? "unitprice_desc" : "UnitPrice";
+
+            ViewBag.ProductGroupSortParam =
+                sortOrder == "ProductGroup" ? "productgroup_desc" : "ProductGroup";
+
+            ViewBag.ProductTypeSortParam =
+                sortOrder == "ProductType" ? "producttype_desc" : "ProductType";
+
+
+            #region ViewModel           
             var product = from e in db.Products
                           select new ProductDTO()
                           {
@@ -49,11 +90,58 @@ namespace EatOutByBI.Domain.Controllers
                               ProductGroupName = e.ProductGroup.ProductGroupName,
                               ProductTypeName = e.ProductGroup.ProductType.ProductTypeName,
 
+                              ProductGroupID = e.ProductGroupID,
+                              ProductTypeID = e.ProductGroup.ProductTypeID
                               //Amount = e.Amount,
                               //Unit = e.Unit
                           };
+            #endregion
 
-            return View(product);
+
+            #region Switch
+
+            switch (sortOrder)
+            {
+                case "ProductName":
+                    product = product.OrderByDescending(p => p.ProductName);
+                    break;
+
+                case "UnitPrice":
+                    product = product.OrderBy(p => p.UnitPrice);
+                    break;
+                case "unitprice_desc":
+                    product = product.OrderByDescending(p => p.UnitPrice);
+                    break;
+
+                case "ProductGroup":
+                    product = product.OrderBy(p => p.ProductGroupName);
+                    break;
+                case "productgroup_desc":
+                    product = product.OrderByDescending(p => p.ProductGroupName);
+                    break;
+
+                case "ProductType":
+                    product = product.OrderBy(p => p.ProductTypeName);
+                    break;
+                case "producttype_desc":
+                    product = product.OrderByDescending(p => p.ProductTypeName);
+                    break;
+
+
+
+                default:
+                    product = product.OrderBy(p => p.ProductName);
+                    break;
+            }
+
+            #endregion
+
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(product.ToPagedList(pageNumber, pageSize));
+
+            //return View(product);
         }
 
         // GET: Products/Details/5

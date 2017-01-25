@@ -73,9 +73,9 @@
 
                         }
                         @*else
-                        {
-                            <p>0</p>
-                        }*@
+                            {
+                                <p>0</p>
+                            }*@
 
                     }
                 </ul>
@@ -99,11 +99,9 @@
 
         <div id="batata" class="col-sm-3 btn-group" data-toggle="buttons">
             <h2>Antal Personer</h2>
-            <ul id="bookingPplList" class="btnRadioConvert">
-                
-            </ul>
+            <ul id="bookingPplList" class="btnRadioConvert"></ul>
             <h2 id="lblBookingTime"></h2>
-            <br/>
+            <br />
             <input id="NxtAltBooking2" type="button" value="Nästa" />
         </div>
 
@@ -145,6 +143,13 @@
                 </div>
             </div>
 
+
+            @* SÄTTER reCaptcha HÄR *@
+            <div class="form-group col-md-offset-2 col-md-10">
+                <div class="g-recaptcha" data-sitekey="6LfPcxIUAAAAACWFEc2mPQcd1LhSKggLkL5uPOXt"></div>
+            </div>
+            @* FÖRSTA NYCKEL HÄR *@
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input id="btnCreate" type="submit" value="Create" class="btn btn-default" />
@@ -159,4 +164,12 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/AppScripts.js")
+
+
+    @* reCaptcha Hämtning!! *@
+    <script type="text/javascript" src='https://www.google.com/recaptcha/api.js'>
+
+    </script>
+
+
 }

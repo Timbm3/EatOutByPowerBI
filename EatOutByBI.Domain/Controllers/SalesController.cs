@@ -1,6 +1,8 @@
 ﻿using EatOutByBI.Data;
 using EatOutByBI.Data.Classes;
 using EatOutByBI.Domain.viewModels;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,12 +20,65 @@ namespace EatOutByBI.Domain.Controllers
         }
 
         // GET: Sales
+
+
         [Authorize]
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    //return View(_salesContext.SalesOrders.ToList());
+        //    var salesOrders = from so in _salesContext.SalesOrders
+        //                      orderby so.DateTime descending
+        //                      select new SalesOrderViewModel()
+        //                      {
+        //                          SalesOrderId = so.SalesOrderId,
+        //                          CustomerName = so.CustomerName,
+        //                          DateTime = so.DateTime,
+        //                          EmployeeName = so.Employee.EmployeeName,
+        //                          SeatPlace = so.Seat.SeatPlace,
+        //                      };
+
+        //    return View(salesOrders);
+        //}
+        public ActionResult Index(string searchString, string employeeId, string date, string seat, string between, string currentFilter, int? page, string sortOrder, int? pagesize)
         {
-            //return View(_salesContext.SalesOrders.ToList());
+            //, int pageSize = 30
+            //int pageSize;
+            #region Paged
+
+            //ViewBag.PageParam = pageSize == 30 ? 60 : 30;
+            //ViewBag.Page2Param = pageSize == 60 ? 30 : 60;
+
+
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParam = sortOrder == "Name" ? "name_desc" : "Name";
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
+
+            ViewBag.EmployeeSortParam = sortOrder == "Employee" ? "employee_desc" : "Employee";
+            ViewBag.SeatSortParam = sortOrder == "Seat" ? "seat_desc" : "Seat";
+
+
+            //String.IsNullOrEmpty(sortOrder)
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+
+            #endregion
+
+            ViewBag.EmployeeId = new SelectList(_salesContext.Employees, "EmployeeID", "EmployeeName");
+            ViewBag.SeatID = new SelectList(_salesContext.Seats, "SeatID", "SeatPlace");
+
             var salesOrders = from so in _salesContext.SalesOrders
-                              orderby so.DateTime descending
+                                  //orderby so.DateTime descending
                               select new SalesOrderViewModel()
                               {
                                   SalesOrderId = so.SalesOrderId,
@@ -31,12 +86,137 @@ namespace EatOutByBI.Domain.Controllers
                                   DateTime = so.DateTime,
                                   EmployeeName = so.Employee.EmployeeName,
                                   SeatPlace = so.Seat.SeatPlace,
+                                  EmployeeID = so.EmployeeID,
+                                  SeatID = so.SeatID
+
                               };
 
-            return View(salesOrders);
+            #region SearchFilterIfs
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                salesOrders = salesOrders.Where(s => s.CustomerName.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(date))
+            {
+                DateTime searchDate;
+                if (DateTime.TryParse(date, out searchDate))
+                {
+
+                    if (String.IsNullOrEmpty(between))
+                    {
+                        var myDatePlus = searchDate.AddDays(1);
+                        salesOrders = salesOrders
+                            .Where(h => h.DateTime >= searchDate && h.DateTime < myDatePlus);
+                    }
+                    if (!String.IsNullOrEmpty(between))
+                    {
+                        DateTime searchDate2;
+                        if (DateTime.TryParse(between, out searchDate2))
+                        {
+                            salesOrders = salesOrders
+                        .Where(h => h.DateTime >= searchDate && h.DateTime < searchDate2);
+
+                        }
+
+                    }
+
+                    //.Where(DbFunctions.TruncateTime(s.) == searchDate);
+                    // do not use .Equals() which can not be converted to SQL
+                }
+
+            }
 
 
+
+            if (!String.IsNullOrEmpty(employeeId))
+            {
+                int ei = Convert.ToInt32(employeeId);
+                salesOrders = salesOrders.Where(s => s.EmployeeID == ei);
+                //return View(salesOrders.ToList());
+            }
+            if (!String.IsNullOrEmpty(seat))
+            {
+                int si = Convert.ToInt32(seat);
+                salesOrders = salesOrders.Where(s => s.SeatID == si);
+                //return View(salesOrders.ToList());
+            }
+
+            #endregion
+
+            else
+
+
+                #region Switch
+                switch (sortOrder)
+                {
+                    case "Name":
+                        salesOrders = salesOrders.OrderBy(s => s.CustomerName);
+                        break;
+                    case "name_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.CustomerName);
+                        break;
+
+                    case "Employee":
+                        salesOrders = salesOrders.OrderBy(s => s.EmployeeName);
+                        break;
+                    case "employee_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.EmployeeName);
+                        break;
+
+                    case "Seat":
+                        salesOrders = salesOrders.OrderBy(s => s.SeatPlace);
+                        break;
+                    case "seat_desc":
+                        salesOrders = salesOrders.OrderByDescending(s => s.SeatPlace);
+                        break;
+
+
+
+
+                    case "Date":
+                        salesOrders = salesOrders.OrderBy(s => s.DateTime);
+                        break;
+                    default:
+                        salesOrders = salesOrders.OrderByDescending(s => s.DateTime);
+                        break;
+                }
+
+            #endregion
+
+            #region pagesize
+            int pageSize = pagesize ?? 30;
+
+
+            ViewBag.PageParam = 30;
+            ViewBag.Page2Param = 60;
+            ViewBag.Page3Param = 90;
+
+            //        List<SelectListItem> items = new List<SelectListItem>{
+            //  new SelectListItem{ Text="5", Value="5" },
+            //  new SelectListItem{ Text="10", Value="10" }
+            //};
+
+
+            //ViewBag.CurrentPageSize = pageSize;
+            //ViewBag.PageSizeList = new SelectList(items, "Value", "Text", pagesize);
+
+
+            #endregion
+
+            //int pageSize = 3;
+
+            int pageNumber = (page ?? 1);
+            return View(salesOrders.ToPagedList(pageNumber, pageSize));
+
+            //return View(salesOrders);
+
+            //.ToList()
         }
+
+
+
 
         // GET: Sales/Details/5
         [Authorize]
