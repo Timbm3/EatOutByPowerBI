@@ -4,13 +4,10 @@
     ViewBag.Title = "Skapa Ny Produktgrupp";
 }
 
-<h2>Skapa Ny Produktgrupp</h2>
-
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal standardMenu">
         <h4>Produktgrupp</h4>
         <hr />
@@ -48,12 +45,13 @@
                 <input type="submit" value="Skapa" class="btn btn-default" />
             </div>
         </div>
+        <div>
+            @Html.ActionLink("Tillbaka", "Index")
+        </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Tillbaka", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

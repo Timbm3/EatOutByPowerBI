@@ -178,7 +178,7 @@ namespace EatOutByBI.Domain.Controllers
         public async System.Threading.Tasks.Task<ActionResult> BookingsCreate([Bind(Include = "BookingId,Name,Telephone,Email,Date,DateAndTime,DateCreated,BookingTimeId,Time,AvailableSeats,NrOfPeople,BookedId")] BookingDTO bookingDto, int id)
         {
 
-
+            
             int finalBookedId = BookingDTO.ConvertDateFiledToBookedId(bookingDto);
 
 
@@ -197,6 +197,8 @@ namespace EatOutByBI.Domain.Controllers
 
             Booked test = db.Bookeds.Find(id);
 
+
+            //Test if date is still Available when creating the booking
             var getTimeForBookingDate = db.BookingTimes.Where(b => b.BookedId == finalBookedId && b.Time == bDTo.Time);
 
             bool doubleCheckAvailableSeats = true;
@@ -290,8 +292,7 @@ namespace EatOutByBI.Domain.Controllers
             }
 
             //ViewBag.BookingTimeId = new SelectList(db.BookingTimes, "BookingTimeId", "BookingTimeId", bTo.BookingTimeId);
-
-            //Thread.Sleep(5000);
+            Thread.Sleep(3000);
             return View(bookingDto);
         }
 
