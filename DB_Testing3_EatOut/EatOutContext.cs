@@ -9,7 +9,7 @@ namespace EatOutByBI.Data
     public class EatOutContext : DbContext
     {
 
-        public EatOutContext() : base("EatOutByBI.Domain5")
+        public EatOutContext() : base("EatOutByBI.Domain6")
         {
             Database.SetInitializer<EatOutContext>(new CreateDatabaseIfNotExists<EatOutContext>());
         }

@@ -5,7 +5,7 @@ var Products = [];
 
 // get ajax call first then 
 
-
+    // Hämtar produkter från databasen och lägger in det i en Dropdown
 function LoadProducts() {
     if (Products.length == 0) {
         //ajax function for fetch data
@@ -24,24 +24,11 @@ function LoadProducts() {
     }
     else {
         alert("else");
-        //$.ajax({
-        //    type: "GET",
-        //    url: '/Sales/GetProducts',
-        //    success: function (data) {
-        //        Products = data;
-        //        //render catagory
-
-        //        renderProducts(element);
-
-        //    }
-        //})
-        ////render catagory to the element
-        //renderProducts(element);
     }
 }
 
 
-
+    //Hämtar Bordsplatser
 
 var Seats = [];
 //fetch categories from database
@@ -60,8 +47,7 @@ function LoadSeats() {
     }
     else {
         alert("Seat problem")
-        //render catagory to the element
-        //renderSeats(element);
+
     }
 }
 
@@ -76,15 +62,13 @@ function LoadEmployees() {
             url: '/Sales/GetEmployees',
             success: function (data) {
                 Employees = data;
-                //render catagory
-                //  renderEmployees(element);
+
             }
         })
     }
     else {
         alert("Load employee problems")
-        //render catagory to the element
-        //renderEmployees(element);
+
     }
 }
 
@@ -93,21 +77,19 @@ var PaymentMethods = [];
 //fetch categories from database
 function LoadPaymentMethods() {
     if (PaymentMethods.length == 0) {
-        //ajax function for fetch data
+
         $.ajax({
             type: "GET",
             url: '/Sales/GetPaymentMethods',
             success: function (data) {
                 PaymentMethods = data;
-                //render catagory
-                //renderPaymentMethods(element);
+
             }
         })
     }
     else {
         alert("paymentmethod problem")
-        //render catagory to the element
-        //renderPaymentMethods(element);
+
     }
 }
 
@@ -175,7 +157,7 @@ SalesOrderItemViewModel = function (data) {
 
 
 
-    //TESTAR TA BORT
+    //Matchar productID valt och tar fram priset
     self.findItem = function () {
         console.log(self.itemss().length);
         var category = ko.utils.arrayFirst(self.itemss(), function (item) {
@@ -209,7 +191,7 @@ SalesOrderViewModel = function (data) {
     self.products = ko.observableArray(Products);
 
 
-    //TESTAR TA BORT
+    //Kod till att visa Totalt $$
     self.contactsTotal = ko.computed(function () {
         var total = 0;
         ko.utils.arrayForEach(self.SalesOrderItems(), function (SalesOrderItemViewModel) {
@@ -218,7 +200,7 @@ SalesOrderViewModel = function (data) {
         return total;
     })
 
-
+    // Savemetoden
     self.save = function () {
         var tmpdata = ko.toJSON(self);
         
@@ -258,9 +240,7 @@ SalesOrderViewModel = function (data) {
 
     }
 
-    //self.priceSalesOrderItems = function(salesOrderItem) {
-    //    sa
-    //}    
+    // Lägger till en ny Salesorderitem rad med standard värden.
     var pId = Products[0].ProductID;
     self.addSalesOrderItem = function () {
         // alert(" add salesorder item"); // funkade
@@ -268,6 +248,8 @@ SalesOrderViewModel = function (data) {
         self.SalesOrderItems.push(salesOrderItem);
     };
 
+
+    // Jquery Validation
     $("form").validate({
         submitHandler: function () {
             alert("submit");
